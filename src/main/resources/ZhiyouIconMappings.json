@@ -1,0 +1,16 @@
+{
+  "icons": {
+    "expui": {
+      "toolwindow": {
+        "note.svg": "icons/note.svg",
+        "favorites.svg": "icons/favorites.svg"
+      },
+      "ordinary": {
+        "invalid.svg": "icons/invalid.svg",
+        "label.svg": "icons/label.svg",
+        "tree.svg": "icons/tree.svg",
+        "GroupByClass.svg": "icons/GroupByClass.svg"
+      }
+    }
+  }
+}

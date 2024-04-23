@@ -1,0 +1,325 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>cn.zhiyou.ZhiYouToolkit</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>ZhiYouToolkit</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="ricardo4265@163.com" url="https://memoryzy.github.io/">Memory</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <p>ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.</p>
+    <a href="https://memoryzy.github.io/zhiyou-use/">Get Started</a>
+    | <a href="https://memoryzy.github.io/">Website</a>
+    | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
+    <br/>
+    <h2>Features:</h2>
+    <ul>
+        <li>Code notes function, record code, notes, etc.</li>
+        <li>Json to Java classes (nested properties supported).</li>
+        <li>Convert java class attributes to json (support for nested attributes, FastJson annotations, Jackson annotations).</li>
+        <li>The text in hump and underline format is converted to each other.</li>
+        <li>Chinese can be converted to pinyin.</li>
+        <li>Single-line text comments can be converted to Java document comments.</li>
+        <li>Dynamically generate a ResultMap tag in MyBatis.</li>
+        <li>Dynamically generate Where tags in MyBatis (supports MyBatis Plus annotations, Jpa annotations).</li>
+        <li>Mapping of attributes to attributes (e.g. a.setX(b.setx)).</li>
+        <li>Generate a JDK serialization id.</li>
+        <li>Copy the Spring interface mapping path.</li>
+        <li>Json window (Format Json, compress Json, tree Json).</li>
+        <li>The timestamp is converted to the time.</li>
+        <li>Generate MyBatis related files (e.g., mapper).</li>
+        <li>Specify annotations and comments for class attribute generation.</li>
+        <li>Jasypt Encryption and decryption.</li>
+        <li>Convert JSON/XML text to each other.</li>
+        <li>Text comparison.</li>
+        <li>......</li>
+    </ul>
+    <hr/>
+    <br/>
+    <p>知游工具，一款提供了诸多功能，可以提高代码开发的效率和质量的工具插件。</p>
+    <ul>
+        <li>代码笔记功能，记录代码、笔记等...</li>
+        <li>JSON文本转换为JavaBean (支持嵌套属性)</li>
+        <li>JavaBean属性转JSON (支持嵌套属性、支持FastJson、Jackson注解)</li>
+        <li>驼峰、下划线格式文本互相转换</li>
+        <li>将选中的中文文本转为拼音</li>
+        <li>将单行注释转换为文档注释</li>
+        <li>动态生成MyBatis-ResultMap标签</li>
+        <li>动态生成MyBatis-Where标签 (支持MyBatis Plus、Jpa注解)</li>
+        <li>属性与属性的映射、Getter、Setter方法生成，例如：a.setX(b.getX)</li>
+        <li>一键生成JDK序列化Id</li>
+        <li>一键复制Spring接口映射路径</li>
+        <li>JSON窗口（格式化Json、压缩Json、树化Json）</li>
+        <li>时间戳与时间互相转换</li>
+        <li>生成MyBatis-Mapper、MapperXml等文件</li>
+        <li>为类属性生成指定注解及注释</li>
+        <li>Jasypt加解密</li>
+        <li>JSON/XML互相转换</li>
+        <li>文本互相比对</li>
+        <li>......</li>
+    </ul>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <!-- 引入Java扩展 -->
+    <depends>com.intellij.java</depends>
+    <depends>com.intellij.database</depends>
+    <depends>org.intellij.plugins.markdown</depends>
+    <depends>com.jetbrains.sh</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+    <depends>com.intellij.properties</depends>
+    <depends>org.intellij.groovy</depends>
+    <depends>JavaScript</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- displayType只有这四种类型, id 在一个插件内不能重复,isLogByDefault表示是否在 Event Log 中记录 -->
+        <notificationGroup displayType="BALLOON" id="ZhiYou.balloon" isLogByDefault="false"/>
+        <notificationGroup displayType="BALLOON" id="ZhiYou.balloon.log" isLogByDefault="true"/>
+        <!-- 粘性通知（不会自动消失）-->
+        <notificationGroup displayType="STICKY_BALLOON" id="ZhiYou.sticky.balloon"/>
+        <notificationGroup displayType="TOOL_WINDOW" id="ZhiYou.tool.window"/>
+        <notificationGroup displayType="NONE" id="ZhiYou.none"/>
+
+        <!-- 声明模板文件 -->
+        <internalFileTemplate name="ResultMap"/>
+        <internalFileTemplate name="Where"/>
+        <internalFileTemplate name="MapperMp"/>
+        <internalFileTemplate name="MapperDefault"/>
+        <internalFileTemplate name="MapperInterfaceMp"/>
+
+        <!-- 工具窗 -->
+        <toolWindow id="Json Panel"
+                    secondary="true"
+                    icon="AllIcons.Toolwindows.ToolWindowJsonPath"
+                    anchor="right"
+                    factoryClass="cn.zhiyou.toolwindow.JsonFormatToolWindow"/>
+
+        <!-- icon="AllIcons.Toolwindows.ToolWindowMessages" -->
+        <toolWindow id="Code Note"
+                    secondary="true"
+                    icon="/icons/favorites.svg"
+                    anchor="right"
+                    factoryClass="cn.zhiyou.toolwindow.CodeNoteToolWindow"/>
+
+        <!-- 扫描xml文件用 -->
+        <!--        <dom.fileMetaData implementation="cn.zhiyou.doc.MyBatisXmlDomFileDescription"/>-->
+
+        <!-- 注册持久化实现类，这个是应用级别的，想要项目级别的可以用project -->
+        <applicationService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>
+        <!--        <projectService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>-->
+        <applicationService serviceImplementation="cn.zhiyou.config.CodeNoteSetting"/>
+        <!--        <projectService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>-->
+
+        <projectService serviceImplementation="cn.zhiyou.config.JasyptSetting"/>
+        <projectService serviceImplementation="cn.zhiyou.config.DoNotAskAgainSetting"/>
+
+        <!-- 配置界面扩展点 -->
+        <applicationConfigurable
+                parentId="other settings"
+                instance="cn.zhiyou.config.DataBaseSettingConfiguration"
+                id="cn.zhiyou.config.ZhiYouDataBaseSettingConfigurationId"
+                displayName="ZhiYouToolkit"/>
+
+        <!-- 新方式-项目启动事件 -->
+        <postStartupActivity implementation="cn.zhiyou.listener.ProjectOpenInitActivity"/>
+
+        <iconMapper mappingFile="ZhiyouIconMappings.json"/>
+    </extensions>
+    <!-- 旧方式-项目启动事件 -->
+    <!--    <applicationListeners>-->
+    <!--        &lt;!&ndash; 处理IDEA打开事件 &ndash;&gt;-->
+    <!--        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity"-->
+    <!--                  topic="com.intellij.openapi.startup.ProjectActivity"/>-->
+    <!--    </applicationListeners>-->
+
+    <!-- 消息 -->
+    <resource-bundle>messages.ZhiYouBundle</resource-bundle>
+
+    <actions>
+        <!-- 生成相关 -->
+        <group id="cn.zhiyou.CreateGroup" description="生成相关组">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <separator/>
+
+            <action id="cn.zhiyou.CreateSerialVersionUIDAction"
+                    class="cn.zhiyou.action.CreateSerialVersionAction"
+                    text="SerialVersionUID (序列化)"
+                    description="创建序列化Id，并实现序列化类">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 5"/>
+            </action>
+
+            <separator/>
+        </group>
+
+
+        <action id="cn.zhiyou.SaveCodeNoteActionId"
+                class="cn.zhiyou.action.SaveCodeNoteAction"
+                icon="/icons/inkBrush.svg"
+                text="Save Notes (笔记)">
+            <add-to-group group-id="EditorPopupMenu" relative-to-action="cn.zhiyou.ClassFunctionGroup"
+                          anchor="before"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 2"/>
+        </action>
+
+        <group id="cn.zhiyou.ClassFunctionGroup" description="对类普通功能组">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <separator/>
+
+            <action id="cn.zhiyou.ConvertJsonAction"
+                    class="cn.zhiyou.action.JavaBeanConvertToJsonAction"
+                    text="Convert to JSON"
+                    icon="/icons/json.svg"
+                    description="JavaBean转Json">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 0"/>
+            </action>
+            <separator/>
+            <action id="cn.zhiyou.ConvertStringAction"
+                    class="cn.zhiyou.action.ConvertStringAction"
+                    text="Convert String"
+                    description="字符串操作">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 6"/>
+            </action>
+            <separator/>
+            <action id="cn.zhiyou.CommentLineToDocumentAction"
+                    class="cn.zhiyou.action.CommentLineToDocumentAction"
+                    text="Line To Doc (// --&gt; /**)" description="单行注释转文档注释">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
+            </action>
+            <separator/>
+            <action id="cn.zhiyou.toolbox.CopyFullUrlAction"
+                    class="cn.zhiyou.action.CopyRequestFullUrlAction"
+                    text="Copy Rest Url (完整路径)"
+                    description="复制接口完整路径">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 4"/>
+            </action>
+            <separator/>
+
+            <!--                        <action id="xx" class="cn.zhiyou.action.xx" text="xxx"/>-->
+            <!--                        <action id="SqlXXXXX" class="cn.zhiyou.action.ConvertExecutableSqlAction" text="Sql"/>-->
+            <separator/>
+            <action id="cn.zhiyou.CreateAnnotationOnFieldActionId"
+                    class="cn.zhiyou.action.CreateAnnotationOnFieldAction"
+                    text="Create Annotation">
+                <keyboard-shortcut first-keystroke="ctrl alt 8" keymap="$default"/>
+            </action>
+            <separator/>
+            <action id="cn.zhiyou.CreateSetterMappingAction"
+                    class="cn.zhiyou.action.CreateSetterGetterMappingAction"
+                    icon="/icons/CD.svg"
+                    text="Mapping (Get/Set)"
+                    description="类属性操作">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 9"/>
+            </action>
+            <separator/>
+            <action id="cn.zhiyou.OtherOperationsActionId"
+                    class="cn.zhiyou.action.OtherOperationsAction"
+                    icon="/icons/fuse.svg"
+                    text="Other Operations...">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 7"/>
+            </action>
+            <separator/>
+<!--            <action id="zhiyou.TestActionId" class="cn.zhiyou.action.TestAction"  text="测试"/>-->
+            <separator/>
+
+        </group>
+
+
+        <!-- 文件创建组 (New下) -->
+        <group id="ConvertFileGroup">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+            <separator/>
+
+            <action id="cn.zhiyou.JsonConvertToJavaBeanAction"
+                    class="cn.zhiyou.action.JsonConvertToJavaBeanAction"
+                    text="Class By JSON"
+                    icon="/icons/GroupByClass.svg"
+                    description="Json转换为JavaBean">
+            </action>
+        </group>
+
+        <!-- 文件创建组2 (New下) -->
+        <group id="ConvertFileGroup2">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <separator/>
+            <action id="cn.zhiyou.CreateMyBatisMapperActionId"
+                    class="cn.zhiyou.action.CreateMyBatisMapperAction"
+                    icon="/icons/menu.svg"
+                    text="MyBatis Mapper (逆向)"/>
+            <separator/>
+        </group>
+
+
+        <!-- 特殊Action：负责放在通知里面做跳转 -->
+<!--        <action id="cn.zhiyou.notify.OpenDataBaseSettingNotificationAction"-->
+<!--                class="cn.zhiyou.notify.OpenDataBaseSettingNotificationAction"/>-->
+<!--        <action id="cn.zhiyou.notify.OpenJasyptConfigNotificationAction"-->
+<!--                class="cn.zhiyou.notify.OpenJasyptConfigNotificationAction"/>-->
+<!--        <action id="cn.zhiyou.notify.OpenHelpActionId" class="cn.zhiyou.notify.OpenHelpNotificationAction"/>-->
+<!--        <action id="cn.zhiyou.notify.DoNotAskAgainNotificationActionId"-->
+<!--                class="cn.zhiyou.notify.DoNotAskAgainNotificationAction"/>-->
+
+        <!-- 用于编辑器的Action -->
+        <action id="cn.zhiyou.JsonFormatActionId"
+                class="cn.zhiyou.action.JsonFormatAction"
+                text="JSON格式化"
+                icon="AllIcons.Json.Object"
+                description="用于给JsonFormat的工具窗右键弹出的菜单">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt k"/>
+            <!-- BasicEditorPopupMenu是基础编辑器右键弹出菜单 -->
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
+        </action>
+
+        <action id="cn.zhiyou.JsonCollectActionId"
+                class="cn.zhiyou.action.JsonCollectAction"
+                icon="/icons/tree.svg"
+                text="JSON结构化">
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="after" relative-to-action="cn.zhiyou.JsonCompressActionId"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
+        </action>
+
+        <action id="cn.zhiyou.JsonCompressActionId"
+                class="cn.zhiyou.action.JsonCompressAction"
+                text="JSON压缩">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt m"/>
+            <!-- BasicEditorPopupMenu是基础编辑器右键弹出菜单 -->
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="after"
+                          relative-to-action="cn.zhiyou.JsonFormatActionId"/>
+        </action>
+
+        <group id="DataBaseOperationsID">
+            <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
+            <separator/>
+            <action id="CreateMyBatisMapperAction2Id"
+                    class="cn.zhiyou.action.CreateMyBatisMapperOnDataBaseAction"
+                    icon="/icons/menu.svg"
+                    text="MyBatis Mapper (逆向)">
+            </action>
+            <separator/>
+        </group>
+
+
+        <action id="zhiyou.HelpActionId"
+                class="cn.zhiyou.action.HelpAction"
+                icon="/icons/zhiyou.svg"
+                text="About ZhiYou">
+            <add-to-group group-id="HelpMenu" anchor="after" relative-to-action="About"/>
+        </action>
+    </actions>
+
+
+    <!-- 这个是目录那边右键弹出的 属于 new的上层 -->
+    <!--<add-to-group group-id="ProjectViewPopupMenu" relative-to-action="CutCopyPasteGroup" anchor="after"/>-->
+
+</idea-plugin>
