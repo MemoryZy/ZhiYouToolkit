@@ -1,6 +1,0 @@
-<resultMap id="${NAME}ResultMap" type="${QUALIFIED_NAME}">
-## 遍历列
-#foreach($item in $COLUMNS)
-    <result column="$item.COLUMN_NAME" jdbcType="$item.JDBC_TYPE" property="$item.PROPERTY_NAME"/>
-#end
-</resultMap>
