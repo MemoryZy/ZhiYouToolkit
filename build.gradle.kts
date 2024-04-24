@@ -26,6 +26,7 @@ intellij {
 //    version.set("2022.2.5")
     version.set("2023.2.4")
     type.set("IU") // Target IDE Platform  IU旗舰版要付费，也就是说打开Run Plugin时要输入license
+    pluginName.set("ZhiYouToolkit")
 
     // 添加Java模块，同时要在plugin.xml中定义引入Java扩展 -> <depends>com.intellij.java</depends>
     plugins.set(listOf(
@@ -53,10 +54,9 @@ tasks {
 //    }
 
     patchPluginXml {
-        // 支持2022.2版本到2023.2版本
-        sinceBuild.set("222")
-        untilBuild.set("233.*")
-
+        // 支持2022.3版本到2024.1版本 (2022.3需要JDK17)
+        sinceBuild.set("223")
+        untilBuild.set("")
     }
 
     signPlugin {

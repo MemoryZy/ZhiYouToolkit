@@ -107,9 +107,6 @@ public class AboutZhiYouWindow extends DialogWrapper {
             String message = ZhiYouBundle.message("how.to.use");
             URL url = URLUtil.url(message);
             BrowserUtil.browse(url);
-
-            applyFields();
-            close(OK_EXIT_CODE);
         }
     }
 

@@ -8,15 +8,15 @@
     <name>ZhiYouToolkit</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="ricardo4265@163.com" url="https://memoryzy.github.io/">Memory</vendor>
+    <vendor email="ricardo4265@163.com" url="https://memoryzy.pages.dev/">Memory</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
     <p>ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.</p>
-    <a href="https://memoryzy.github.io/zhiyou-use/">Get Started</a>
-    | <a href="https://memoryzy.github.io/">Website</a>
+    <a href="https://memoryzy.pages.dev/zhiyou-use/">Get Started</a>
+    | <a href="https://memoryzy.pages.dev/">Website</a>
     | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
     <br/>
     <h2>Features:</h2>
