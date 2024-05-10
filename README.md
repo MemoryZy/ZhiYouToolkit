@@ -4,7 +4,7 @@
 &nbsp;
 ![Release](https://img.shields.io/badge/Release-v1.2.1-d05ce3.svg?style=for-the-badge)
 &nbsp;
-![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)
+[![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
 
 一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
