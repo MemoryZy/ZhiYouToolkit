@@ -10,6 +10,7 @@ import com.intellij.notification.NotificationType;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.DumbAwareAction;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManagerListener;
 import com.intellij.openapi.startup.ProjectActivity;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -22,12 +23,11 @@ import org.jetbrains.annotations.Nullable;
  * @author wcp
  * @since 2024/1/2
  */
-public class ProjectOpenInitActivity implements ProjectActivity {
+public class ProjectOpenInitActivity implements ProjectManagerListener {
     private static final Logger LOG = Logger.getInstance(ProjectOpenInitActivity.class);
 
-    @Nullable
     @Override
-    public Object execute(@NotNull Project project, @NotNull Continuation<? super Unit> continuation) {
+    public void projectOpened(@NotNull Project project) {
         DoNotAskAgainSetting askAgainSetting = DoNotAskAgainSetting.getInstance(project);
         if (!askAgainSetting.doNotAskAgain) {
             NotificationUtil.notifyWithLink(
@@ -37,7 +37,5 @@ public class ProjectOpenInitActivity implements ProjectActivity {
                     NotificationType.INFORMATION,
                     project);
         }
-
-        return null;
     }
 }

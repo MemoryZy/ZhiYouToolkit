@@ -11,12 +11,16 @@ import cn.zhiyou.enums.JsonTreeNodeValueTypeEnum;
 import cn.zhiyou.ui.basic.JsonCollectInfoMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.IconLoader;
-import com.intellij.ui.*;
+import com.intellij.ui.ColoredTreeCellRenderer;
+import com.intellij.ui.JBColor;
+import com.intellij.ui.SimpleTextAttributes;
+import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.treeStructure.Tree;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -66,7 +70,7 @@ public class JsonCollectTreeWindow extends DialogWrapper {
         initCellRenderer();
         initPopupMenu();
         // 触发快速检索
-        TreeSpeedSearch.installOn(tree);
+        CompatibilityUtil.speedSearchInstallOn(tree);
 
         ToolbarDecorator decorator = ToolbarDecorator.createDecorator(tree)
                 .addExtraAction(new ExpandAction())

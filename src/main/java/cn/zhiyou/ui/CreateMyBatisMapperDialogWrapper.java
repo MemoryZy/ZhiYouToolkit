@@ -37,7 +37,6 @@ import com.intellij.psi.*;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.ui.ColoredListCellRenderer;
-import com.intellij.ui.ListSpeedSearch;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.ui.components.*;
@@ -1266,7 +1265,7 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
         listScrollPane.setViewportBorder(JBUI.Borders.empty());
 
         // 触发快速查找
-        ListSpeedSearch.installOn(tableJbList);
+        CompatibilityUtil.speedSearchInstallOn(tableJbList);
     }
 
 

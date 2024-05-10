@@ -10,7 +10,6 @@ import cn.zhiyou.utils.CommonUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.components.fields.ExtendableTextField;
-import org.apache.commons.lang.time.DateUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -108,7 +107,7 @@ public class ConvertTimestampWindow extends DialogWrapper {
 
             Date date;
             try {
-                date = DateUtils.parseDate(time, CommonUtil.DATE_PATTERN);
+                date = DateUtil.parse(time, CommonUtil.DATE_PATTERN);
             } catch (Exception e) {
                 timeErrorPopupDecorator.setError("时间格式错误");
                 return;

@@ -30,21 +30,9 @@ public class OpenHelpNotificationAction extends NotificationAction {
             return;
         }
 
-        // openHelpHtmlEditor(project);
-
         String message = ZhiYouBundle.message("how.to.use");
         URL url = URLUtil.url(message);
         BrowserUtil.browse(url);
     }
-
-
-    public static void openHelpHtmlEditor(Project project) {
-        String helpHtmlText = PluginHelpConstant.helpHtmlText;
-        String theme = UIUtil.isUnderDarcula() ? "theme-dark" : "";
-        helpHtmlText = helpHtmlText.replace("__THEME__", theme);
-
-        ActionUtil.openHtmlEditor(project, "How to use ZhiYou", helpHtmlText);
-    }
-
 
 }

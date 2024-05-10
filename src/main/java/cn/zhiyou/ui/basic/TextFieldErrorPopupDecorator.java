@@ -203,7 +203,7 @@ public class TextFieldErrorPopupDecorator {
 
         @Override
         public Insets getBorderInsets(Component c) {
-            return checkError(c) ? errorDelegateBorder.getBorderInsets(c) : JBInsets.emptyInsets();
+            return checkError(c) ? errorDelegateBorder.getBorderInsets(c) : JBInsets.create(1,1);/*JBInsets.emptyInsets()*/
         }
 
         @Override

@@ -4,10 +4,7 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.entity.template.ColumnEntity;
 import cn.zhiyou.enums.MyBatisAnnotationEnum;
-import cn.zhiyou.utils.ActionUtil;
-import cn.zhiyou.utils.CommonUtil;
-import cn.zhiyou.utils.NotificationUtil;
-import cn.zhiyou.utils.PopupUtil;
+import cn.zhiyou.utils.*;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.editor.Document;
@@ -15,12 +12,9 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.MessageType;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiField;
-import com.intellij.ui.GotItTooltip;
-import com.intellij.ui.TableSpeedSearch;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.ui.table.JBTable;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -273,7 +267,7 @@ public class CreateConditionDialogWrapper extends DialogWrapper {
      */
     private void initTable(PsiField[] fields) {
         // 触发快速查找
-        TableSpeedSearch.installOn(showTable);
+        CompatibilityUtil.speedSearchInstallOn(showTable);
 
         // 二维数组，第一层是行数量、第二层是数据列数量
         Object[][] data = new Object[fields.length][3];

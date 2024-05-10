@@ -7,12 +7,12 @@ import cn.zhiyou.enums.JavaDocumentEnum;
 import cn.zhiyou.enums.MyBatisAnnotationEnum;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.*;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.psi.javadoc.PsiDocComment;
-import com.intellij.ui.TableSpeedSearch;
 import com.intellij.ui.table.JBTable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -86,7 +86,7 @@ public class CreateMpAnnotationDialogWrapper extends DialogWrapper {
 
     private void initTable(List<FieldMappedEntity> fieldMappedEntityList) {
         // 触发快速查找
-        TableSpeedSearch.installOn(showTable);
+        CompatibilityUtil.speedSearchInstallOn(showTable);
 
         // 二维数组，第一层是行数量、第二层是数据列数量
         Object[][] data = new Object[fieldMappedEntityList.size()][4];

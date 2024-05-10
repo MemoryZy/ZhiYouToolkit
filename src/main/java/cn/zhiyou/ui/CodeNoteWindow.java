@@ -12,10 +12,7 @@ import cn.zhiyou.constant.Icons;
 import cn.zhiyou.entity.CodeNoteEntity;
 import cn.zhiyou.entity.CodeNoteLabelEntity;
 import cn.zhiyou.ui.basic.note.CodeNotePanel;
-import cn.zhiyou.utils.ActionUtil;
-import cn.zhiyou.utils.CommonUtil;
-import cn.zhiyou.utils.NotificationUtil;
-import cn.zhiyou.utils.PopupUtil;
+import cn.zhiyou.utils.*;
 import com.intellij.icons.AllIcons;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
@@ -26,7 +23,6 @@ import com.intellij.openapi.fileChooser.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageConstants;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.ui.popup.JBPopupListener;
 import com.intellij.openapi.ui.popup.LightweightWindowEvent;
@@ -34,7 +30,6 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileWrapper;
 import com.intellij.openapi.wm.ex.ToolWindowEx;
 import com.intellij.ui.CheckBoxList;
-import com.intellij.ui.TableSpeedSearch;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.ui.components.JBCheckBox;
@@ -46,7 +41,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -151,7 +145,7 @@ public class CodeNoteWindow {
         columnModel.getColumn(2).setPreferredWidth(130);
 
         // 触发快速查找
-        TableSpeedSearch.installOn(showTable);
+        CompatibilityUtil.speedSearchInstallOn(showTable);
 
         // 增加工具栏（新增按钮、删除按钮、上移按钮、下移按钮）
         ToolbarDecorator decorator = ToolbarDecorator.createDecorator(showTable)

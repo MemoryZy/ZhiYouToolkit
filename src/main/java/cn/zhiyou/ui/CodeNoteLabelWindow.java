@@ -7,10 +7,10 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zhiyou.config.CodeNoteSetting;
-import cn.zhiyou.config.converter.CodeNoteLabelListConverter;
 import cn.zhiyou.entity.CodeNoteEntity;
 import cn.zhiyou.entity.CodeNoteLabelEntity;
 import cn.zhiyou.utils.CommonUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import cn.zhiyou.utils.NotificationUtil;
 import com.intellij.icons.AllIcons;
 import com.intellij.notification.NotificationType;
@@ -18,16 +18,12 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileChooser.*;
-import com.intellij.openapi.graph.option.ColorListCellRenderer;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.MessageConstants;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.util.NlsActions;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileWrapper;
-import com.intellij.ui.ListSpeedSearch;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.components.JBList;
 import org.jetbrains.annotations.NotNull;
@@ -40,8 +36,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 /**
  * @author wcp
@@ -86,7 +82,7 @@ public class CodeNoteLabelWindow extends DialogWrapper {
         showList = new JBList<>(listModel);
 
         // 触发快速查找
-        ListSpeedSearch.installOn(showList);
+        CompatibilityUtil.speedSearchInstallOn(showList);
         showList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         showList.addMouseListener(new MouseAdapter() {

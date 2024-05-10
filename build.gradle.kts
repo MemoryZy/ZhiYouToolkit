@@ -28,6 +28,8 @@ intellij {
     type.set("IU") // Target IDE Platform  IU旗舰版要付费，也就是说打开Run Plugin时要输入license
     pluginName.set("ZhiYouToolkit")
 
+    downloadSources.set(true)
+
     // 添加Java模块，同时要在plugin.xml中定义引入Java扩展 -> <depends>com.intellij.java</depends>
     plugins.set(listOf(
         "com.intellij.java",

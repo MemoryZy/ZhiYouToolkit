@@ -6,6 +6,7 @@ import cn.zhiyou.constant.Icons;
 import cn.zhiyou.enums.JavaDocumentEnum;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -15,7 +16,6 @@ import com.intellij.psi.*;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.javadoc.PsiDocToken;
-import com.intellij.ui.TableSpeedSearch;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.table.JBTable;
 import org.jetbrains.annotations.NotNull;
@@ -128,7 +128,7 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
         showTable = new JBTable(model);
 
         // 触发快速查找
-        TableSpeedSearch.installOn(showTable);
+        CompatibilityUtil.speedSearchInstallOn(showTable);
 
         // 设置第0列的编辑器和渲染器为布尔类型的编辑器和渲染器
         TableColumnModel columnModel = showTable.getColumnModel();

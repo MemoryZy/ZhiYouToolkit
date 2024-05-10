@@ -1,10 +1,10 @@
 package cn.zhiyou.ui;
 
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.database.model.DasDataSource;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.IdeBorderFactory;
-import com.intellij.ui.ListSpeedSearch;
 import com.intellij.ui.SideBorder;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBScrollPane;
@@ -43,7 +43,7 @@ public class DasDataBaseChangeDialog extends DialogWrapper {
 
         showList = new JBList<>(defaultListModel);
         // 触发快速查找
-        ListSpeedSearch.installOn(showList);
+        CompatibilityUtil.speedSearchInstallOn(showList);
 
         showList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         showList.setSelectedIndex(0);

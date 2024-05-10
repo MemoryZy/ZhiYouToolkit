@@ -15,7 +15,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
     <p>ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.</p>
-    <a href="https://memoryzy.pages.dev/zhiyou-use/">Get Started</a>
+    <a href="https://memoryzy.pages.dev/zhiyou/">Get Started</a>
     | <a href="https://memoryzy.pages.dev/">Website</a>
     | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
     <br/>
@@ -133,16 +133,16 @@
                 displayName="ZhiYouToolkit"/>
 
         <!-- 新方式-项目启动事件 -->
-        <postStartupActivity implementation="cn.zhiyou.listener.ProjectOpenInitActivity"/>
+<!--        <postStartupActivity implementation="cn.zhiyou.listener.ProjectOpenInitActivity"/>-->
 
         <iconMapper mappingFile="ZhiyouIconMappings.json"/>
     </extensions>
     <!-- 旧方式-项目启动事件 -->
-    <!--    <applicationListeners>-->
-    <!--        &lt;!&ndash; 处理IDEA打开事件 &ndash;&gt;-->
-    <!--        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity"-->
-    <!--                  topic="com.intellij.openapi.startup.ProjectActivity"/>-->
-    <!--    </applicationListeners>-->
+    <applicationListeners>
+        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>
+<!--        &lt;!&ndash; 处理IDEA打开事件 &ndash;&gt;-->
+<!--        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+    </applicationListeners>
 
     <!-- 消息 -->
     <resource-bundle>messages.ZhiYouBundle</resource-bundle>

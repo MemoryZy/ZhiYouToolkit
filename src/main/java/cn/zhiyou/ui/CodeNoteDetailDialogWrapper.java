@@ -3,27 +3,17 @@ package cn.zhiyou.ui;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.IdUtil;
-import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.config.CodeNoteSetting;
 import cn.zhiyou.entity.CodeNoteEntity;
 import cn.zhiyou.entity.CodeNoteLabelEntity;
 import cn.zhiyou.enums.LanguageEnum;
-import cn.zhiyou.ui.basic.MultiRowLanguageTextField;
 import cn.zhiyou.ui.basic.TextFieldErrorPopupDecorator;
 import cn.zhiyou.ui.basic.note.CodeDetailMultiRowLanguageTextField;
-import cn.zhiyou.utils.CodeCreateUtil;
-import cn.zhiyou.utils.MyDocumentProvider;
-import cn.zhiyou.utils.NotificationUtil;
-import cn.zhiyou.utils.PopupUtil;
-import com.intellij.codeInsight.completion.CompletionResultSet;
-import com.intellij.ide.plugins.PluginManager;
+import cn.zhiyou.utils.*;
 import com.intellij.ide.plugins.PluginManagerCore;
-import com.intellij.json.json5.Json5Language;
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageUtil;
-import com.intellij.lang.java.JavaLanguage;
-import com.intellij.lang.xml.XMLLanguage;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.event.DocumentEvent;
@@ -37,16 +27,13 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.popup.JBPopup;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
-import com.intellij.sql.psi.SqlLanguage;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.EditorTextField;
-import com.intellij.ui.ListSpeedSearch;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.ui.components.ActionLink;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBScrollPane;
-import com.intellij.util.TextFieldCompletionProvider;
 import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -331,7 +318,7 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
 
             JBList<LanguageEnum> list = new JBList<>(model);
             // 触发快速查找
-            ListSpeedSearch.installOn(list);
+            CompatibilityUtil.speedSearchInstallOn(list);
             list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
             list.setCellRenderer(new ColoredListCellRenderer<>() {

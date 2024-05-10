@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.enums.PropertyTreeNodeValueTypeEnum;
 import cn.zhiyou.ui.basic.PropertyMatchMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
@@ -12,7 +13,6 @@ import com.intellij.openapi.util.IconLoader;
 import com.intellij.ui.ColoredTreeCellRenderer;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.SimpleTextAttributes;
-import com.intellij.ui.TreeSpeedSearch;
 import com.intellij.ui.treeStructure.Tree;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -81,7 +80,7 @@ public class PropertyMatchWindow extends DialogWrapper {
         initCellRenderer();
         initPopupMenu();
 
-        TreeSpeedSearch.installOn(tree);
+        CompatibilityUtil.speedSearchInstallOn(tree);
 
         TreePath rootTreePath = new TreePath(rootNode);
         TreePath successTreePath = new TreePath(successNode);

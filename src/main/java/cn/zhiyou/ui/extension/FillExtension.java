@@ -29,6 +29,7 @@ public class FillExtension implements ExtendableTextComponent.Extension {
         return IconLoader.getIcon("/icons/fill.svg", FillExtension.class.getClassLoader());
     }
 
+
     @Override
     public Runnable getActionOnClick() {
         return () -> {
