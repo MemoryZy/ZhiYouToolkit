@@ -15,4 +15,4 @@
 <br/>
 
 ## **快速开始**
-[![Get Started](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)](https://memoryzy.pages.dev/zhiyou/)
+[![Get Started](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=beatstars&logoColor=white)](https://memoryzy.pages.dev/zhiyou/)
