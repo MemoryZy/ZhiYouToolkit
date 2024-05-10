@@ -1,4 +1,4 @@
-# [![ZhiYouToolkit](https://memoryzy.pages.dev/pluginIcon_@30x30.svg)](https://github.com/MemoryZy/ZhiYouToolkit) **ZhiYouToolkit**
+# [![ZhiYouToolkit](https://memoryzy.pages.dev/pluginIcon.svg)](https://github.com/MemoryZy/ZhiYouToolkit) **ZhiYouToolkit**
 
 [![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=for-the-badge)](https://memoryzy.pages.dev/)
 &nbsp;
