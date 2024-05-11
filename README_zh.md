@@ -21,7 +21,7 @@
 <br/>
 
 ## **提示**
-> 支持IDEA Ultimate 2022.3及以上版本。
+> 支持IDEA Ultimate 2022.2及以上版本。
 
 <br/>
 
