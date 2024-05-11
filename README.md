@@ -21,7 +21,7 @@ Navigation：**[Introduction and usage documentation](https://memoryzy.pages.dev
 <br/>
 
 ## **Tip**
-> Supports 2022.3 and later versions.
+> IDEA Ultimate 2022.2 or later is supported.
 
 <br/>
 
