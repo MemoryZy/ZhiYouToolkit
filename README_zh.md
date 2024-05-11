@@ -10,7 +10,7 @@
 
 <br/>
 
-## 语言
+## README.md
 其他语言版本：**[English](README.md)**
 
 <br/>
@@ -21,7 +21,7 @@
 <br/>
 
 ## **提示**
-> 当前最低支持IDEA Ultimate 2022.3.3，往下的版本不支持。
+> 支持IDEA Ultimate 2022.3及以上版本。
 
 <br/>
 
