@@ -1,8 +1,8 @@
 # [![ZhiYouToolkit](https://cdn.jsdelivr.net/gh/MemoryZy/ZhiYouToolkit/src/main/resources/META-INF/pluginIcon@30x30.svg)](https://github.com/MemoryZy/ZhiYouToolkit) **ZhiYouToolkit**
 
-[![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=for-the-badge)](https://memoryzy.pages.dev/)
+[![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=for-the-badge)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
-![Release](https://img.shields.io/badge/Release-v1.2.1-d05ce3.svg?style=for-the-badge)
+[![Release](https://img.shields.io/badge/Release-v1.2.1-d05ce3.svg?style=for-the-badge)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit/versions)
 &nbsp;
 [![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
 
