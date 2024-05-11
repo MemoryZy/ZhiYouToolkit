@@ -6,17 +6,22 @@
 &nbsp;
 [![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
 
-一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
+ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.
 
 <br/>
 
-## **快速开始**
-传送门：[插件介绍与使用文档](https://memoryzy.pages.dev/zhiyou/)
+## README.md
+Read this in other languages：**[简体中文](README_zh.md)**
 
 <br/>
 
-## **提示**
-> 当前最低支持IDEA Ultimate 2022.3.3，往下的版本不支持。
+## **Get Started**
+Navigation：**[Introduction and usage documentation](https://memoryzy.pages.dev/zhiyou/)**
+
+<br/>
+
+## **Tip**
+> Supports 2022.3 and later versions.
 
 <br/>
 
