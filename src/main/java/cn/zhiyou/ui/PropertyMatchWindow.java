@@ -140,24 +140,18 @@ public class PropertyMatchWindow extends DialogWrapper {
                     sizeStrPost = ")";
                 }
 
-                switch (nodeValueTypeEnum) {
-                    case root -> {
-                        iconStr = "json_object.svg";
-                        rootStr = " [" + mainClassName + "]类 -> " + "[" + matchClassName + "]类";
-                    }
-                    case success -> {
-                        iconStr = "okNew.svg";
-                    }
-                    case failed -> {
-                        iconStr = "waring.svg";
-                        successSize = false;
-                    }
-                    case successProperty -> {
-                        iconStr = "property_success.svg";
-                    }
-                    case failedProperty -> {
-                        iconStr = "property_failed.svg";
-                    }
+                if (nodeValueTypeEnum == PropertyTreeNodeValueTypeEnum.root) {
+                    iconStr = "json_object.svg";
+                    rootStr = " [" + mainClassName + "]类 -> " + "[" + matchClassName + "]类";
+                } else if (nodeValueTypeEnum == PropertyTreeNodeValueTypeEnum.success) {
+                    iconStr = "okNew.svg";
+                } else if (nodeValueTypeEnum == PropertyTreeNodeValueTypeEnum.failed) {
+                    iconStr = "waring.svg";
+                    successSize = false;
+                } else if (nodeValueTypeEnum == PropertyTreeNodeValueTypeEnum.successProperty) {
+                    iconStr = "property_success.svg";
+                } else if (nodeValueTypeEnum == PropertyTreeNodeValueTypeEnum.failedProperty) {
+                    iconStr = "property_failed.svg";
                 }
 
                 // 设定图标

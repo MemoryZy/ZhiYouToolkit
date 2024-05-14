@@ -133,11 +133,7 @@ public class CreateMappingAction extends AnAction {
         } else {
             String tip;
             if (unMatchPropertyList.size() <= 3) {
-                String format = """
-                            未匹配属性数: {}
-                            <br/>
-                            [ {} ]
-                            """;
+                String format = "未匹配属性数: {}\n" + "<br/>\n" + "[ {} ]";
                 tip = StrUtil.format(format,
                         unMatchPropertyList.size(),
                         StrUtil.join(" , ", unMatchPropertyList));

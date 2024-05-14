@@ -2,14 +2,11 @@ package cn.zhiyou.notify;
 
 import cn.hutool.core.util.URLUtil;
 import cn.zhiyou.bundle.ZhiYouBundle;
-import cn.zhiyou.constant.PluginHelpConstant;
-import cn.zhiyou.utils.ActionUtil;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
-import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;

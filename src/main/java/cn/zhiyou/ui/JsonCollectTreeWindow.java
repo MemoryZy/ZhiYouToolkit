@@ -96,7 +96,8 @@ public class JsonCollectTreeWindow extends DialogWrapper {
 
 
     public void convertToTreeNode(JSON json, JsonCollectInfoMutableTreeNode node) {
-        if (json instanceof JSONObject jsonObject) {
+        if (json instanceof JSONObject) {
+            JSONObject jsonObject = (JSONObject) json;
             // 为了确定图标
             if (Objects.isNull(node.getValueType())) {
                 node.setValueType(JsonTreeNodeValueTypeEnum.JSONObject);
@@ -113,15 +114,18 @@ public class JsonCollectTreeWindow extends DialogWrapper {
                 Object value = entry.getValue();
                 JsonCollectInfoMutableTreeNode childNode = new JsonCollectInfoMutableTreeNode(key);
 
-                if (value instanceof JSONObject jsonObjectValue) {
+                if (value instanceof JSONObject) {
+                    JSONObject jsonObjectValue = (JSONObject) value;
                     childNode.setCorrespondingValue(value).setValueType(JsonTreeNodeValueTypeEnum.JSONObject).setSize(jsonObjectValue.size());
                     convertToTreeNode(jsonObjectValue, childNode);
 
-                } else if (value instanceof JSONArray jsonArray) {
+                } else if (value instanceof JSONArray) {
+                    JSONArray jsonArray = (JSONArray) value;
                     childNode.setCorrespondingValue(value).setValueType(JsonTreeNodeValueTypeEnum.JSONArray).setSize(jsonArray.size());
                     for (int i = 0; i < jsonArray.size(); i++) {
                         Object el = jsonArray.get(i);
-                        if (el instanceof JSONObject jsonObjectEl) {
+                        if (el instanceof JSONObject) {
+                            JSONObject jsonObjectEl = (JSONObject) el;
                             JsonCollectInfoMutableTreeNode childNodeEl = new JsonCollectInfoMutableTreeNode(
                                     "item" + i,
                                     el,
@@ -132,7 +136,8 @@ public class JsonCollectTreeWindow extends DialogWrapper {
                             childNode.add(childNodeEl);
                         } else {
                             Object obj = el;
-                            if (el instanceof String string) {
+                            if (el instanceof String) {
+                                String string = (String) el;
                                 obj = "\"" + string + "\"";
                             }
 
@@ -153,7 +158,8 @@ public class JsonCollectTreeWindow extends DialogWrapper {
 
                 node.add(childNode);
             }
-        } else if (json instanceof JSONArray jsonArray) {
+        } else if (json instanceof JSONArray) {
+            JSONArray jsonArray = (JSONArray) json;
             // 为了确定图标
             node.setValueType(JsonTreeNodeValueTypeEnum.JSONArray).setSize(jsonArray.size());
             if (Objects.isNull(node.getCorrespondingValue())) {
@@ -162,13 +168,15 @@ public class JsonCollectTreeWindow extends DialogWrapper {
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 Object el = jsonArray.get(i);
-                if (el instanceof JSONObject jsonObject) {
+                if (el instanceof JSONObject) {
+                    JSONObject jsonObject = (JSONObject) el;
                     JsonCollectInfoMutableTreeNode childNode = new JsonCollectInfoMutableTreeNode("item" + i, el, JsonTreeNodeValueTypeEnum.JSONObjectEl, jsonObject.size());
                     convertToTreeNode(jsonObject, childNode);
                     node.add(childNode);
                 } else {
                     Object obj = el;
-                    if (el instanceof String string) {
+                    if (el instanceof String) {
+                        String string = (String) el;
                         obj = "\"" + string + "\"";
                     }
 
@@ -220,7 +228,7 @@ public class JsonCollectTreeWindow extends DialogWrapper {
 
                 if (Objects.nonNull(valueType)) {
                     switch (valueType) {
-                        case JSONObject -> {
+                        case JSONObject: {
                             squareBracketsStart = " [";
                             nodeTypeStr = "object";
                             squareBracketsEnd = "]";
@@ -229,8 +237,9 @@ public class JsonCollectTreeWindow extends DialogWrapper {
                             sizeStrPost = ")";
 
                             iconStr = "json_object.svg";
+                            break;
                         }
-                        case JSONArray -> {
+                        case JSONArray: {
                             squareBracketsStart = " [";
                             nodeTypeStr = "array";
                             squareBracketsEnd = "]";
@@ -239,8 +248,9 @@ public class JsonCollectTreeWindow extends DialogWrapper {
                             sizeStrPost = ")";
 
                             iconStr = "json_array.svg";
+                            break;
                         }
-                        case JSONObjectEl -> {
+                        case JSONObjectEl: {
                             squareBracketsStart = " [";
                             nodeTypeStr = "array_object";
                             squareBracketsEnd = "]";
@@ -249,17 +259,20 @@ public class JsonCollectTreeWindow extends DialogWrapper {
                             sizeStrPost = ")";
 
                             iconStr = "json_object_item.svg";
+                            break;
                         }
-                        case JSONArrayEl -> {
+                        case JSONArrayEl: {
                             iconStr = "json_item.svg";
+                            break;
                         }
-                        case JSONObjectKey -> {
+                        case JSONObjectKey: {
                             String valueStr;
                             if (Objects.isNull(correspondingValue)) {
                                 valueStr = "null";
                                 jsonValueType = "null";
                             } else {
-                                if (correspondingValue instanceof String string) {
+                                if (correspondingValue instanceof String) {
+                                    String string = (String) correspondingValue;
                                     if (string.isEmpty()) {
                                         valueStr = "\"\"";
                                     } else {
@@ -280,6 +293,7 @@ public class JsonCollectTreeWindow extends DialogWrapper {
                             }
 
                             jsonValue = valueStr;
+                            break;
                         }
                     }
 

@@ -13,10 +13,8 @@ import cn.zhiyou.ui.basic.TextFieldErrorPopupDecorator;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CodeCreateUtil;
 import cn.zhiyou.utils.CommonUtil;
-import cn.zhiyou.utils.NotificationUtil;
 import cn.zhiyou.validator.ClassValidator;
 import com.intellij.json.json5.Json5Language;
-import com.intellij.notification.NotificationType;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
@@ -237,7 +235,8 @@ public class JsonToJavaBeanDialogWrapper extends DialogWrapper {
             Object value = entry.getValue();
 
             // ------------- 如果value是JsonObject，表示是对象
-            if (value instanceof JSONObject childJsonObject) {
+            if (value instanceof JSONObject) {
+                JSONObject childJsonObject = (JSONObject) value;
                 // 如果是对象，则还需要创建内部类
                 PsiClass innerClass = factory.createClass(StrUtil.upperFirst(key));
                 // 则递归添加
@@ -250,7 +249,8 @@ public class JsonToJavaBeanDialogWrapper extends DialogWrapper {
                 PsiField psiField = factory.createFieldFromText(fieldText, psiClass);
                 // 添加到Class
                 psiClass.add(psiField);
-            } else if (value instanceof JSONArray jsonArray) {
+            } else if (value instanceof JSONArray) {
+                JSONArray jsonArray = (JSONArray) value;
                 if (CollUtil.isNotEmpty(jsonArray)) {
                     JSONObject jsonObj = (JSONObject) jsonArray.get(0);
                     String innerClassName = StrUtil.upperFirst(key + "Bean");

@@ -96,11 +96,11 @@ public class CreateMpAnnotationDialogWrapper extends DialogWrapper {
             // 填充数据
             data[i] = new Object[]{
                     Boolean.TRUE,
-                    fieldMappedEntity.propertyName(),
-                    fieldMappedEntity.columnName(),
-                    StrUtil.trimToEmpty(fieldMappedEntity.comment())};
+                    fieldMappedEntity.getPropertyName(),
+                    fieldMappedEntity.getColumnName(),
+                    StrUtil.trimToEmpty(fieldMappedEntity.getComment())};
 
-            propertyInfos.add(new PropertyInfo(i, fieldMappedEntity.isPk(), fieldMappedEntity.isAutoIncrement(), fieldMappedEntity.psiField()));
+            propertyInfos.add(new PropertyInfo(i, fieldMappedEntity.isPk(), fieldMappedEntity.isAutoIncrement(), fieldMappedEntity.getPsiField()));
         }
 
 
@@ -224,9 +224,9 @@ public class CreateMpAnnotationDialogWrapper extends DialogWrapper {
             }
 
             for (FieldMappedEntity fieldMappedEntity : fieldMappedEntityList) {
-                String columnName = fieldMappedEntity.columnName();
-                PsiField psiField = fieldMappedEntity.psiField();
-                String comment = fieldMappedEntity.comment();
+                String columnName = fieldMappedEntity.getColumnName();
+                PsiField psiField = fieldMappedEntity.getPsiField();
+                String comment = fieldMappedEntity.getComment();
 
                 if (StrUtil.isNotBlank(columnName) && !onlyComment) {
                     String annotationText;
@@ -312,7 +312,18 @@ public class CreateMpAnnotationDialogWrapper extends DialogWrapper {
     }
 
 
-    private record PropertyInfo(int rowNum, boolean isPk, boolean isAutoIncrement, PsiField psiField) {
+    private static class PropertyInfo {
+        private final int rowNum;
+        private final boolean isPk;
+        private final boolean isAutoIncrement;
+        private final PsiField psiField;
+
+        public PropertyInfo(int rowNum, boolean isPk, boolean isAutoIncrement, PsiField psiField) {
+            this.rowNum = rowNum;
+            this.isPk = isPk;
+            this.isAutoIncrement = isAutoIncrement;
+            this.psiField = psiField;
+        }
     }
 
     private class MyExitAction extends DialogWrapperExitAction {

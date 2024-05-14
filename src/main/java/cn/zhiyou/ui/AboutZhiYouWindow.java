@@ -4,13 +4,10 @@ import cn.hutool.core.util.URLUtil;
 import cn.zhiyou.bundle.ZhiYouBundle;
 import cn.zhiyou.constant.Icons;
 import cn.zhiyou.exception.ZhiYouException;
-import cn.zhiyou.notify.OpenHelpNotificationAction;
-import cn.zhiyou.utils.ActionUtil;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.extensions.PluginId;
-import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.components.JBLabel;
@@ -36,38 +33,39 @@ public class AboutZhiYouWindow extends DialogWrapper {
     private JBLabel footer;
     private final Project project;
 
-    public static final String contentStr = """
-            <html>
-            <head>
+    public static final String contentStr =
+            "<html>\n" +
+                    "<head>\n" +
+                    "\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<p>\n" +
+                    "    -&nbsp;人生天地之间\n" +
+                    "</p>\n" +
+                    "<p>\n" +
+                    "    -&nbsp;若白驹之过隙\n" +
+                    "</p>\n" +
+                    "<p>\n" +
+                    "    -&nbsp;忽然而已\n" +
+                    "</p>\n" +
+                    "</body>\n" +
+                    "</html>";
 
-            </head>
-            <body>
-            <p>
-                -&nbsp;人生天地之间
-            </p>
-            <p>
-                -&nbsp;若白驹之过隙
-            </p>
-            <p>
-                -&nbsp;忽然而已
-            </p>
-            </body>
-            </html>""";
+    public static final String footerStr =
+            "<html>\n" +
+                    "<head>\n" +
+                    "\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<p>\n" +
+                    "    如若发现问题，请及时反馈给我。          \n" +
+                    "</p>\n" +
+                    "<p>\n" +
+                    "    感谢您的使用与支持！\n" +
+                    "</p>\n" +
+                    "</body>\n" +
+                    "</html>";
 
-    public static final String footerStr = """
-            <html>
-            <head>
-
-            </head>
-            <body>
-            <p>
-                如若发现问题，请及时反馈给我。          \s
-            </p>
-            <p>
-                感谢您的使用与支持！
-            </p>
-            </body>
-            </html>""";
 
     public AboutZhiYouWindow(@Nullable Project project) {
         super(project, true);

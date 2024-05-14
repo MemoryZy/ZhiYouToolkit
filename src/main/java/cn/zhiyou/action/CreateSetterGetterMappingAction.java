@@ -316,7 +316,7 @@ public class CreateSetterGetterMappingAction extends AnAction {
 
             StringBuilder builder = new StringBuilder();
             for (FieldMethodPair fieldMethodPair : setterFieldMethodPairList) {
-                PsiMethod method = fieldMethodPair.method();
+                PsiMethod method = fieldMethodPair.getMethod();
                 String defaultByType = "";
                 if (hasDefault) {
                     PsiParameter parameter = method.getParameterList().getParameter(0);
@@ -355,31 +355,93 @@ public class CreateSetterGetterMappingAction extends AnAction {
             return null;
         }
 
-        return switch (type.getCanonicalText()) {
-            case "boolean", "java.lang.Boolean" -> Boolean.FALSE.toString();
-            case "byte", "java.lang.Byte", "int", "java.lang.Integer", "short", "java.lang.Short" -> "0";
-            case "char", "java.lang.Character" -> "'a'";
-            case "long", "java.lang.Long" -> "0L";
-            case "float", "java.lang.Float" -> "0.0F";
-            case "double", "java.lang.Double" -> "0.0D";
-            case "java.math.BigDecimal" -> "new BigDecimal(\"0\")";
-            case "String", "java.lang.String" -> StrUtil.wrap("test", "\"");
-            case "java.util.Date" -> "new Date()";
-            case "java.sql.Date" -> "new java.sql.Date(" + new Date().getTime() + ")";
-            case "java.sql.Time" -> "new java.sql.Time(" + new Date().getTime() + ")";
-            case "java.sql.Timestamp" -> "java.sql.Timestamp.valueOf(" + DateUtil.formatDateTime(new Date()) + ")";
-            case "byte[]" -> "new byte[]";
-            case "java.util.Set", "java.util.HashSet" -> "new HashSet<>()";
-            case "java.util.LinkedHashSet" -> "new LinkedHashSet<>()";
-            case "java.time.LocalDateTime" -> "LocalDateTime.now()";
-            case "java.time.LocalDate" -> "LocalDate.now()";
-            case "java.util.Collection", "java.util.List", "java.util.ArrayList" -> "new ArrayList<>()";
-            case "java.util.LinkedList" -> "new LinkedList<>()";
-            case "java.time.LocalTime" -> "LocalTime.now()";
-            case "java.util.concurrent.ConcurrentHashMap" -> "new ConcurrentHashMap<>()";
-            case "java.util.LinkedHashMap" -> "new LinkedHashMap<>()";
-            default -> null;
-        };
+        String result;
+        switch (type.getCanonicalText()) {
+            case "boolean":
+            case "java.lang.Boolean":
+                result = Boolean.FALSE.toString();
+                break;
+            case "byte":
+            case "java.lang.Byte":
+            case "int":
+            case "java.lang.Integer":
+            case "short":
+            case "java.lang.Short":
+                result = "0";
+                break;
+            case "char":
+            case "java.lang.Character":
+                result = "'a'";
+                break;
+            case "long":
+            case "java.lang.Long":
+                result = "0L";
+                break;
+            case "float":
+            case "java.lang.Float":
+                result = "0.0F";
+                break;
+            case "double":
+            case "java.lang.Double":
+                result = "0.0D";
+                break;
+            case "java.math.BigDecimal":
+                result = "new BigDecimal(\"0\")";
+                break;
+            case "String":
+            case "java.lang.String":
+                result = StrUtil.wrap("test", "\"");
+                break;
+            case "java.util.Date":
+                result = "new Date()";
+                break;
+            case "java.sql.Date":
+                result = "new java.sql.Date(" + new Date().getTime() + ")";
+                break;
+            case "java.sql.Time":
+                result = "new java.sql.Time(" + new Date().getTime() + ")";
+                break;
+            case "java.sql.Timestamp":
+                result = "java.sql.Timestamp.valueOf(" + DateUtil.formatDateTime(new Date()) + ")";
+                break;
+            case "byte[]":
+                result = "new byte[]";
+                break;
+            case "java.util.Set":
+            case "java.util.HashSet":
+                result = "new HashSet<>()";
+                break;
+            case "java.util.LinkedHashSet":
+                result = "new LinkedHashSet<>()";
+                break;
+            case "java.time.LocalDateTime":
+                result = "LocalDateTime.now()";
+                break;
+            case "java.time.LocalDate":
+                result = "LocalDate.now()";
+                break;
+            case "java.util.Collection":
+            case "java.util.List":
+            case "java.util.ArrayList":
+                result = "new ArrayList<>()";
+                break;
+            case "java.util.LinkedList":
+                result = "new LinkedList<>()";
+                break;
+            case "java.time.LocalTime":
+                result = "LocalTime.now()";
+                break;
+            case "java.util.concurrent.ConcurrentHashMap":
+                result = "new ConcurrentHashMap<>()";
+                break;
+            case "java.util.LinkedHashMap":
+                result = "new LinkedHashMap<>()";
+                break;
+            default:
+                result = null;
+        }
+
+        return result;
     }
 
 

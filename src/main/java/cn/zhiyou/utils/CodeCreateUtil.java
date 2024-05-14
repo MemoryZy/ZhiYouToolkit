@@ -101,11 +101,13 @@ public class CodeCreateUtil {
         if ((obj instanceof Double) || (obj instanceof Integer) || (obj instanceof Boolean)) {
             type = obj.getClass().getSimpleName();
 
-        } else if (obj instanceof String str) {
+        } else if (obj instanceof String) {
+            String str = (String) obj;
             // 时间类型判断
             return checkJsonDateType(str);
 
-        } else if (obj instanceof List list) {
+        } else if (obj instanceof List ) {
+            List list = (List) obj;
             // 判断是否有值
             if (list.isEmpty()) {
                 type = List.class.getSimpleName();
@@ -146,35 +148,61 @@ public class CodeCreateUtil {
      * @return 返回JDBC类型，如果未找到则返回""
      */
     public static String getJdbcType(String qualifiedName) {
-        return switch (qualifiedName) {
-            case "boolean", "java.lang.Boolean" -> "BIT";
-            case "byte", "java.lang.Byte" -> "TINYINT";
-            case "short", "java.lang.Short" -> "SMALLINT";
-            case "char", "java.lang.Character" -> "CHAR";
-            case "int", "java.lang.Integer" -> "INTEGER";
-            case "long", "java.lang.Long" -> "BIGINT";
-            case "float", "java.lang.Float" -> "FLOAT";
-            case "double", "java.lang.Double" -> "DOUBLE";
-            case "java.math.BigDecimal" -> "DECIMAL";
-            case "String", "java.lang.String" -> "VARCHAR";
-            case "java.util.Date" -> "TIMESTAMP";
-            case "java.sql.Date" -> "DATE";
-            case "java.sql.Time" -> "TIME";
-            case "java.sql.Timestamp" -> "TIMESTAMP";
-            case "byte[]" -> "VARBINARY";
-            case "java.sql.Blob" -> "BLOB";
-            case "java.sql.Clob" -> "CLOB";
-            case "java.util.Set" -> "ARRAY";
-            case "java.util.Enum" -> "VARCHAR";
-            case "java.util.Enum[]" -> "ARRAY";
-            case "java.time.Instant" -> "TIMESTAMP";
-            case "java.time.LocalDateTime" -> "TIMESTAMP";
-            case "java.time.LocalDate" -> "DATE";
-            case "java.time.LocalTime" -> "TIME";
-            case "java.util.Collection", "java.util.List", "java.util.ArrayList", "java.util.Map", "java.util.HashMap" ->
-                    "ARRAY";
-            default -> "";
-        };
+        if (qualifiedName.equals("boolean") || qualifiedName.equals("java.lang.Boolean")) {
+            return "BIT";
+        } else if (qualifiedName.equals("byte") || qualifiedName.equals("java.lang.Byte")) {
+            return "TINYINT";
+        } else if (qualifiedName.equals("short") || qualifiedName.equals("java.lang.Short")) {
+            return "SMALLINT";
+        } else if (qualifiedName.equals("char") || qualifiedName.equals("java.lang.Character")) {
+            return "CHAR";
+        } else if (qualifiedName.equals("int") || qualifiedName.equals("java.lang.Integer")) {
+            return "INTEGER";
+        } else if (qualifiedName.equals("long") || qualifiedName.equals("java.lang.Long")) {
+            return "BIGINT";
+        } else if (qualifiedName.equals("float") || qualifiedName.equals("java.lang.Float")) {
+            return "FLOAT";
+        } else if (qualifiedName.equals("double") || qualifiedName.equals("java.lang.Double")) {
+            return "DOUBLE";
+        } else if (qualifiedName.equals("java.math.BigDecimal")) {
+            return "DECIMAL";
+        } else if (qualifiedName.equals("String") || qualifiedName.equals("java.lang.String")) {
+            return "VARCHAR";
+        } else if (qualifiedName.equals("java.util.Date")) {
+            return "TIMESTAMP";
+        } else if (qualifiedName.equals("java.sql.Date")) {
+            return "DATE";
+        } else if (qualifiedName.equals("java.sql.Time")) {
+            return "TIME";
+        } else if (qualifiedName.equals("java.sql.Timestamp")) {
+            return "TIMESTAMP";
+        } else if (qualifiedName.equals("byte[]")) {
+            return "VARBINARY";
+        } else if (qualifiedName.equals("java.sql.Blob")) {
+            return "BLOB";
+        } else if (qualifiedName.equals("java.sql.Clob")) {
+            return "CLOB";
+        } else if (qualifiedName.equals("java.util.Set")) {
+            return "ARRAY";
+        } else if (qualifiedName.equals("java.util.Enum")) {
+            return "VARCHAR";
+        } else if (qualifiedName.equals("java.util.Enum[]")) {
+            return "ARRAY";
+        } else if (qualifiedName.equals("java.time.Instant")) {
+            return "TIMESTAMP";
+        } else if (qualifiedName.equals("java.time.LocalDateTime")) {
+            return "TIMESTAMP";
+        } else if (qualifiedName.equals("java.time.LocalDate")) {
+            return "DATE";
+        } else if (qualifiedName.equals("java.time.LocalTime")) {
+            return "TIME";
+        } else if (qualifiedName.equals("java.util.Collection") || qualifiedName.equals("java.util.List") ||
+                qualifiedName.equals("java.util.ArrayList") || qualifiedName.equals("java.util.Map") ||
+                qualifiedName.equals("java.util.HashMap")) {
+            return "ARRAY";
+        } else {
+            return "";
+        }
     }
 
 
@@ -186,25 +214,41 @@ public class CodeCreateUtil {
      * @return Java类型字符串
      */
     public static String getJavaType(JdbcType jdbcType, boolean useNewDateApi) {
-        return switch (jdbcType) {
-            case ARRAY -> Array.class.getName();
-            case BIT, BOOLEAN -> Boolean.class.getName();
-            case TINYINT -> Byte.class.getName();
-            case SMALLINT -> Short.class.getName();
-            case INTEGER -> Integer.class.getName();
-            case BIGINT -> Long.class.getName();
-            case FLOAT -> Float.class.getName();
-            case DOUBLE -> Double.class.getName();
-            case NUMERIC, DECIMAL, REAL -> BigDecimal.class.getName();
-            case CHAR, VARCHAR, LONGVARCHAR, NVARCHAR, CLOB, NCLOB, SQLXML, NCHAR -> String.class.getName();
-            case DATE -> useNewDateApi ? LocalDate.class.getName() : Date.class.getName();
-            case TIME -> useNewDateApi ? LocalTime.class.getName() : Time.class.getName();
-            case TIMESTAMP -> useNewDateApi ? LocalDateTime.class.getName() : Date.class.getName();
-            // case BINARY, VARBINARY, LONGVARBINARY, BLOB -> Byte[].class.getName();
-            case BINARY, VARBINARY, LONGVARBINARY, BLOB -> "Byte[]";
-            // Add more cases for other JDBC types as needed...
-            default -> Object.class.getName(); // or handle the default case as needed
-        };
+
+        if (jdbcType == JdbcType.ARRAY) {
+            return Array.class.getName();
+        } else if (jdbcType == JdbcType.BIT || jdbcType == JdbcType.BOOLEAN) {
+            return Boolean.class.getName();
+        } else if (jdbcType == JdbcType.TINYINT) {
+            return Byte.class.getName();
+        } else if (jdbcType == JdbcType.SMALLINT) {
+            return Short.class.getName();
+        } else if (jdbcType == JdbcType.INTEGER) {
+            return Integer.class.getName();
+        } else if (jdbcType == JdbcType.BIGINT) {
+            return Long.class.getName();
+        } else if (jdbcType == JdbcType.FLOAT) {
+            return Float.class.getName();
+        } else if (jdbcType == JdbcType.DOUBLE) {
+            return Double.class.getName();
+        } else if (jdbcType == JdbcType.NUMERIC || jdbcType == JdbcType.DECIMAL || jdbcType == JdbcType.REAL) {
+            return BigDecimal.class.getName();
+        } else if (jdbcType == JdbcType.CHAR || jdbcType == JdbcType.VARCHAR || jdbcType == JdbcType.LONGVARCHAR ||
+                jdbcType == JdbcType.NVARCHAR || jdbcType == JdbcType.CLOB || jdbcType == JdbcType.NCLOB ||
+                jdbcType == JdbcType.SQLXML || jdbcType == JdbcType.NCHAR) {
+            return String.class.getName();
+        } else if (jdbcType == JdbcType.DATE) {
+            return useNewDateApi ? LocalDate.class.getName() : Date.class.getName();
+        } else if (jdbcType == JdbcType.TIME) {
+            return useNewDateApi ? LocalTime.class.getName() : Time.class.getName();
+        } else if (jdbcType == JdbcType.TIMESTAMP) {
+            return useNewDateApi ? LocalDateTime.class.getName() : Date.class.getName();
+        } else if (jdbcType == JdbcType.BINARY || jdbcType == JdbcType.VARBINARY || jdbcType == JdbcType.LONGVARBINARY ||
+                jdbcType == JdbcType.BLOB) {
+            return "Byte[]";
+        } else {
+            return Object.class.getName();
+        }
     }
 
 

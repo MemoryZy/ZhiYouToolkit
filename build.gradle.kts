@@ -1,7 +1,8 @@
 plugins {
     id("java")
 //    id("org.jetbrains.kotlin.jvm") version "1.9.0"
-    id("org.jetbrains.intellij") version "1.15.0"
+//    id("org.jetbrains.intellij") version "1.15.0"
+    id("org.jetbrains.intellij") version "0.7.2"
 }
 
 group = "cn.zhiyou"
@@ -23,7 +24,7 @@ dependencies {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-//    version.set("2022.2.5")
+//    version.set("2021.2.2")
     version.set("2023.2.4")
     type.set("IU") // Target IDE Platform  IU旗舰版要付费，也就是说打开Run Plugin时要输入license
     pluginName.set("ZhiYouToolkit")
@@ -47,8 +48,8 @@ intellij {
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
+        sourceCompatibility = "11"
+        targetCompatibility = "11"
         options.encoding = "UTF-8"
     }
 //    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -57,7 +58,7 @@ tasks {
 
     patchPluginXml {
         // 支持2022.3版本到2024.1版本 (2022.3需要JDK17)
-        sinceBuild.set("223")
+        sinceBuild.set("203")
         untilBuild.set("")
     }
 

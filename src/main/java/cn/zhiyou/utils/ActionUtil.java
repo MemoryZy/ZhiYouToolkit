@@ -13,7 +13,6 @@ import com.intellij.designer.clipboard.SimpleTransferable;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.ide.highlighter.JavaFileType;
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.util.TreeJavaClassChooserDialog;
 import com.intellij.lang.FileASTNode;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -23,7 +22,6 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.*;
 import com.intellij.openapi.editor.ex.EditorEx;
-import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.fileEditor.impl.HTMLEditorProvider;
 import com.intellij.openapi.ide.CopyPasteManager;
 import com.intellij.openapi.module.Module;
@@ -70,6 +68,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 行为工具
@@ -118,7 +117,8 @@ public class ActionUtil {
         if (Objects.nonNull(psiFile)) {
             FileASTNode node = psiFile.getNode();
             PsiElement psi = node.getPsi();
-            if (psi instanceof PsiJavaFile psiJavaFile) {
+            if (psi instanceof PsiJavaFile) {
+                PsiJavaFile psiJavaFile = (PsiJavaFile) psi;
                 PsiClass[] classes = psiJavaFile.getClasses();
                 psiClass = classes[0];
             }
@@ -278,7 +278,8 @@ public class ActionUtil {
      * @return Class
      */
     public static PsiClass getPsiClassByReferenceType(PsiType psiType) {
-        if (psiType instanceof PsiClassReferenceType psiClassReferenceType) {
+        if (psiType instanceof PsiClassReferenceType) {
+            PsiClassReferenceType psiClassReferenceType = (PsiClassReferenceType) psiType;
             return psiClassReferenceType.resolve();
         }
 
@@ -744,11 +745,11 @@ public class ActionUtil {
      */
     public static PsiWhiteSpace createPsiWhiteSpace(Project project) {
         PsiParserFacade psiParserFacade = PsiParserFacade.getInstance(project);
-        return (PsiWhiteSpace) psiParserFacade.createWhiteSpaceFromText("""
-
-                   \s
-                    \
-                """);
+        return (PsiWhiteSpace) psiParserFacade.createWhiteSpaceFromText("\n" +
+                "\n" +
+                "                   \n" +
+                "                    \n" +
+                "                ");
     }
 
     /**
@@ -956,7 +957,7 @@ public class ActionUtil {
     public static List<Module> getModuleList(Project project) {
         ModuleManager moduleManager = ModuleManager.getInstance(project);
         Module[] modules = moduleManager.getModules();
-        return Arrays.stream(modules).toList();
+        return Arrays.stream(modules).collect(Collectors.toList());
     }
 
 
@@ -986,7 +987,8 @@ public class ActionUtil {
                     List<?> dataSources = manager.getDataSources();
                     if (ArrayUtil.isNotEmpty(dataSources)) {
                         for (Object dataSource : dataSources) {
-                            if (dataSource instanceof DasDataSource dasDataSource) {
+                            if (dataSource instanceof DasDataSource) {
+                                DasDataSource dasDataSource = (DasDataSource) dataSource;
                                 dataSourceList.add(dasDataSource);
                             }
                         }
@@ -1040,16 +1042,12 @@ public class ActionUtil {
 
         String iconPath = "/icons/okNew.svg";
 
-        switch (popupTypeEnum) {
-            case info -> {
-                iconPath = "/icons/okNew.svg";
-            }
-            case waring -> {
-                iconPath = "/icons/waring.svg";
-            }
-            case error -> {
-                iconPath = "/icons/errorNew.svg";
-            }
+        if (popupTypeEnum == PopupTypeEnum.info) {
+            iconPath = "/icons/okNew.svg";
+        } else if (popupTypeEnum == PopupTypeEnum.waring) {
+            iconPath = "/icons/waring.svg";
+        } else if (popupTypeEnum == PopupTypeEnum.error) {
+            iconPath = "/icons/errorNew.svg";
         }
 
         JBLabel label = new JBLabel(message, UIUtil.ComponentStyle.REGULAR);
@@ -1075,13 +1073,10 @@ public class ActionUtil {
 
 
     public static void showPopupBalloon(String message, Editor editor, PopupTypeEnum popupTypeEnum) {
-        switch (popupTypeEnum) {
-            case info -> {
-                HintManager.getInstance().showInformationHint(editor, message);
-            }
-            case waring, error -> {
-                HintManager.getInstance().showErrorHint(editor, message, HintManager.ABOVE);
-            }
+        if (popupTypeEnum == PopupTypeEnum.info) {
+            HintManager.getInstance().showInformationHint(editor, message);
+        } else if (popupTypeEnum == PopupTypeEnum.waring || popupTypeEnum == PopupTypeEnum.error) {
+            HintManager.getInstance().showErrorHint(editor, message, HintManager.ABOVE);
         }
     }
 

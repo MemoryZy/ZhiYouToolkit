@@ -191,7 +191,8 @@ public class CreateMyBatisMapperAction extends AnAction {
             }
 
             PsiFile psiFile = ActionUtil.virtualFileToPsiFile(project, virtualFile);
-            if (psiFile instanceof XmlFile xmlFile) {
+            if (psiFile instanceof XmlFile) {
+                XmlFile xmlFile = (XmlFile) psiFile;
                 XmlTag rootTag = xmlFile.getRootTag();
                 // 判断是否是mybatis的xml文件
                 if (Objects.nonNull(rootTag) && Objects.equals("mapper", rootTag.getName())) {

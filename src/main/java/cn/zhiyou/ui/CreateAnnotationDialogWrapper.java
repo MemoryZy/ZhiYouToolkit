@@ -272,8 +272,8 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
         PsiElement[] children = psiField.getChildren();
         for (int i = children.length - 1; i >= 0; i--) {
             PsiElement child = children[i];
-            if (child instanceof PsiAnnotation psiAnnotation) {
-                annotation = psiAnnotation;
+            if (child instanceof PsiAnnotation) {
+                annotation = (PsiAnnotation) child;
                 break;
             }
         }
@@ -295,7 +295,8 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
 
         List<String> list = new ArrayList<>();
         for (PsiElement descriptionElement : descriptionElements) {
-            if (descriptionElement instanceof PsiDocToken psiDocToken) {
+            if (descriptionElement instanceof PsiDocToken) {
+                PsiDocToken psiDocToken = (PsiDocToken) descriptionElement;
                 list.add(StrUtil.trimToEmpty(psiDocToken.getText()));
             }
         }
@@ -331,8 +332,16 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
     }
 
 
-    private record PropertyInfo(int rowNum, PsiField psiField) {
+    private static class PropertyInfo {
+        private final int rowNum;
+        private final PsiField psiField;
+
+        public PropertyInfo(int rowNum, PsiField psiField) {
+            this.rowNum = rowNum;
+            this.psiField = psiField;
+        }
     }
+
 
     public static class CamelButtonAction extends AnAction {
 

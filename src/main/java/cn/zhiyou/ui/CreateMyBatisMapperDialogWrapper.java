@@ -53,6 +53,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author wcp
@@ -229,9 +230,9 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
      * @param packageAndPath 包和路径对象
      */
     private void initBtn(PackageAndPath packageAndPath) {
-        String mapperPackage = packageAndPath.mapperPackage();
-        String entityPackage = packageAndPath.entityPackage();
-        String xmlPath = packageAndPath.xmlPath();
+        String mapperPackage = packageAndPath.getMapperPackage();
+        String entityPackage = packageAndPath.getEntityPackage();
+        String xmlPath = packageAndPath.getXmlPath();
 
         // 包选择框
         mapperBtn.addBrowseFolderListener(new PackageTextBrowseFolderListener(mapperBtn, mapperPackage));
@@ -406,17 +407,14 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
             LOG.error(e.getMessage(), e);
             CreateMapperTextFieldEnum createMapperTextFieldEnum = e.getCreateMapperTextFieldEnum();
             if (null != createMapperTextFieldEnum) {
-                switch (createMapperTextFieldEnum) {
-                    case mapper -> {
-                        mapperErrorPopupDecorator.setError(e.getMessage());
-                    }
-                    case class_ -> {
-                        classErrorPopupDecorator.setError(e.getMessage());
-                    }
-                    case xml -> {
-                        xmlErrorPopupDecorator.setError(e.getMessage());
-                    }
+                if (createMapperTextFieldEnum == CreateMapperTextFieldEnum.mapper) {
+                    mapperErrorPopupDecorator.setError(e.getMessage());
+                } else if (createMapperTextFieldEnum == CreateMapperTextFieldEnum.class_) {
+                    classErrorPopupDecorator.setError(e.getMessage());
+                } else if (createMapperTextFieldEnum == CreateMapperTextFieldEnum.xml) {
+                    xmlErrorPopupDecorator.setError(e.getMessage());
                 }
+
             } else {
                 Component component = event.getInputEvent().getComponent();
                 RelativePoint relativePoint = PopupUtil.calculateAbovePoint(component);
@@ -762,8 +760,8 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
                 MapperEntity mapperEntity = new MapperEntity()
                         .setMapperQualifiedName(mapperQualifiedName)
                         .setEntityQualifiedName(entityQualifiedName)
-                        .setColumnMapList(columnEntities.stream().map(ColumnEntity::toMap).toList())
-                        .setPrimaryKeyMapList(primaryKeyEntities.stream().map(ColumnEntity::toMap).toList())
+                        .setColumnMapList(columnEntities.stream().map(ColumnEntity::toMap).collect(Collectors.toList()))
+                        .setPrimaryKeyMapList(primaryKeyEntities.stream().map(ColumnEntity::toMap).collect(Collectors.toList()))
                         .setResultMap(spliceResultMap(columnEntities, primaryKeyEntities))
                         .createAndSetFieldsCommaInterval();
 
@@ -843,8 +841,8 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
                         .setHasPk(hasPk)
                         .setSinglePk(singlePk)
                         .setAutoIncrementPk(autoIncrement)
-                        .setColumnMapList(columnEntityList.stream().map(ColumnEntity::toMap).toList())
-                        .setPrimaryKeyMapList(primaryKeyEntityList.stream().map(ColumnEntity::toMap).toList())
+                        .setColumnMapList(columnEntityList.stream().map(ColumnEntity::toMap).collect(Collectors.toList()))
+                        .setPrimaryKeyMapList(primaryKeyEntityList.stream().map(ColumnEntity::toMap).collect(Collectors.toList()))
                         .setResultMap(spliceResultMap(columnEntityList, primaryKeyEntityList))
 
                         .createAndSetFieldsCommaInterval()
@@ -1074,7 +1072,8 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
         PsiModifierList childPsiModifierList = null;
         PsiElement[] children = newClass.getChildren();
         for (PsiElement child : children) {
-            if (child instanceof PsiModifierList psiModifierList) {
+            if (child instanceof PsiModifierList) {
+                PsiModifierList psiModifierList = (PsiModifierList) child;
                 if (Objects.equals("public", psiModifierList.getText())) {
                     childPsiModifierList = psiModifierList;
                 }

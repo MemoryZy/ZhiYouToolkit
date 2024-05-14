@@ -132,13 +132,15 @@ public class CreateResultMapDialogWrapper extends DialogWrapper {
 
         try {
             Statement statement = CCJSqlParserUtil.parse(sqlText);
-            if (statement instanceof PlainSelect plainSelect) {
+            if (statement instanceof PlainSelect ) {
+                PlainSelect plainSelect = (PlainSelect) statement;
                 List<SelectItem<?>> selectItems = plainSelect.getSelectItems();
 
                 for (SelectItem<?> selectItem : selectItems) {
                     Expression expression = selectItem.getExpression();
                     // 普通列
-                    if (expression instanceof Column column) {
+                    if (expression instanceof Column) {
+                        Column column = (Column) expression;
                         String columnName = column.getColumnName();
                         Alias alias = selectItem.getAlias();
                         String aliasName = (Objects.isNull(alias)) ? "" : alias.getName();

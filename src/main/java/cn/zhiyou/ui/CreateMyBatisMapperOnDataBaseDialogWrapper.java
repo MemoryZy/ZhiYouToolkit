@@ -4,7 +4,6 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.action.CreateMyBatisMapperAction;
-import cn.zhiyou.constant.Icons;
 import cn.zhiyou.entity.PackageAndPath;
 import cn.zhiyou.enums.CreateMapperTextFieldEnum;
 import cn.zhiyou.exception.ZhiYouException;
@@ -29,8 +28,7 @@ import com.intellij.openapi.ui.TextBrowseFolderListener;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.*;
-import com.intellij.ui.GotItTooltip;
+import com.intellij.psi.PsiPackage;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBRadioButton;
@@ -43,8 +41,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.util.*;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author wcp
@@ -93,7 +93,7 @@ public class CreateMyBatisMapperOnDataBaseDialogWrapper extends DialogWrapper {
         this.event = event;
 
         // 转为DasTable
-        List<DasTable> dasTableList = dbTables.stream().map(el -> (DasTable) el.getDelegate()).toList();
+        List<DasTable> dasTableList = dbTables.stream().map(el -> (DasTable) el.getDelegate()).collect(Collectors.toList());
         // 转换
         JBIterable<DasTable> dasTables = JBIterable.from(dasTableList);
         // 数据源
@@ -137,9 +137,9 @@ public class CreateMyBatisMapperOnDataBaseDialogWrapper extends DialogWrapper {
         // 根据xml文件获取
         PackageAndPath packageAndPath = CreateMyBatisMapperAction.searchFilePath(project, virtualFiles);
         // 信息
-        String mapperPackage = packageAndPath.mapperPackage();
-        String entityPackage = packageAndPath.entityPackage();
-        String xmlPath = packageAndPath.xmlPath();
+        String mapperPackage = packageAndPath.getMapperPackage();
+        String entityPackage = packageAndPath.getEntityPackage();
+        String xmlPath = packageAndPath.getXmlPath();
 
         if (StrUtil.isNotBlank(mapperPackage)) {
             mapperBtn.setText(mapperPackage);
@@ -257,16 +257,12 @@ public class CreateMyBatisMapperOnDataBaseDialogWrapper extends DialogWrapper {
             LOG.error(e.getMessage(), e);
             CreateMapperTextFieldEnum createMapperTextFieldEnum = e.getCreateMapperTextFieldEnum();
             if (null != createMapperTextFieldEnum) {
-                switch (createMapperTextFieldEnum) {
-                    case mapper -> {
-                        mapperErrorPopupDecorator.setError(e.getMessage());
-                    }
-                    case class_ -> {
-                        classErrorPopupDecorator.setError(e.getMessage());
-                    }
-                    case xml -> {
-                        xmlErrorPopupDecorator.setError(e.getMessage());
-                    }
+                if (createMapperTextFieldEnum == CreateMapperTextFieldEnum.mapper) {
+                    mapperErrorPopupDecorator.setError(e.getMessage());
+                } else if (createMapperTextFieldEnum == CreateMapperTextFieldEnum.class_) {
+                    classErrorPopupDecorator.setError(e.getMessage());
+                } else if (createMapperTextFieldEnum == CreateMapperTextFieldEnum.xml) {
+                    xmlErrorPopupDecorator.setError(e.getMessage());
                 }
             } else {
                 Component component = event.getInputEvent().getComponent();
