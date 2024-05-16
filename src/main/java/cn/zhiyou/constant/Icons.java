@@ -17,13 +17,14 @@ public class Icons {
     public static final Icon okNew = IconLoader.getIcon("/icons/okNew.svg", Icons.class.getClassLoader());
     public static final Icon okNewEmpty = IconLoader.getIcon("/icons/okNewEmpty.svg", Icons.class.getClassLoader());
     public static final Icon waring = IconLoader.getIcon("/icons/waring.svg", Icons.class.getClassLoader());
-    public static final Icon edit = IconLoader.getIcon("/icons/edit.svg", Icons.class.getClassLoader());
+    public static final Icon smartRecord = IconLoader.getIcon("/icons/smartRecord.svg", Icons.class.getClassLoader());
     public static final Icon expandAll = IconLoader.getIcon("/icons/expandAll.svg", Icons.class.getClassLoader());
     public static final Icon collapseAll = IconLoader.getIcon("/icons/collapseAll.svg", Icons.class.getClassLoader());
-    public static final Icon pen = IconLoader.getIcon("/icons/pen.svg", Icons.class.getClassLoader());
-    public static final Icon brush = IconLoader.getIcon("/icons/brush.svg", Icons.class.getClassLoader());
+    public static final Icon transfer = IconLoader.getIcon("/icons/transfer.svg", Icons.class.getClassLoader());
     public static final Icon invalid = IconLoader.getIcon("/icons/invalid.svg", Icons.class.getClassLoader());
     public static final Icon structure = IconLoader.getIcon("/icons/structure.svg", Icons.class.getClassLoader());
+
+    public static final Icon penTool = IconLoader.getIcon("/icons/penTool.svg", Icons.class.getClassLoader());
 
     public static final Icon label = IconLoader.getIcon("/icons/label.svg", Icons.class.getClassLoader());
 

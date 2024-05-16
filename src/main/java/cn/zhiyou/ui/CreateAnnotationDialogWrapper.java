@@ -339,7 +339,7 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
         private final DefaultTableModel model;
 
         public CamelButtonAction(DefaultTableModel model) {
-            super("驼峰(属性名框转注解值框)", null, Icons.pen);
+            super("驼峰(属性名框转注解值框)", null, Icons.transfer);
             this.model = model;
         }
 
@@ -359,7 +359,7 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
         private final DefaultTableModel model;
 
         public SnakeCaseButtonAction(DefaultTableModel model) {
-            super("下划线(属性名框转注解值框)", null, Icons.edit);
+            super("下划线(属性名框转注解值框)", null, Icons.smartRecord);
             this.model = model;
         }
 
@@ -379,7 +379,7 @@ public class CreateAnnotationDialogWrapper extends DialogWrapper {
         private final DefaultTableModel model;
 
         public CommentButtonAction(DefaultTableModel model) {
-            super("注释框转注解值框", null, Icons.brush);
+            super("注释框转注解值框", null, Icons.penTool);
             this.model = model;
         }
 
