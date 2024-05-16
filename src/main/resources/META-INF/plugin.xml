@@ -15,6 +15,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
     <p>ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.</p>
+    <br/>
     <a href="https://memoryzy.pages.dev/zhiyou/">Get Started</a>
     | <a href="https://memoryzy.pages.dev/">Website</a>
     | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
@@ -217,7 +218,7 @@
             <separator/>
             <action id="cn.zhiyou.CreateSetterMappingAction"
                     class="cn.zhiyou.action.CreateSetterGetterMappingAction"
-                    icon="/icons/CD.svg"
+                    icon="/icons/eco.svg"
                     text="Mapping (Get/Set)"
                     description="类属性操作">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 9"/>
@@ -225,7 +226,7 @@
             <separator/>
             <action id="cn.zhiyou.OtherOperationsActionId"
                     class="cn.zhiyou.action.OtherOperationsAction"
-                    icon="/icons/fuse.svg"
+                    icon="/icons/open.svg"
                     text="Other Operations...">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 7"/>
             </action>
@@ -255,7 +256,7 @@
             <separator/>
             <action id="cn.zhiyou.CreateMyBatisMapperActionId"
                     class="cn.zhiyou.action.CreateMyBatisMapperAction"
-                    icon="/icons/menu.svg"
+                    icon="/icons/nav.svg"
                     text="MyBatis Mapper (逆向)"/>
             <separator/>
         </group>
@@ -283,7 +284,7 @@
 
         <action id="cn.zhiyou.JsonCollectActionId"
                 class="cn.zhiyou.action.JsonCollectAction"
-                icon="/icons/tree.svg"
+                icon="/icons/structure.svg"
                 text="JSON结构化">
             <add-to-group group-id="BasicEditorPopupMenu" anchor="after" relative-to-action="cn.zhiyou.JsonCompressActionId"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
@@ -291,6 +292,7 @@
 
         <action id="cn.zhiyou.JsonCompressActionId"
                 class="cn.zhiyou.action.JsonCompressAction"
+                icon="/icons/compress.svg"
                 text="JSON压缩">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt m"/>
             <!-- BasicEditorPopupMenu是基础编辑器右键弹出菜单 -->
@@ -303,7 +305,7 @@
             <separator/>
             <action id="CreateMyBatisMapperAction2Id"
                     class="cn.zhiyou.action.CreateMyBatisMapperOnDataBaseAction"
-                    icon="/icons/menu.svg"
+                    icon="/icons/nav.svg"
                     text="MyBatis Mapper (逆向)">
             </action>
             <separator/>

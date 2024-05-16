@@ -52,7 +52,7 @@ public class JsonFormatWindow {
 
     private class JsonCollectTreeAction extends AnAction {
         public JsonCollectTreeAction() {
-            super("JSON结构化", null, Icons.tree);
+            super("JSON结构化", null, Icons.structure);
             ContentManager contentManager = toolWindow.getContentManager();
             JComponent component = contentManager.getComponent();
             registerCustomShortcutSet(CustomShortcutSet.fromString("ctrl alt P"), component);

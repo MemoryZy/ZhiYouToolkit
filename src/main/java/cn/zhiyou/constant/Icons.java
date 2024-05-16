@@ -23,7 +23,8 @@ public class Icons {
     public static final Icon pen = IconLoader.getIcon("/icons/pen.svg", Icons.class.getClassLoader());
     public static final Icon brush = IconLoader.getIcon("/icons/brush.svg", Icons.class.getClassLoader());
     public static final Icon invalid = IconLoader.getIcon("/icons/invalid.svg", Icons.class.getClassLoader());
-    public static final Icon tree = IconLoader.getIcon("/icons/tree.svg", Icons.class.getClassLoader());
+    public static final Icon structure = IconLoader.getIcon("/icons/structure.svg", Icons.class.getClassLoader());
+
     public static final Icon label = IconLoader.getIcon("/icons/label.svg", Icons.class.getClassLoader());
 
 }
