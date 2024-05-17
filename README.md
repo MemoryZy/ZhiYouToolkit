@@ -16,7 +16,7 @@ Read this in other languages：**[简体中文](README_zh.md)**
 <br/>
 
 ## **Get Started**
-Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/)**
+Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/zhiyou/)**
 
 <br/>
 
