@@ -68,6 +68,21 @@
     </ul>
   ]]></description>
 
+    <change-notes><![CDATA[
+      <h4>v1.3.1</h4>
+      <ul>
+          <li>优化图标</li>
+          <li>解决并优化笔记导入、导出问题</li>
+      </ul>
+       <h4>v1.2.1</h4>
+      <ul>
+          <li>功能新增</li>
+          <li>BUG修复</li>
+          <li>......</li>
+      </ul>
+      ]]>
+    </change-notes>
+
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
@@ -261,16 +276,6 @@
                     text="MyBatis Mapper (逆向)"/>
             <separator/>
         </group>
-
-
-        <!-- 特殊Action：负责放在通知里面做跳转 -->
-<!--        <action id="cn.zhiyou.notify.OpenDataBaseSettingNotificationAction"-->
-<!--                class="cn.zhiyou.notify.OpenDataBaseSettingNotificationAction"/>-->
-<!--        <action id="cn.zhiyou.notify.OpenJasyptConfigNotificationAction"-->
-<!--                class="cn.zhiyou.notify.OpenJasyptConfigNotificationAction"/>-->
-<!--        <action id="cn.zhiyou.notify.OpenHelpActionId" class="cn.zhiyou.notify.OpenHelpNotificationAction"/>-->
-<!--        <action id="cn.zhiyou.notify.DoNotAskAgainNotificationActionId"-->
-<!--                class="cn.zhiyou.notify.DoNotAskAgainNotificationAction"/>-->
 
         <!-- 用于编辑器的Action -->
         <action id="cn.zhiyou.JsonFormatActionId"
