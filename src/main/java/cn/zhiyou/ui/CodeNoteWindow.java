@@ -509,13 +509,30 @@ public class CodeNoteWindow {
                             sortNum = entity.getSortNum() + 1;
                         }
 
+                        // 获取所有标签列表，若没有标签，则将新加入的笔记标签id置为默认的 -1
+                        List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
+
                         if (sortNum == 0) {
                             for (int i = 0; i < newCodeNoteEntities.size(); i++) {
                                 CodeNoteEntity codeNoteEntity = newCodeNoteEntities.get(i);
+                                Integer labelId = codeNoteEntity.getLabelId();
+                                boolean match = labelList.stream().anyMatch(el -> Objects.equals(labelId, el.getId()));
+                                if (!match) {
+                                    // 置为默认 -1
+                                    codeNoteEntity.setLabelId(-1);
+                                }
+
                                 codeNoteEntityList.add(codeNoteEntity.setId(IdUtil.simpleUUID()).setSortNum(i));
                             }
                         } else {
                             for (CodeNoteEntity codeNoteEntity : newCodeNoteEntities) {
+                                Integer labelId = codeNoteEntity.getLabelId();
+                                boolean match = labelList.stream().anyMatch(el -> Objects.equals(labelId, el.getId()));
+                                if (!match) {
+                                    // 置为默认 -1
+                                    codeNoteEntity.setLabelId(-1);
+                                }
+
                                 codeNoteEntityList.add(codeNoteEntity.setId(IdUtil.simpleUUID()).setSortNum(sortNum++));
                             }
                         }

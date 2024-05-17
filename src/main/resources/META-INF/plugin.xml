@@ -8,7 +8,7 @@
     <name>ZhiYouToolkit</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="ricardo4265@163.com" url="https://memoryzy.pages.dev/">Memory</vendor>
+    <vendor email="ricardo4265@163.com" url="https://home.memoryzy.cn/">Memory</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -16,8 +16,8 @@
     <description><![CDATA[
     <p>ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.</p>
     <br/>
-    <a href="https://memoryzy.pages.dev/zhiyou/">Get Started</a>
-    | <a href="https://memoryzy.pages.dev/">Website</a>
+    <a href="https://home.memoryzy.cn/zhiyou/">Get Started</a>
+    | <a href="https://home.memoryzy.cn/">Website</a>
     | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
     <br/>
     <h2>Features:</h2>
@@ -212,6 +212,7 @@
             <separator/>
             <action id="cn.zhiyou.CreateAnnotationOnFieldActionId"
                     class="cn.zhiyou.action.CreateAnnotationOnFieldAction"
+                    icon="/icons/at.svg"
                     text="Create Annotation">
                 <keyboard-shortcut first-keystroke="ctrl alt 8" keymap="$default"/>
             </action>

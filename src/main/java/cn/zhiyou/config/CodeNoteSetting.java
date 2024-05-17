@@ -12,6 +12,7 @@ import com.intellij.util.xmlb.annotations.OptionTag;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,6 +41,15 @@ public class CodeNoteSetting implements PersistentStateComponent<CodeNoteSetting
     public void loadState(@NotNull CodeNoteSetting state) {
         this.codeNoteEntityList = state.codeNoteEntityList;
         this.labelList = state.labelList;
+    }
+
+    public static void initDefaultLabel() {
+        // 初始化默认标签
+        List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
+        if (labelList == null) {
+            CodeNoteSetting.getInstance().labelList = new ArrayList<>();
+            CodeNoteSetting.getInstance().labelList.add(new CodeNoteLabelEntity(-1, "默认"));
+        }
     }
 
 }
