@@ -16,7 +16,7 @@
 <br/>
 
 ## **快速开始**
-导航：[插件介绍与使用文档](https://memoryzy.pages.dev/zhiyou/)
+导航：[插件介绍与使用文档](https://home.memoryzy.cn/zhiyou/)
 
 <br/>
 
