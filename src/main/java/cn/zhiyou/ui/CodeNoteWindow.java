@@ -11,6 +11,7 @@ import cn.zhiyou.config.CodeNoteSetting;
 import cn.zhiyou.constant.Icons;
 import cn.zhiyou.entity.CodeNoteEntity;
 import cn.zhiyou.entity.CodeNoteLabelEntity;
+import cn.zhiyou.enums.LanguageEnum;
 import cn.zhiyou.ui.basic.note.CodeNotePanel;
 import cn.zhiyou.utils.*;
 import com.intellij.icons.AllIcons;
@@ -522,6 +523,18 @@ public class CodeNoteWindow {
                                     codeNoteEntity.setLabelId(-1);
                                 }
 
+                                // 若是笔记类型为空，那么则赋予默认类型
+                                String codeType = codeNoteEntity.getCodeType();
+                                if (StrUtil.isBlank(codeType)) {
+                                    codeNoteEntity.setCodeType(LanguageEnum.Text.name());
+                                } else {
+                                    // 若是笔记类型不为已知类型，则置为默认类型
+                                    LanguageEnum languageEnum = LanguageEnum.of(codeType);
+                                    if (Objects.isNull(languageEnum)) {
+                                        codeNoteEntity.setCodeType(LanguageEnum.Text.name());
+                                    }
+                                }
+
                                 codeNoteEntityList.add(codeNoteEntity.setId(IdUtil.simpleUUID()).setSortNum(i));
                             }
                         } else {
@@ -609,6 +622,7 @@ public class CodeNoteWindow {
                         Map<String, Object> map = new HashMap<>();
                         map.put("codeName", codeNoteEntity.getCodeName());
                         map.put("codeContent", codeNoteEntity.getCodeContent());
+                        map.put("codeType", codeNoteEntity.getCodeType());
                         map.put("labelId", codeNoteEntity.getLabelId());
                         jsonMapList.add(map);
                     }
