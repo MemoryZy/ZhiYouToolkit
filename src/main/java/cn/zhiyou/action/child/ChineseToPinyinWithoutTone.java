@@ -29,6 +29,6 @@ public class ChineseToPinyinWithoutTone extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        e.getPresentation().setEnabled(ConvertStringAction.isChinese(e));
+        e.getPresentation().setEnabled(ConvertStringAction.containsChinese(e));
     }
 }

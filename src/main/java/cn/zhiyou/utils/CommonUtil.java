@@ -4,7 +4,6 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.text.NamingCase;
 import cn.hutool.core.util.ArrayUtil;
-import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.XmlUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,27 +14,24 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.intellij.openapi.util.Version;
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.kotlin.utils.IDEAPlatforms;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author wcp
  * @since 2023/11/27
  */
 public class CommonUtil {
-
-    public static final String JSON_OBJECT_REGEX = "\\{.*?\\}";
-    public static final String JSON_ARRAY_REGEX = "\\[.*?\\]";
 
     public static final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -205,13 +201,22 @@ public class CommonUtil {
     }
 
     /**
-     * 判断字符串是否为中文
+     * 判断字符串是否包含中文
      *
-     * @param content 待判断的字符串
-     * @return 如果字符串是中文，返回true；否则返回false
+     * @param str 待判断的字符串
+     * @return 如果字符串包含中文，返回true；否则返回false
      */
-    public static boolean isChinese(String content) {
-        return ReUtil.isMatch("^[\\u4e00-\\u9fa5]+$", content);
+    public static boolean containsChinese(String str) {
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+
+        // 定义一个包含中文字符的正则表达式
+        String regex = "[\\u4E00-\\u9FFF\\u3400-\\u4DBF\\uF900-\\uFAFF]";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
+
+        return matcher.find();
     }
 
 

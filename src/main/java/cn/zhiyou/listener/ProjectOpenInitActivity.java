@@ -22,6 +22,7 @@ public class ProjectOpenInitActivity implements ProjectManagerListener {
     private static final Logger LOG = Logger.getInstance(ProjectOpenInitActivity.class);
 
     @Override
+    @SuppressWarnings("removal")
     public void projectOpened(@NotNull Project project) {
         CodeNoteSetting.initDefaultLabel();
 

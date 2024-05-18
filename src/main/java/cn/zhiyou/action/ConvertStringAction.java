@@ -67,7 +67,8 @@ public class ConvertStringAction extends AnAction {
         }
     }
 
-    public static boolean isChinese(AnActionEvent e) {
+
+    public static boolean containsChinese(AnActionEvent e) {
         // 获取当前光标所在的变量
         boolean enabled = false;
         Editor editor = e.getData(PlatformDataKeys.EDITOR);
@@ -75,7 +76,7 @@ public class ConvertStringAction extends AnAction {
             SelectionModel selectionModel = editor.getSelectionModel();
             String selectedText = selectionModel.getSelectedText();
             if (StringUtils.isNotBlank(selectedText)) {
-                enabled = CommonUtil.isChinese(selectedText);
+                enabled = CommonUtil.containsChinese(selectedText);
             }
         }
         return enabled;

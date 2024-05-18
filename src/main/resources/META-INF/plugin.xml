@@ -69,12 +69,12 @@
   ]]></description>
 
     <change-notes><![CDATA[
-      <h4>v1.3.1</h4>
+      <h3>v1.3.1</h3>
       <ul>
           <li>优化图标</li>
           <li>解决并优化笔记导入、导出问题</li>
       </ul>
-       <h4>v1.2.1</h4>
+       <h3>v1.2.1</h3>
       <ul>
           <li>功能新增</li>
           <li>BUG修复</li>

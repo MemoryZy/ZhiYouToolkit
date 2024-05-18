@@ -17,6 +17,7 @@ public class ChineseToPinyinWithTone extends AnAction {
     public ChineseToPinyinWithTone() {
         super("Chinese to Pinyin (带音调)");
     }
+
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         ActionUtil.convertSelectText(e, el -> CommonUtil.toPinyin(el, true, true));
@@ -29,7 +30,7 @@ public class ChineseToPinyinWithTone extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        e.getPresentation().setEnabled(ConvertStringAction.isChinese(e));
+        e.getPresentation().setEnabled(ConvertStringAction.containsChinese(e));
     }
 
 
