@@ -16,12 +16,11 @@ import cn.zhiyou.notify.OpenDataBaseSettingNotificationAction;
 import cn.zhiyou.notify.OpenDatabaseToolWindowNotificationAction;
 import cn.zhiyou.ui.CreateMpAnnotationDialogWrapper;
 import cn.zhiyou.ui.DasDataBaseChangeDialog;
+import cn.zhiyou.ui.basic.DasMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import cn.zhiyou.utils.NotificationUtil;
-import com.intellij.database.model.DasColumn;
-import com.intellij.database.model.DasDataSource;
-import com.intellij.database.model.DasTable;
+import com.intellij.database.model.*;
 import com.intellij.database.util.DasUtil;
 import com.intellij.notification.NotificationAction;
 import com.intellij.notification.NotificationType;
@@ -100,9 +99,13 @@ public class CreateMyBatisPlusAnnotationAction extends AnAction {
                 DasTable matchDasTable = null;
                 DasDataBaseChangeDialog dasDataBaseChangeDialog = new DasDataBaseChangeDialog(project, dasDataSourceList);
                 if (dasDataBaseChangeDialog.showAndGet()) {
-                    int dataSourceIndex = dasDataBaseChangeDialog.getSelectIndex();
-                    DasDataSource dasDataSource = dasDataSourceList.get(dataSourceIndex);
-                    JBIterable<? extends DasTable> tables = DasUtil.getTables(dasDataSource);
+                    DasMutableTreeNode dasMutableTreeNode = dasDataBaseChangeDialog.getDasMutableTreeNode();
+                    // 获取选择的schema
+                    DasNamespace schema = dasMutableTreeNode.getSchema();
+                    // 获取schema中的表
+                    JBIterable<? extends DasObject> dasChildren = schema.getDasChildren(ObjectKind.TABLE);
+                    DasTable[] array = dasChildren.map(el -> (DasTable) el).toArray(new DasTable[0]);
+                    JBIterable<? extends DasTable> tables = JBIterable.of(array);
 
                     if (StrUtil.isBlank(tableName)) {
                         hasTableName = false;

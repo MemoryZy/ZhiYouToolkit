@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.enums.PropertyTreeNodeValueTypeEnum;
 import cn.zhiyou.ui.basic.PropertyMatchMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
+import cn.zhiyou.utils.CommonUtil;
 import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
@@ -82,13 +83,12 @@ public class PropertyMatchWindow extends DialogWrapper {
 
         CompatibilityUtil.speedSearchInstallOn(tree);
 
-        TreePath rootTreePath = new TreePath(rootNode);
-        TreePath successTreePath = new TreePath(successNode);
-        TreePath failedTreePath = new TreePath(failedNode);
+        // 隐藏根节点
+        tree.setRootVisible(false);
+        // 是否显示 > 三角
+        tree.setShowsRootHandles(true);
 
-        tree.expandPath(rootTreePath);
-        tree.expandPath(successTreePath);
-        tree.expandPath(failedTreePath);
+        CommonUtil.expandAll(tree, new TreePath(rootNode));
     }
 
     private void initCellRenderer() {

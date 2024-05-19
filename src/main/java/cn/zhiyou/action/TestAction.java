@@ -1,8 +1,14 @@
 package cn.zhiyou.action;
 
+import cn.zhiyou.ui.DasDataBaseChangeDialog;
+import cn.zhiyou.ui.basic.DasMutableTreeNode;
+import cn.zhiyou.utils.ActionUtil;
+import com.intellij.database.model.DasDataSource;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  * @author wcp
@@ -47,7 +53,14 @@ public class TestAction extends AnAction {
         //
         // PluginDescriptor pluginByClass = PluginManager.getPluginByClass(languageForPsi.getClass());
 
+        List<DasDataSource> dasDataSourceList = ActionUtil.getAllLocalDataSource(event.getProject());
 
+        DasDataBaseChangeDialog dasDataBaseChangeDialog = new DasDataBaseChangeDialog(event.getProject(), dasDataSourceList);
+        if (dasDataBaseChangeDialog.showAndGet()) {
+            DasMutableTreeNode dasMutableTreeNode = dasDataBaseChangeDialog.getDasMutableTreeNode();
+
+            System.out.println();
+        }
 
     }
 

@@ -8,8 +8,8 @@
       "ordinary": {
         "invalid.svg": "icons/invalid.svg",
         "label.svg": "icons/label.svg",
-        "tree.svg": "icons/tree.svg",
-        "GroupByClass.svg": "icons/GroupByClass.svg"
+        "GroupByClass.svg": "icons/GroupByClass.svg",
+        "schema.svg": "icons/schema.svg"
       }
     }
   }

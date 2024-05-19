@@ -536,7 +536,9 @@ public class JsonCollectTreeWindow extends DialogWrapper {
             TreePath[] paths = tree.getSelectionPaths();
             if (paths != null) {
                 for (TreePath path : paths) {
-                    expandAll(path);
+                    // expandAll(path);
+                    CommonUtil.expandAll(tree, path);
+
                 }
             }
         }
@@ -575,7 +577,8 @@ public class JsonCollectTreeWindow extends DialogWrapper {
             TreePath[] paths = tree.getSelectionPaths();
             if (paths != null) {
                 for (TreePath path : paths) {
-                    collapseAll(path);
+                    // collapseAll(path);
+                    CommonUtil.collapseAll(tree, path);
                 }
             }
         }
@@ -614,7 +617,8 @@ public class JsonCollectTreeWindow extends DialogWrapper {
         @Override
         public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
             TreeNode root = (TreeNode) tree.getModel().getRoot();
-            expandAll(new TreePath(root));
+            // expandAll(new TreePath(root));
+            CommonUtil.expandAll(tree, new TreePath(root));
         }
     }
 
@@ -626,33 +630,9 @@ public class JsonCollectTreeWindow extends DialogWrapper {
         @Override
         public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
             TreeNode root = (TreeNode) tree.getModel().getRoot();
-            collapseAll(new TreePath(root));
+            // collapseAll(new TreePath(root));
+            CommonUtil.collapseAll(tree, new TreePath(root));
         }
     }
 
-    private void expandAll(TreePath parent) {
-        TreeNode node = (TreeNode) parent.getLastPathComponent();
-        if (node.getChildCount() >= 0) {
-            for (Enumeration<?> e = node.children(); e.hasMoreElements(); ) {
-                TreeNode n = (TreeNode) e.nextElement();
-                TreePath path = parent.pathByAddingChild(n);
-                expandAll(path);
-            }
-        }
-
-        tree.expandPath(parent);
-    }
-
-    private void collapseAll(TreePath parent) {
-        TreeNode node = (TreeNode) parent.getLastPathComponent();
-        if (node.getChildCount() >= 0) {
-            for (Enumeration<?> e = node.children(); e.hasMoreElements(); ) {
-                TreeNode n = (TreeNode) e.nextElement();
-                TreePath path = parent.pathByAddingChild(n);
-                collapseAll(path);
-            }
-        }
-
-        tree.collapsePath(parent);
-    }
 }

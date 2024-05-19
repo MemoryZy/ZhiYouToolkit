@@ -11,4 +11,8 @@ public class ZhiYouConstant {
             {}
             """;
 
+    public static final String[] MYSQL_DEFAULT_SCHEMAS = {
+            "information_schema", "mysql", "performance_schema", "sys"
+    };
+
 }
