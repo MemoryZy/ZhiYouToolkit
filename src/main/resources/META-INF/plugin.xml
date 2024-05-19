@@ -306,6 +306,13 @@
                           relative-to-action="cn.zhiyou.JsonFormatActionId"/>
         </action>
 
+        <action id="cn.zhiyou.JsonContrastActionId" class="cn.zhiyou.action.JsonContrastAction"
+                text="JSON Contrast (对照)">
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="after"
+                          relative-to-action="cn.zhiyou.JsonCollectActionId"/>
+        </action>
+
+
         <group id="DataBaseOperationsID">
             <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
             <separator/>

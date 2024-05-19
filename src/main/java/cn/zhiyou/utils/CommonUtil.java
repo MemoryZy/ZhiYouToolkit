@@ -6,6 +6,7 @@ import cn.hutool.core.text.NamingCase;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.XmlUtil;
+import cn.hutool.json.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,10 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -544,6 +542,21 @@ public class CommonUtil {
         }
 
         tree.collapsePath(parent);
+    }
+
+
+    public static Object matchMapKey(String name, JSONObject jsonObject) {
+        // 匹配
+        for (Map.Entry<String, Object> entry : jsonObject) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
+            if (CommonUtil.matchCase(key, name)) {
+                return value;
+            }
+        }
+
+        return null;
     }
 
 }
