@@ -220,6 +220,12 @@ public class CreateMyBatisMapperDialogWrapper extends DialogWrapper {
         rbButtonGroup.add(defaultRb);
         rbButtonGroup.add(mpRb);
         rbButtonGroup.add(entityOnlyRb);
+
+        mpRb.addActionListener(e -> {
+            if (mpRb.isSelected()) {
+                mpCb.setSelected(true);
+            }
+        });
     }
 
 

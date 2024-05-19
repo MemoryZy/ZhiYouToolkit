@@ -82,6 +82,7 @@ public class CreateMyBatisMapperAction extends AnAction {
 
                 if (dasDataBaseChangeDialog.showAndGet()) {
                     DasMutableTreeNode dasMutableTreeNode = dasDataBaseChangeDialog.getDasMutableTreeNode();
+                    dasDataSource = dasMutableTreeNode.getDasDataSource();
                     // 获取选择的schema
                     DasNamespace schema = dasMutableTreeNode.getSchema();
                     // 获取schema中的表
@@ -155,7 +156,7 @@ public class CreateMyBatisMapperAction extends AnAction {
         try {
             ideView = e.getRequiredData(LangDataKeys.IDE_VIEW);
         } catch (Throwable ex) {
-
+            // do
         }
 
         if (null != ideView && ideView.getDirectories().length > 0) {

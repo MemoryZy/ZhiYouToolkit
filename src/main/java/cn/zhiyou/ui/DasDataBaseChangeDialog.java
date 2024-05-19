@@ -121,19 +121,13 @@ public class DasDataBaseChangeDialog extends DialogWrapper {
     }
 
     private boolean executeOkAction() {
-        TreePath[] paths = tree.getSelectionPaths();
-        if (ArrayUtil.isEmpty(paths)) {
+        TreePath selectionPath = tree.getSelectionPath();
+        if (Objects.isNull(selectionPath)) {
             NotificationUtil.notifyWithLog("", "请选择一个Schema！", NotificationType.WARNING, project);
             return false;
         }
 
-        if (paths.length > 1) {
-            NotificationUtil.notifyWithLog("", "只能选择一个Schema进行生成！", NotificationType.WARNING, project);
-            return false;
-        }
-
-        TreePath treePath = paths[0];
-        DasMutableTreeNode treeNode = (DasMutableTreeNode) treePath.getLastPathComponent();
+        DasMutableTreeNode treeNode = (DasMutableTreeNode) selectionPath.getLastPathComponent();
         DasNodeTypeEnum dasNodeTypeEnum = treeNode.getDasNodeTypeEnum();
 
         if (!Objects.equals(DasNodeTypeEnum.SCHEMA, dasNodeTypeEnum)) {
