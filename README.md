@@ -7,11 +7,11 @@
 [![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
 
 
-![Jetbrains](https://img.shields.io/badge/Jetbrains-%2307405e.svg?style=for-the-badge&logo=jetbrains)
+[![Jetbrains](https://img.shields.io/badge/Jetbrains-%2307405e.svg?style=for-the-badge&logo=jetbrains)](https://www.jetbrains.com.cn/)
 &nbsp;
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+[![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)](https://www.jetbrains.com.cn/idea/)
 
-ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.
+ZhiYouToolkit, an IDEA tool plugin, provides many features that can improve the efficiency and quality of code development.
 
 <br/>
 
