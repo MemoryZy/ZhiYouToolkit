@@ -13,13 +13,35 @@
 
 ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.
 
-For example, code notes, Json and JavaBean mutual conversion, text conversion, dynamic generation of MyBatis related files, attribute mapping, attribute and data table column mapping, Json formatting, structuring, Jasypt encryption and decryption and many other features.
-
 <br/>
 
 ## README.md
 Read this in other languages：**[简体中文](README_zh.md)**
 
+<br/>
+
+
+## Features
+ - Code notes function, record code, notes, etc.
+ - Json to Java classes (nested properties supported).
+ - Convert java class attributes to json (support for nested attributes, FastJson annotations, Jackson annotations).
+ - The text in hump and underline format is converted to each other.
+ - Chinese can be converted to pinyin.
+ - Single-line text comments can be converted to Java document comments.
+ - Dynamically generate a ResultMap tag in MyBatis.
+ - Dynamically generate Where tags in MyBatis (supports MyBatis Plus annotations, Jpa annotations).
+ - Mapping of attributes to attributes (e.g. a.setX(b.setx)).
+ - Generate a JDK serialization id.
+ - Copy the Spring interface mapping path.
+ - Json window (Format Json, compress Json, tree Json).
+ - The timestamp is converted to the time.
+ - Generate MyBatis related files (e.g., mapper).
+ - Specify annotations and comments for class attribute generation.
+ - Jasypt Encryption and decryption.
+ - Convert JSON/XML text to each other.
+ - Text comparison.
+ - ......
+        
 <br/>
 
 ## **Get Started**
