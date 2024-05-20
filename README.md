@@ -8,6 +8,8 @@
 
 ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.
 
+For example, code notes, Json and JavaBean mutual conversion, text conversion, dynamic generation of MyBatis related files, attribute mapping, attribute and data table column mapping, Json formatting, structuring, Jasypt encryption and decryption and many other features.
+
 <br/>
 
 ## README.md
