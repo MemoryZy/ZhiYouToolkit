@@ -12,7 +12,7 @@
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
 
-一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
+知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
 <br/>
 
