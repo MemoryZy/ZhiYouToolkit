@@ -22,7 +22,7 @@ Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/z
 
 ## **Installed**
 > 1. Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**
-> 2. Install it manually via **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)**
+> 2. Download the plugin on **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** and install it manually
 
 <br/>
 
