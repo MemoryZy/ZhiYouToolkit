@@ -7,9 +7,9 @@
 [![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
 
 
-![Jetbrains](https://img.shields.io/badge/Jetbrains-%2307405e.svg?style=for-the-badge&logo=jetbrains)
+[![Jetbrains](https://img.shields.io/badge/Jetbrains-%2307405e.svg?style=for-the-badge&logo=jetbrains)](https://www.jetbrains.com/?from=ZhiYouToolkit)
 &nbsp;
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+[![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)](https://www.jetbrains.com/idea/)
 
 
 知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
