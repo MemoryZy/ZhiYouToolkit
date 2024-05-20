@@ -7,8 +7,7 @@
 [![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
 
 
-&nbsp;
-![Jetbrains](https://img.shields.io/badge/Jetbrains-fe2857.svg?style=for-the-badge&logo=jetbrains&logoColor=white)
+![Jetbrains](https://img.shields.io/badge/Jetbrains-fdb60d.svg?style=for-the-badge&logo=jetbrains&logoColor=white)
 &nbsp;
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
