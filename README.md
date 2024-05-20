@@ -5,7 +5,7 @@
 [![Release](https://img.shields.io/badge/Release-v1.2.1-d05ce3.svg?style=for-the-badge)](https://github.com/MemoryZy/ZhiYouToolkit/releases)
 &nbsp;
 [![Java](https://img.shields.io/badge/Lang-Java-ff5722.svg?style=for-the-badge&logoColor=white)](https://www.oracle.com/cn/java/)
-
+&nbsp;
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
 ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.
