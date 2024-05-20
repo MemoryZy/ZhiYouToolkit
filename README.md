@@ -20,6 +20,12 @@ Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/z
 
 <br/>
 
+## **Installed**
+> 1. Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**
+> 2. Install it manually via **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)**
+
+<br/>
+
 ## **Tip**
 > IDEA Ultimate 2022.2 or later is supported.
 
