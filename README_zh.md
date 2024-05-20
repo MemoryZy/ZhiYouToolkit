@@ -20,6 +20,12 @@
 
 <br/>
 
+## **安装**
+> 1. 通过 **[Jetbrains插件市场](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)** 安装。
+> 2. 在 **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** 下载插件并手动安装。
+
+<br/>
+
 ## **提示**
 > 支持IDEA Ultimate 2022.2及以上版本。
 
