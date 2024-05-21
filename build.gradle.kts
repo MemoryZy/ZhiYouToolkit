@@ -45,6 +45,13 @@ intellij {
 }
 
 tasks {
+    runIde {
+        systemProperty("idea.is.internal", true)
+
+        // Enable hotswap, requires JBR 17+ or JBR 11 with DCEVM, and run in debug mode.
+        jvmArgs(listOf("-XX:+AllowEnhancedClassRedefinition"))
+    }
+
     // Set the JVM compatibility versions
     withType<JavaCompile> {
         sourceCompatibility = "17"
