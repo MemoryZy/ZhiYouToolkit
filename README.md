@@ -49,13 +49,13 @@ ZhiYouToolkit, an IDEA tool plugin, provides many features that can improve the 
 <br/>
 
 ## **Get Started**
-Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/zhiyou/)**
+> Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/zhiyou/)**
 
 <br/>
 
 ## **Installed**
-> 1. Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**.
-> 2. Download the plugin on **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** and install it manually.
+> \> Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**.  
+> \> Download the plugin on **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** and install it manually.
 
 <br/>
 
