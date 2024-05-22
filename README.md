@@ -1,3 +1,4 @@
+<div align="center">
 # [![ZhiYouToolkit](https://cdn.jsdelivr.net/gh/MemoryZy/ZhiYouToolkit/src/main/resources/META-INF/pluginIcon@30x30.svg)](https://github.com/MemoryZy/ZhiYouToolkit) **ZhiYouToolkit**
 
 English / [简体中文](./README_zh.md)
@@ -21,6 +22,8 @@ ZhiYouToolkit, an IDEA tool plugin, provides many features that can improve the 
 Read this in other languages：**[简体中文](README_zh.md)**
 
 <br/>
+
+</div>
 
 
 ## Features
