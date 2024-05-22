@@ -1,5 +1,7 @@
 # [![ZhiYouToolkit](https://cdn.jsdelivr.net/gh/MemoryZy/ZhiYouToolkit/src/main/resources/META-INF/pluginIcon@30x30.svg)](https://github.com/MemoryZy/ZhiYouToolkit) **ZhiYouToolkit**
 
+English / [简体中文](./README_zh.md)
+
 [![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=for-the-badge)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
 [![Release](https://img.shields.io/badge/Release-v1.2.1-d05ce3.svg?style=for-the-badge)](https://github.com/MemoryZy/ZhiYouToolkit/releases)
