@@ -1,4 +1,10 @@
+<div align="center">
+
 # [![ZhiYouToolkit](https://cdn.jsdelivr.net/gh/MemoryZy/ZhiYouToolkit/src/main/resources/META-INF/pluginIcon@30x30.svg)](https://github.com/MemoryZy/ZhiYouToolkit) **ZhiYouToolkit**
+
+[English](./README.md) / 简体中文
+
+知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
 [![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=for-the-badge)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
@@ -11,13 +17,7 @@
 &nbsp;
 [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)](https://www.jetbrains.com/idea/)
 
-
-知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
-
-<br/>
-
-## README.md
-其他语言版本：**[English](README.md)**
+</div>
 
 <br/>
 
@@ -45,7 +45,7 @@
 <br/>
 
 ## **快速开始**
-导航：[插件介绍与使用文档](https://home.memoryzy.cn/zhiyou/)
+> 导航：[插件介绍与使用文档](https://home.memoryzy.cn/zhiyou/)
 
 <br/>
 
