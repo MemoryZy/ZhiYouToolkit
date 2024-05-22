@@ -50,7 +50,7 @@ Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/z
 <br/>
 
 ## **Installed**
-> \> Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**.
+> \> Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**.  
 > \> Download the plugin on **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** and install it manually.
 
 <br/>
