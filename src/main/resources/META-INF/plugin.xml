@@ -87,6 +87,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <!-- 引入Java扩展 -->
+    <!-- 需要可选依赖的话，需要把用到依赖的配置地方迁移到另一份plugin.xml配置中，这样当依赖不存在于目标idea时，该功能亦不可用 -->
     <depends>com.intellij.java</depends>
     <depends>com.intellij.database</depends>
     <depends>org.intellij.plugins.markdown</depends>

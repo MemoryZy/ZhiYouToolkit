@@ -1,12 +1,12 @@
 package cn.zhiyou.ui;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.constant.Icons;
 import cn.zhiyou.constant.ZhiYouConstant;
 import cn.zhiyou.enums.DasNodeTypeEnum;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
+import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import cn.zhiyou.utils.CompatibilityUtil;
 import cn.zhiyou.utils.NotificationUtil;
@@ -60,6 +60,9 @@ public class DasDataBaseChangeDialog extends DialogWrapper {
     protected @Nullable JComponent createCenterPanel() {
         DasMutableTreeNode rootNode = new DasMutableTreeNode("root", DasNodeTypeEnum.ROOT);
 
+        // 如果没可用schema，那就提示
+        int schemaNum = 0;
+
         // 遍历数据源
         for (DasDataSource dasDataSource : dasDataSourceList) {
             Dbms dbms = dasDataSource.getDbms();
@@ -79,6 +82,8 @@ public class DasDataBaseChangeDialog extends DialogWrapper {
                     continue;
                 }
 
+                schemaNum++;
+
                 DasMutableTreeNode schemaNode = new DasMutableTreeNode(
                         schemaName, dasDataSource, schema, Icons.schema, DasNodeTypeEnum.SCHEMA);
 
@@ -86,6 +91,11 @@ public class DasDataBaseChangeDialog extends DialogWrapper {
             }
 
             rootNode.add(dataSourceNode);
+        }
+
+        if (schemaNum == 0) {
+            ActionUtil.openToolWindow(project, "Database");
+            NotificationUtil.notifyWithLog("", "当前无Schema以供选择，请刷新数据源或新建Schema！", NotificationType.WARNING, project);
         }
 
         DefaultTreeModel model = new DefaultTreeModel(rootNode);
