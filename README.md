@@ -4,7 +4,7 @@
 
 English / [简体中文](./README_zh.md)
 
-ZhiYouToolkit, an IDEA tool plugin, provides many features that can improve the efficiency and quality of code development.
+ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain points in daily development, enhancing code development efficiency and quality.
 
 知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
