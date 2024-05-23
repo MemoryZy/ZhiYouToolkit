@@ -22,7 +22,7 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 </div>
 
 
-## Features
+## Features 🎉
 - [Code Notes](https://home.memoryzy.cn/zhiyou/codenote/): Code Logging, Note Import, Note Export, Note Tagging.
 - [Convert JSON to JavaBean](https://home.memoryzy.cn/zhiyou/jsontobean/): Support for Nested Properties.
 - [Convert JavaBean to JSON](https://home.memoryzy.cn/zhiyou/beantojson/): Support for Nested Properties, FastJson, and Jackson Annotations.
@@ -44,7 +44,7 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
         
 <br/>
 
-## Get Started 🎉
+## Get Started 🚀
 > Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/zhiyou/)**
 
 <br/>
