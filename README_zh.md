@@ -57,5 +57,5 @@
 
 <br/>
 
-## 许可
+## 许可证
 [![Licence](https://img.shields.io/badge/Licence-Apache%202.0-97ca00.svg?style=for-the-badge&logoColor=white)](./LICENSE)
