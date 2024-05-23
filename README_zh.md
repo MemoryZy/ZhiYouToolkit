@@ -18,7 +18,7 @@
 
 <br/>
 
-## 功能
+## 功能 🎉
 - [代码笔记](https://home.memoryzy.cn/zhiyou/codenote/)：记录代码、笔记导入、笔记导出、笔记标签。
 - [Json转JavaBean](https://home.memoryzy.cn/zhiyou/jsontobean/)：支持嵌套属性。
 - [JavaBean转Json](https://home.memoryzy.cn/zhiyou/beantojson/)：支持嵌套属性，支持FastJson、Jackson注解。
@@ -40,7 +40,7 @@
 
 <br/>
 
-## 快速开始 🎉
+## 快速开始 🚀
 > 导航：[插件介绍与使用文档](https://home.memoryzy.cn/zhiyou/)
 
 <br/>
