@@ -19,25 +19,24 @@
 <br/>
 
 ## 功能
- - 代码笔记功能，记录代码、笔记等...
- - JSON文本转换为JavaBean (支持嵌套属性)
- - JavaBean属性转JSON (支持嵌套属性、支持FastJson、Jackson注解)
- - 驼峰、下划线格式文本互相转换
- - 将选中的中文文本转为拼音
- - 将单行注释转换为文档注释
- - 动态生成MyBatis-ResultMap标签
- - 动态生成MyBatis-Where标签 (支持MyBatis Plus、Jpa注解)
- - 属性与属性的映射、Getter、Setter方法生成，例如：a.setX(b.getX)
- - 一键生成JDK序列化Id
- - 一键复制Spring接口映射路径
- - JSON窗口（格式化Json、压缩Json、树化Json）
- - 时间戳与时间互相转换
- - 生成MyBatis-Mapper、MapperXml等文件
- - 为类属性生成指定注解及注释
- - Jasypt加解密
- - JSON/XML互相转换
- - 文本互相比对
- - ......
+- [代码笔记](https://home.memoryzy.cn/zhiyou/codenote/)：记录代码、笔记导入、笔记导出、笔记标签。
+- [Json转JavaBean](https://home.memoryzy.cn/zhiyou/jsontobean/)：支持嵌套属性。
+- [JavaBean转Json](https://home.memoryzy.cn/zhiyou/beantojson/)：支持嵌套属性，支持FastJson、Jackson注解。
+- [Json窗口及Json处理](https://home.memoryzy.cn/zhiyou/json/panel/)：Json格式化、Json压缩、Json结构化。
+- [字符串格式转换](https://home.memoryzy.cn/zhiyou/format/conversion/)：驼峰与下划线互相转换、中文转拼音。
+- [单行注释转文档注释](https://home.memoryzy.cn/zhiyou/doc/comment/)
+- [ResultMap标签生成](https://home.memoryzy.cn/zhiyou/mybatis/resultmap/)：一键生成MyBatis-ResultMap标签。
+- [Where标签生成](https://home.memoryzy.cn/zhiyou/mybatis/where/)：一键生成MyBatis-Where标签。
+- [类属性映射与方法列举](https://home.memoryzy.cn/zhiyou/property/mapping/)：Getter、Setter方法列举、类属性映射功能。
+- [JDK序列化ID生成](https://home.memoryzy.cn/zhiyou/generate/serialversionid/)：一键生成JDK序列化Id。
+- [Spring接口路径提取](https://home.memoryzy.cn/zhiyou/get/path/)
+- [时间戳与时间转换](https://home.memoryzy.cn/zhiyou/timestamp/)
+- [MyBatis相关文件生成](https://home.memoryzy.cn/zhiyou/mybatis/generate/)：生成Mapper接口、Mapper-Xml、映射类等文件。
+- [指定注解、注释生成](https://home.memoryzy.cn/zhiyou/create/annotation/)：为类属性生成指定注解及注释。
+- [Jasypt加解密](https://home.memoryzy.cn/zhiyou/jasypt/)：Jasypt加密、解密功能，支持对称加密、非对称加密。
+- [JSON/XML转换](https://home.memoryzy.cn/zhiyou/jsontoxml/)
+- [文本互相比对](https://home.memoryzy.cn/zhiyou/textcompare/)：比对两份文本之间的不同之处。
+- ......
 
 <br/>
 
