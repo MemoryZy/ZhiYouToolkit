@@ -9,7 +9,7 @@ ZhiYouToolkit, an IDEA tool plugin, provides many features that can improve the 
 知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
 
-[![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
+[![Plugin Homepage](https://img.shields.io/badge/Plugin%20Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=HomeAdvisor&logoColor=white)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
 [![Release](https://img.shields.io/badge/Release-v1.3.1-d05ce3.svg?style=Plastic)](https://github.com/MemoryZy/ZhiYouToolkit/releases)
 &nbsp;
