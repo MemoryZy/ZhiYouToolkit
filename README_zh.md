@@ -18,7 +18,7 @@
 
 <br/>
 
-## **功能**
+## 功能
  - 代码笔记功能，记录代码、笔记等...
  - JSON文本转换为JavaBean (支持嵌套属性)
  - JavaBean属性转JSON (支持嵌套属性、支持FastJson、Jackson注解)
@@ -41,21 +41,21 @@
 
 <br/>
 
-## **快速开始**
+## 快速开始 🎉
 > 导航：[插件介绍与使用文档](https://home.memoryzy.cn/zhiyou/)
 
 <br/>
 
-## **安装**
-> \> 通过 **[Jetbrains插件市场](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)** 安装。  
-> \> 在 **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** 下载插件并手动安装。
+## 安装
+> \> &nbsp;通过 **[Jetbrains插件市场](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)** 安装。  
+> \> &nbsp;在 **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** 下载插件并手动安装。
 
 <br/>
 
-## **提示**
+## 提示
 > 支持IDEA Ultimate 2022.2及以上版本。
 
 <br/>
 
-## **License**
+## 许可
 [![Licence](https://img.shields.io/badge/Licence-Apache%202.0-97ca00.svg?style=for-the-badge&logoColor=white)](./LICENSE)
