@@ -28,10 +28,11 @@ import java.util.Objects;
  * @since 2024/3/15
  */
 public class CreateAllGetterAction extends AnAction {
+
     private static final Logger LOG = Logger.getInstance(CreateAllGetterAction.class);
 
     public CreateAllGetterAction() {
-        super("Create Getter (列举Getter)");
+        super("List All Getters (列举Getter)");
     }
 
     @Override
@@ -46,7 +47,7 @@ public class CreateAllGetterAction extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        e.getPresentation().setEnabled(CreateSetterGetterMappingAction.isVarAvailable(e));
+        e.getPresentation().setEnabled(ActionUtil.isJavaFile(e) && CreateSetterGetterMappingAction.isVarAvailable(e));
     }
 
 

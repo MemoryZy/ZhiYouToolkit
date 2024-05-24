@@ -71,15 +71,8 @@ public class JavaBeanConvertToJsonAction extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent event) {
-        boolean enabled = false;
-        PsiClass psiClass = ActionUtil.getPsiClass(event);
-        if (Objects.nonNull(psiClass)) {
-            PsiField[] fields = ActionUtil.getAllFieldFilterStatic(psiClass);
-            enabled = ArrayUtil.isNotEmpty(fields);
-        }
-
         // 设置可见性
-        event.getPresentation().setEnabledAndVisible(enabled);
+        event.getPresentation().setEnabledAndVisible(ActionUtil.isJavaFile(event) && CreateSetterGetterMappingAction.hasProperty(event));
     }
 
 

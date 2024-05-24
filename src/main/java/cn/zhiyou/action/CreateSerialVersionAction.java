@@ -79,10 +79,13 @@ public class CreateSerialVersionAction extends AnAction {
     @Override
     public void update(@NotNull AnActionEvent e) {
         boolean enable = false;
-        PsiClass psiClass = ActionUtil.getPsiClass(e);
-        if (Objects.nonNull(psiClass) && psiClass.isWritable()) {
-            // 判断是否存在 静态变量 serialVersionUID
-            enable = Arrays.stream(psiClass.getFields()).noneMatch(el -> Objects.equals("serialVersionUID", el.getName()));
+
+        if (ActionUtil.isJavaFile(e)) {
+            PsiClass psiClass = ActionUtil.getPsiClass(e);
+            if (Objects.nonNull(psiClass) && psiClass.isWritable()) {
+                // 判断是否存在 静态变量 serialVersionUID
+                enable = Arrays.stream(psiClass.getFields()).noneMatch(el -> Objects.equals("serialVersionUID", el.getName()));
+            }
         }
 
         e.getPresentation().setEnabledAndVisible(enable);

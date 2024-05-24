@@ -57,7 +57,7 @@ public class CreateAnnotationOnFieldAction extends AnAction {
             if (CompatibilityUtil.existDatabasePlugin()) {
                 actions.add(new CreateMyBatisPlusAnnotationAction());
             }
-            
+
             actions.add(new CreateSwaggerAnnotationAction());
             actions.add(new CreateFastJsonAnnotationAction());
             actions.add(new CreateJacksonAnnotationAction());
@@ -79,7 +79,7 @@ public class CreateAnnotationOnFieldAction extends AnAction {
         Project project = e.getProject();
         PsiFile psiFile = ActionUtil.getPsiFile(e);
 
-        if (Objects.nonNull(project) && ActionUtil.isWrite(psiFile)) {
+        if (Objects.nonNull(project) && ActionUtil.isJavaFile(e) && ActionUtil.isWrite(psiFile)) {
             PsiClass psiClass = ActionUtil.getPsiClass(e);
             PsiField[] fields = ActionUtil.getAllFieldFilterStaticAndUnWrite(psiClass);
             enable = ArrayUtil.isNotEmpty(fields);

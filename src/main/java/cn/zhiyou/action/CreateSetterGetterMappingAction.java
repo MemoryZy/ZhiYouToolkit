@@ -52,7 +52,7 @@ public class CreateSetterGetterMappingAction extends AnAction {
 
         boolean enabled = false;
         if (ActionUtil.isWrite(psiFile) && ActionUtil.isJavaFile(psiFile)) {
-            enabled = isVarAvailable(e) || hasProperty(e) || CreateMappingAction.isParamOrMethod(e);
+            enabled = isVarAvailable(e) || hasProperty(e) || GenerateMappingAction.isParamOrMethod(e);
         }
 
         e.getPresentation().setEnabledAndVisible(enabled);
@@ -77,8 +77,8 @@ public class CreateSetterGetterMappingAction extends AnAction {
                     new CreateAllGetterAction(),
                     new CreateAllSetterWithoutDefaultValueAction(),
                     new CreateAllSetterWithDefaultValueAction(),
-                    new PropertyMatchingAction(),
-                    new CreateMappingAction()
+                    new MatchAttributesAction(),
+                    new GenerateMappingAction()
             };
         }
     }

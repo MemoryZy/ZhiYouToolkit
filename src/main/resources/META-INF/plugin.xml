@@ -176,11 +176,11 @@
 
     <actions>
         <!-- 生成相关 -->
-        <group id="cn.zhiyou.CreateGroupId" description="生成相关组">
+        <group id="cn.zhiyou.actionGroup.GenerateGroupId" description="生成相关组">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
             <separator/>
 
-            <action id="cn.zhiyou.CreateSerialVersionUIDActionId"
+            <action id="cn.zhiyou.action.CreateSerialVersionUIDActionId"
                     class="cn.zhiyou.action.CreateSerialVersionAction"
                     text="SerialVersionUID (序列化)"
                     description="创建序列化Id，并实现序列化类">
@@ -191,59 +191,57 @@
         </group>
 
 
-        <action id="cn.zhiyou.SaveCodeNoteActionId"
-                class="cn.zhiyou.action.SaveCodeNoteAction"
+        <action id="cn.zhiyou.action.RecordCodeNoteActionId"
+                class="cn.zhiyou.action.RecordCodeNoteAction"
                 icon="/icons/inkBrush.svg"
-                text="Save Notes (笔记)">
-            <add-to-group group-id="EditorPopupMenu" relative-to-action="cn.zhiyou.ClassFunctionGroupId"
+                text="_Record Notes (笔记)">
+            <add-to-group group-id="EditorPopupMenu" relative-to-action="cn.zhiyou.actionGroup.ClassFunctionGroupId"
                           anchor="before"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 2"/>
         </action>
 
-        <group id="cn.zhiyou.ClassFunctionGroupId" description="对类普通功能组">
+        <group id="cn.zhiyou.actionGroup.ClassFunctionGroupId" description="对类普通功能组">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <separator/>
 
-            <action id="cn.zhiyou.ConvertJsonAction"
+            <action id="cn.zhiyou.action.JavaBeanConvertToJsonActionId"
                     class="cn.zhiyou.action.JavaBeanConvertToJsonAction"
-                    text="Convert to JSON"
+                    text="_Convert to JSON"
                     icon="/icons/json.svg"
                     description="JavaBean转Json">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 0"/>
             </action>
             <separator/>
-            <action id="cn.zhiyou.ConvertStringAction"
+            <action id="cn.zhiyou.action.ConvertStringActionId"
                     class="cn.zhiyou.action.ConvertStringAction"
-                    text="Convert String"
+                    text="Convert Strings"
                     description="字符串操作">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 6"/>
             </action>
             <separator/>
-            <action id="cn.zhiyou.CommentLineToDocumentAction"
-                    class="cn.zhiyou.action.CommentLineToDocumentAction"
-                    text="Line To Doc (// --&gt; /**)" description="单行注释转文档注释">
+            <action id="cn.zhiyou.action.ConvertToJavadocActionId"
+                    class="cn.zhiyou.action.ConvertToJavadocAction"
+                    text="_Convert to Javadoc" description="单行注释转文档注释">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
             </action>
             <separator/>
-            <action id="cn.zhiyou.toolbox.CopyFullUrlAction"
-                    class="cn.zhiyou.action.CopyRequestFullUrlAction"
-                    text="Copy Rest Url (完整路径)"
+            <action id="cn.zhiyou.action.CopyRestfulPathActionId"
+                    class="cn.zhiyou.action.CopyRestfulPathAction"
+                    text="Copy RESTful Path"
                     description="复制接口完整路径">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 4"/>
             </action>
             <separator/>
 
-            <!--                        <action id="xx" class="cn.zhiyou.action.xx" text="xxx"/>-->
-            <!--                        <action id="SqlXXXXX" class="cn.zhiyou.action.ConvertExecutableSqlAction" text="Sql"/>-->
             <separator/>
-            <action id="cn.zhiyou.CreateAnnotationOnFieldActionId"
+            <action id="cn.zhiyou.action.CreateAnnotationOnFieldActionId"
                     class="cn.zhiyou.action.CreateAnnotationOnFieldAction"
                     icon="/icons/at.svg"
-                    text="Create Annotation">
+                    text="_Create Annotations">
                 <keyboard-shortcut first-keystroke="ctrl alt 8" keymap="$default"/>
             </action>
             <separator/>
-            <action id="cn.zhiyou.CreateSetterMappingAction"
+            <action id="cn.zhiyou.action.CreateSetterGetterMappingActionId"
                     class="cn.zhiyou.action.CreateSetterGetterMappingAction"
                     icon="/icons/eco.svg"
                     text="Mapping (Get/Set)"
@@ -251,10 +249,10 @@
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 9"/>
             </action>
             <separator/>
-            <action id="cn.zhiyou.OtherOperationsActionId"
-                    class="cn.zhiyou.action.OtherOperationsAction"
+            <action id="cn.zhiyou.action.ExtendedFeaturesActionId"
+                    class="cn.zhiyou.action.ExtendedFeaturesAction"
                     icon="/icons/open.svg"
-                    text="Other Operations...">
+                    text="_Extended Features...">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 7"/>
             </action>
             <separator/>
@@ -265,11 +263,11 @@
 
 
         <!-- 文件创建组 (New下) -->
-        <group id="ConvertFileGroup">
+        <group id="cn.zhiyou.actionGroup.ConvertFileGroupId">
             <add-to-group group-id="NewGroup" anchor="first"/>
             <separator/>
 
-            <action id="cn.zhiyou.JsonConvertToJavaBeanAction"
+            <action id="cn.zhiyou.JsonConvertToJavaBeanActionId"
                     class="cn.zhiyou.action.JsonConvertToJavaBeanAction"
                     text="Class By JSON"
                     icon="/icons/GroupByClass.svg"
@@ -278,9 +276,9 @@
         </group>
 
         <!-- 用于编辑器的Action -->
-        <action id="cn.zhiyou.JsonFormatActionId"
+        <action id="cn.zhiyou.action.JsonFormatActionId"
                 class="cn.zhiyou.action.JsonFormatAction"
-                text="JSON格式化"
+                text="JSON Format (格式化)"
                 icon="AllIcons.Json.Object"
                 description="用于给JsonFormat的工具窗右键弹出的菜单">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt k"/>
@@ -288,25 +286,25 @@
             <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
         </action>
 
-        <action id="cn.zhiyou.JsonCollectActionId"
-                class="cn.zhiyou.action.JsonCollectAction"
+        <action id="cn.zhiyou.JsonStructureActionId"
+                class="cn.zhiyou.action.JsonStructureAction"
                 icon="/icons/structure.svg"
-                text="JSON结构化">
-            <add-to-group group-id="BasicEditorPopupMenu" anchor="after" relative-to-action="cn.zhiyou.JsonCompressActionId"/>
+                text="JSON Structure (结构化)">
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="after" relative-to-action="cn.zhiyou.action.JsonCompressActionId"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
         </action>
 
-        <action id="cn.zhiyou.JsonCompressActionId"
+        <action id="cn.zhiyou.action.JsonCompressActionId"
                 class="cn.zhiyou.action.JsonCompressAction"
                 icon="/icons/compress.svg"
-                text="JSON压缩">
+                text="JSON Compress (压缩)">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt m"/>
             <!-- BasicEditorPopupMenu是基础编辑器右键弹出菜单 -->
             <add-to-group group-id="BasicEditorPopupMenu" anchor="after"
-                          relative-to-action="cn.zhiyou.JsonFormatActionId"/>
+                          relative-to-action="cn.zhiyou.action.JsonFormatActionId"/>
         </action>
 
-        <action id="zhiyou.HelpActionId"
+        <action id="cn.zhiyou.action.HelpActionId"
                 class="cn.zhiyou.action.HelpAction"
                 icon="/icons/zhiyou.svg"
                 text="About ZhiYou">
@@ -315,10 +313,10 @@
 
 
         <!-- 文件创建组2 (New下) -->
-        <group id="DataBaseBySelfOperationsId">
+        <group id="cn.zhiyou.actionGroup.DataBaseBySelfOperationsId">
             <add-to-group group-id="NewGroup" anchor="last"/>
             <separator/>
-            <action id="cn.zhiyou.CreateMyBatisMapperBySettingActionId"
+            <action id="cn.zhiyou.action.CreateMyBatisMapperBySettingActionId"
                     class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"
                     icon="/icons/nav.svg"
                     text="MyBatis Mapper (逆向)"/>

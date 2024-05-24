@@ -1,6 +1,7 @@
 package cn.zhiyou.action.child;
 
 import cn.zhiyou.action.CreateSetterGetterMappingAction;
+import cn.zhiyou.utils.ActionUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class CreateAllSetterWithDefaultValueAction extends AnAction {
     public CreateAllSetterWithDefaultValueAction() {
-        super("Create Setter (有默认值列举Setter)");
+        super("List All Setters (带默认值列举Setter)");
     }
 
     @Override
@@ -27,7 +28,7 @@ public class CreateAllSetterWithDefaultValueAction extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        e.getPresentation().setEnabled(CreateSetterGetterMappingAction.isVarAvailable(e));
+        e.getPresentation().setEnabled(ActionUtil.isJavaFile(e) && CreateSetterGetterMappingAction.isVarAvailable(e));
     }
 
 }
