@@ -1,20 +1,5 @@
 package cn.zhiyou.enums;
 
-import com.intellij.json.json5.Json5Language;
-import com.intellij.lang.Language;
-import com.intellij.lang.html.HTMLLanguage;
-import com.intellij.lang.java.JavaLanguage;
-import com.intellij.lang.javascript.JavascriptLanguage;
-import com.intellij.lang.properties.PropertiesLanguage;
-import com.intellij.lang.xml.XMLLanguage;
-import com.intellij.openapi.fileTypes.PlainTextLanguage;
-import com.intellij.sh.ShLanguage;
-import com.intellij.sql.psi.SqlLanguage;
-import org.intellij.plugins.markdown.lang.MarkdownLanguage;
-import org.jetbrains.kotlin.idea.KotlinLanguage;
-import org.jetbrains.plugins.groovy.GroovyLanguage;
-import org.jetbrains.yaml.YAMLLanguage;
-
 import java.util.Objects;
 
 /**
@@ -22,30 +7,35 @@ import java.util.Objects;
  * @since 2024/4/9
  */
 public enum LanguageEnum {
-    Text(PlainTextLanguage.INSTANCE, null),
-    Java(JavaLanguage.INSTANCE, "com.intellij.java"),
-    Json(Json5Language.INSTANCE, null),
-    Kotlin(KotlinLanguage.INSTANCE, "org.jetbrains.kotlin"),
-    Sql(SqlLanguage.INSTANCE, "com.intellij.database"),
-    Markdown(MarkdownLanguage.INSTANCE, "org.intellij.plugins.markdown"),
-    Xml(XMLLanguage.INSTANCE, null),
-    Html(HTMLLanguage.INSTANCE, null),
-    JavaScript(JavascriptLanguage.INSTANCE, "JavaScript"),
-    Shell(ShLanguage.INSTANCE, "com.jetbrains.sh"),
-    Properties(PropertiesLanguage.INSTANCE, "com.intellij.properties"),
-    Yaml(YAMLLanguage.INSTANCE, "org.jetbrains.plugins.yaml"),
-    Groovy(GroovyLanguage.INSTANCE, "org.intellij.groovy");
+    Text("com.intellij.openapi.fileTypes.PlainTextLanguage", null),
+    Java("com.intellij.lang.java.JavaLanguage", "com.intellij.java"),
+    Json("com.intellij.json.json5.Json5Language", null),
+    Xml("com.intellij.lang.xml.XMLLanguage", null),
+    Html("com.intellij.lang.html.HTMLLanguage", null),
 
-    private final Language language;
+    // ------------ 以下是导入的依赖
+    Kotlin("org.jetbrains.kotlin.idea.KotlinLanguage", "org.jetbrains.kotlin"),
+    Sql("com.intellij.sql.psi.SqlLanguage", "com.intellij.database"),
+    JavaScript("com.intellij.lang.javascript.JavascriptLanguage", "JavaScript"),
+    Shell("com.intellij.sh.ShLanguage", "com.jetbrains.sh"),
+
+    // Markdown(MarkdownLanguage.INSTANCE, "org.intellij.plugins.markdown"),
+    // Properties(PropertiesLanguage.INSTANCE, "com.intellij.properties"),
+    // Yaml(YAMLLanguage.INSTANCE, "org.jetbrains.plugins.yaml"),
+    // Groovy(GroovyLanguage.INSTANCE, "org.intellij.groovy");
+
+    ;
+
+    private final String languageClassQualifiedName;
     private final String pluginId;
 
-    LanguageEnum(Language language, String pluginId) {
-        this.language = language;
+    LanguageEnum(String languageClassQualifiedName, String pluginId) {
+        this.languageClassQualifiedName = languageClassQualifiedName;
         this.pluginId = pluginId;
     }
 
-    public Language getLanguage() {
-        return language;
+    public String getLanguageClassQualifiedName() {
+        return languageClassQualifiedName;
     }
 
     public String getPluginId() {

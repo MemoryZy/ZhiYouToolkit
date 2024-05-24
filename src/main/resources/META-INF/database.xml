@@ -1,0 +1,25 @@
+<idea-plugin>
+    <actions>
+        <!-- 文件创建组2 (New下) -->
+        <group id="DataBaseByNewOperationsId">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <separator/>
+            <action id="cn.zhiyou.CreateMyBatisMapperActionId"
+                    class="cn.zhiyou.action.CreateMyBatisMapperAction"
+                    icon="/icons/nav.svg"
+                    text="MyBatis Mapper (逆向)"/>
+            <separator/>
+        </group>
+
+        <group id="DataBaseOperationsId">
+            <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
+            <separator/>
+            <action id="CreateMyBatisMapperAction2Id"
+                    class="cn.zhiyou.action.CreateMyBatisMapperOnDataBaseAction"
+                    icon="/icons/nav.svg"
+                    text="MyBatis Mapper (逆向)">
+            </action>
+            <separator/>
+        </group>
+    </actions>
+</idea-plugin>

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "cn.zhiyou"
-version = "1.3.2"
+version = "1.4.0"
 
 repositories {
     mavenCentral()
@@ -34,13 +34,14 @@ intellij {
     plugins.set(listOf(
         "com.intellij.java",
         "com.intellij.database",
-        "org.intellij.plugins.markdown",
         "com.jetbrains.sh",
         "org.jetbrains.kotlin",
-        "org.jetbrains.plugins.yaml",
-        "com.intellij.properties",
-        "org.intellij.groovy",
         "JavaScript"
+
+        // "org.intellij.plugins.markdown",
+        // "org.jetbrains.plugins.yaml",
+        // "com.intellij.properties",
+        // "org.intellij.groovy",
     ))
 }
 

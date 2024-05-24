@@ -151,7 +151,12 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
         if (Objects.nonNull(codeNoteEntity)) {
             LanguageEnum languageEnum = LanguageEnum.of(codeNoteEntity.getCodeType());
             if (Objects.nonNull(languageEnum)) {
-                language = languageEnum.getLanguage();
+                // 将其换为Language实现类的全限定名，接着用反射获取字段值
+                String languageClassQualifiedName = languageEnum.getLanguageClassQualifiedName();
+                Object instance = ReflectUtil.getStaticFinalFieldValue(languageClassQualifiedName, "INSTANCE");
+                if (instance instanceof Language lang){
+                    language = lang;
+                }
             }
         }
 
@@ -326,7 +331,14 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
                 protected void customizeCellRenderer(@NotNull JList<? extends LanguageEnum> jList, LanguageEnum value, int index, boolean selected, boolean hasFocus) {
                     append(" " + value.toString(), SimpleTextAttributes.REGULAR_ATTRIBUTES);
 
-                    Language language = value.getLanguage();
+                    Language language = null;
+                    // 将其换为Language实现类的全限定名，接着用反射获取字段值
+                    String languageClassQualifiedName = value.getLanguageClassQualifiedName();
+                    Object instance = ReflectUtil.getStaticFinalFieldValue(languageClassQualifiedName, "INSTANCE");
+                    if (instance instanceof Language lang){
+                        language = lang;
+                    }
+
                     FileType languageFileType = LanguageUtil.getLanguageFileType(language);
                     if (Objects.nonNull(languageFileType)) {
                         Icon icon = languageFileType.getIcon();
@@ -357,11 +369,11 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
                         LanguageEnum selectedValue = list.getSelectedValue();
                         // 改变link文本
                         codeTypeLink.setText(selectedValue.name());
-                        // 改变类型
-                        String contentStr = codeContentTf.getText();;
-                        MyDocumentProvider myDocumentProvider = new MyDocumentProvider(project);
-                        Document document = myDocumentProvider.getDocument(contentStr, selectedValue.getLanguage());
-                        codeContentTf.setDocument(document);
+                        // 改变类型 2024/5/25 优化，去除当场改文档类型的操作
+                        // String contentStr = codeContentTf.getText();;
+                        // MyDocumentProvider myDocumentProvider = new MyDocumentProvider(project);
+                        // Document document = myDocumentProvider.getDocument(contentStr, selectedValue.getLanguage());
+                        // codeContentTf.setDocument(document);
 
                         // 关闭窗口
                         popup.dispose();

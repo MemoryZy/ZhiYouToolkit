@@ -7,6 +7,7 @@ import cn.zhiyou.action.child.CreateMyBatisPlusAnnotationAction;
 import cn.zhiyou.action.child.CreateSwaggerAnnotationAction;
 import cn.zhiyou.ui.CreateAnnotationDialogWrapper;
 import cn.zhiyou.utils.ActionUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -20,6 +21,7 @@ import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -51,12 +53,16 @@ public class CreateAnnotationOnFieldAction extends AnAction {
 
         @Override
         public AnAction @NotNull [] getChildren(@Nullable AnActionEvent e) {
-            return new AnAction[]{
-                    new CreateMyBatisPlusAnnotationAction(),
-                    new CreateSwaggerAnnotationAction(),
-                    new CreateFastJsonAnnotationAction(),
-                    new CreateJacksonAnnotationAction()
-            };
+            List<AnAction> actions = new ArrayList<>();
+            if (CompatibilityUtil.existDatabasePlugin()) {
+                actions.add(new CreateMyBatisPlusAnnotationAction());
+            }
+            
+            actions.add(new CreateSwaggerAnnotationAction());
+            actions.add(new CreateFastJsonAnnotationAction());
+            actions.add(new CreateJacksonAnnotationAction());
+
+            return actions.toArray(new AnAction[0]);
         }
     }
 

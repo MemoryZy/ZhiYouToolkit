@@ -1,9 +1,8 @@
 package cn.zhiyou.action;
 
 import cn.hutool.core.util.ArrayUtil;
-import cn.zhiyou.constant.PluginNameConstant;
 import cn.zhiyou.ui.CreateMyBatisMapperOnDataBaseDialogWrapper;
-import cn.zhiyou.utils.ActionUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.database.psi.DbTable;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -59,7 +58,7 @@ public class CreateMyBatisMapperOnDataBaseAction extends AnAction {
         // 选择了元素
         boolean visible = ArrayUtil.isNotEmpty(psiElements)
                 // 安装了Database插件
-                && ActionUtil.existPlugin(PluginNameConstant.DB_TABLE_CLASS_NAME)
+                && CompatibilityUtil.existDatabasePlugin()
                 // 选择的所有元素都是DbTable
                 && Arrays.stream(psiElements).allMatch(checkClass);
 

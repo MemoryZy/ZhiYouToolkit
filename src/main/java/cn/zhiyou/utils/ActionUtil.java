@@ -4,7 +4,6 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.action.JavaBeanConvertToJsonAction;
-import cn.zhiyou.constant.PluginNameConstant;
 import cn.zhiyou.enums.PopupTypeEnum;
 import com.intellij.codeInsight.hint.HintManager;
 import com.intellij.database.model.DasDataSource;
@@ -13,7 +12,7 @@ import com.intellij.designer.clipboard.SimpleTransferable;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.ide.highlighter.JavaFileType;
-import com.intellij.ide.plugins.PluginManager;
+import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.ide.util.TreeJavaClassChooserDialog;
 import com.intellij.lang.FileASTNode;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -943,6 +942,24 @@ public class ActionUtil {
     }
 
 
+    /**
+     * 插件是否安装并启用
+     *
+     * @param pluginId                 插件ID
+     * @param pluginClassQualifiedName 插件其中的类全限定名，传null不验证class
+     * @return true：安装并启用；false：未启用或未安装
+     */
+    public static boolean isPluginInstalledAndEnabled(String pluginId, String pluginClassQualifiedName) {
+        PluginId pluginIdObj = PluginId.getId(pluginId);
+        // 已安装
+        return PluginManagerCore.isPluginInstalled(pluginIdObj)
+                // 已启用
+                && !PluginManagerCore.isDisabled(pluginIdObj)
+                // 继续验证
+                && (StrUtil.isBlank(pluginClassQualifiedName) || existPlugin(pluginClassQualifiedName));
+    }
+
+
     public static boolean existPlugin(String pluginClassQualifiedName) {
         try {
             // 这个类加载用的是idea应用内置的jdk
@@ -977,7 +994,7 @@ public class ActionUtil {
         List<DasDataSource> dataSourceList = new ArrayList<>();
 
         // 前提是用户的idea存在Database插件，否则报错
-        if (existPlugin(PluginNameConstant.DB_TABLE_CLASS_NAME)) {
+        if (CompatibilityUtil.existDatabasePlugin()) {
             // 获取数据源管理器
             List<DataSourceManager<?>> managers = DataSourceManager.getManagers(project);
             // 获取所有本地配置的数据源

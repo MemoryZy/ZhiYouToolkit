@@ -5,7 +5,6 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import cn.zhiyou.config.DataBaseSetting;
-import cn.zhiyou.constant.PluginNameConstant;
 import cn.zhiyou.entity.PackageAndPath;
 import cn.zhiyou.notify.OpenDataBaseSettingNotificationAction;
 import cn.zhiyou.notify.OpenDatabaseToolWindowNotificationAction;
@@ -14,6 +13,7 @@ import cn.zhiyou.ui.DasDataBaseChangeDialog;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import cn.zhiyou.utils.NotificationUtil;
 import com.intellij.database.model.*;
 import com.intellij.ide.IdeView;
@@ -56,7 +56,7 @@ public class CreateMyBatisMapperAction extends AnAction {
         SimpleDataSource simpleDataSource = null;
         JBIterable<? extends DasTable> dasTables = null;
         // 先判断有没有Database以及有没有配置数据源，有的话叫用户选择
-        if (ActionUtil.existPlugin(PluginNameConstant.DB_TABLE_CLASS_NAME)) {
+        if (CompatibilityUtil.existDatabasePlugin()) {
             List<DasDataSource> dasDataSourceList = ActionUtil.getAllLocalDataSource(project);
             // 有Database插件无数据源
             if (CollUtil.isEmpty(dasDataSourceList)) {

@@ -4,12 +4,11 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import cn.zhiyou.config.DataBaseSetting;
 import cn.zhiyou.constant.Icons;
-import cn.zhiyou.constant.PluginNameConstant;
 import cn.zhiyou.utils.ActionUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import cn.zhiyou.utils.PopupUtil;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.MessageType;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.GotItTooltip;
@@ -22,7 +21,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -55,7 +53,7 @@ public class DataBaseSettingConfigurationWindow {
                                               String url,
                                               String driver) {
 
-        if (ActionUtil.existPlugin(PluginNameConstant.DB_TABLE_CLASS_NAME)) {
+        if (CompatibilityUtil.existDatabasePlugin()) {
             ActionUtil.showGotItTip(
                     "zhiyou.dbTool.exist.id",
                     "Warning",

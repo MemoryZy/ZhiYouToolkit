@@ -92,27 +92,32 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <!-- 引入Java扩展 -->
-    <!-- 需要可选依赖的话，需要把用到依赖的配置地方迁移到另一份plugin.xml配置中，这样当依赖不存在于目标idea时，该功能亦不可用 -->
     <depends>com.intellij.java</depends>
-    <depends>com.intellij.database</depends>
-    <depends>org.intellij.plugins.markdown</depends>
-    <depends>com.jetbrains.sh</depends>
-    <depends>org.jetbrains.kotlin</depends>
-    <depends>org.jetbrains.plugins.yaml</depends>
-    <depends>com.intellij.properties</depends>
-    <depends>org.intellij.groovy</depends>
-    <depends>JavaScript</depends>
+
+    <!-- 需要可选依赖的话，需要把用到依赖的配置地方迁移到另一份plugin.xml配置中，这样当依赖不存在于目标idea时，该功能亦不可用 -->
+
+    <!-- 可选依赖 -->
+    <depends optional="true" config-file="database.xml">com.intellij.database</depends>
+    <depends optional="true" config-file="shell.xml">com.jetbrains.sh</depends>
+    <depends optional="true" config-file="kotlin.xml">org.jetbrains.kotlin</depends>
+    <depends optional="true" config-file="js.xml">JavaScript</depends>
+
+    <!--    <depends>org.intellij.plugins.markdown</depends>-->
+    <!--    <depends>org.jetbrains.plugins.yaml</depends>-->
+    <!--    <depends>com.intellij.properties</depends>-->
+    <!--    <depends>org.intellij.groovy</depends>-->
+    <!--    <depends>JavaScript</depends>-->
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <!-- displayType只有这四种类型, id 在一个插件内不能重复,isLogByDefault表示是否在 Event Log 中记录 -->
-        <notificationGroup displayType="BALLOON" id="ZhiYou.balloon" isLogByDefault="false"/>
-        <notificationGroup displayType="BALLOON" id="ZhiYou.balloon.log" isLogByDefault="true"/>
+        <notificationGroup displayType="BALLOON" id="ZhiYou.notify.balloon" isLogByDefault="false"/>
+        <notificationGroup displayType="BALLOON" id="ZhiYou.notify.balloon.log" isLogByDefault="true"/>
         <!-- 粘性通知（不会自动消失）-->
-        <notificationGroup displayType="STICKY_BALLOON" id="ZhiYou.sticky.balloon"/>
-        <notificationGroup displayType="TOOL_WINDOW" id="ZhiYou.tool.window"/>
-        <notificationGroup displayType="NONE" id="ZhiYou.none"/>
+        <notificationGroup displayType="STICKY_BALLOON" id="ZhiYou.notify.sticky.balloon"/>
+        <notificationGroup displayType="TOOL_WINDOW" id="ZhiYou.notify.tool.window"/>
+        <notificationGroup displayType="NONE" id="ZhiYou.notify.none"/>
 
         <!-- 声明模板文件 -->
         <internalFileTemplate name="ResultMap"/>
@@ -171,11 +176,11 @@
 
     <actions>
         <!-- 生成相关 -->
-        <group id="cn.zhiyou.CreateGroup" description="生成相关组">
+        <group id="cn.zhiyou.CreateGroupId" description="生成相关组">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
             <separator/>
 
-            <action id="cn.zhiyou.CreateSerialVersionUIDAction"
+            <action id="cn.zhiyou.CreateSerialVersionUIDActionId"
                     class="cn.zhiyou.action.CreateSerialVersionAction"
                     text="SerialVersionUID (序列化)"
                     description="创建序列化Id，并实现序列化类">
@@ -190,12 +195,12 @@
                 class="cn.zhiyou.action.SaveCodeNoteAction"
                 icon="/icons/inkBrush.svg"
                 text="Save Notes (笔记)">
-            <add-to-group group-id="EditorPopupMenu" relative-to-action="cn.zhiyou.ClassFunctionGroup"
+            <add-to-group group-id="EditorPopupMenu" relative-to-action="cn.zhiyou.ClassFunctionGroupId"
                           anchor="before"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 2"/>
         </action>
 
-        <group id="cn.zhiyou.ClassFunctionGroup" description="对类普通功能组">
+        <group id="cn.zhiyou.ClassFunctionGroupId" description="对类普通功能组">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <separator/>
 
@@ -272,17 +277,6 @@
             </action>
         </group>
 
-        <!-- 文件创建组2 (New下) -->
-        <group id="ConvertFileGroup2">
-            <add-to-group group-id="NewGroup" anchor="last"/>
-            <separator/>
-            <action id="cn.zhiyou.CreateMyBatisMapperActionId"
-                    class="cn.zhiyou.action.CreateMyBatisMapperAction"
-                    icon="/icons/nav.svg"
-                    text="MyBatis Mapper (逆向)"/>
-            <separator/>
-        </group>
-
         <!-- 用于编辑器的Action -->
         <action id="cn.zhiyou.JsonFormatActionId"
                 class="cn.zhiyou.action.JsonFormatAction"
@@ -312,24 +306,26 @@
                           relative-to-action="cn.zhiyou.JsonFormatActionId"/>
         </action>
 
-        <group id="DataBaseOperationsID">
-            <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
-            <separator/>
-            <action id="CreateMyBatisMapperAction2Id"
-                    class="cn.zhiyou.action.CreateMyBatisMapperOnDataBaseAction"
-                    icon="/icons/nav.svg"
-                    text="MyBatis Mapper (逆向)">
-            </action>
-            <separator/>
-        </group>
-
-
         <action id="zhiyou.HelpActionId"
                 class="cn.zhiyou.action.HelpAction"
                 icon="/icons/zhiyou.svg"
                 text="About ZhiYou">
             <add-to-group group-id="HelpMenu" anchor="after" relative-to-action="About"/>
         </action>
+
+
+        <!-- 文件创建组2 (New下) -->
+        <group id="DataBaseBySelfOperationsId">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <separator/>
+            <action id="cn.zhiyou.CreateMyBatisMapperBySettingActionId"
+                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"
+                    icon="/icons/nav.svg"
+                    text="MyBatis Mapper (逆向)"/>
+            <separator/>
+        </group>
+
+
     </actions>
 
 

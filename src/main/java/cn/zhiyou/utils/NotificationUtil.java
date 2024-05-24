@@ -16,17 +16,17 @@ public class NotificationUtil {
     /**
      * 获取注册的通知组
      */
-    public static final NotificationGroup BALLOON = MANAGER.getNotificationGroup("ZhiYou.balloon");
+    public static final NotificationGroup BALLOON = MANAGER.getNotificationGroup("ZhiYou.notify.balloon");
     /**
      * 在通知历史中记录
      */
-    public static final NotificationGroup BALLOON_LOG = MANAGER.getNotificationGroup("ZhiYou.balloon.log");
+    public static final NotificationGroup BALLOON_LOG = MANAGER.getNotificationGroup("ZhiYou.notify.balloon.log");
     /**
      * 粘性通知（不会自动消失）
      */
-    public static final NotificationGroup STICKY_BALLOON = MANAGER.getNotificationGroup("ZhiYou.sticky.balloon");
-    public static final NotificationGroup TOOLWINDOW = MANAGER.getNotificationGroup("ZhiYou.tool.window");
-    public static final NotificationGroup NONE = MANAGER.getNotificationGroup("ZhiYou.none");
+    public static final NotificationGroup STICKY_BALLOON = MANAGER.getNotificationGroup("ZhiYou.notify.sticky.balloon");
+    public static final NotificationGroup TOOLWINDOW = MANAGER.getNotificationGroup("ZhiYou.notify.tool.window");
+    public static final NotificationGroup NONE = MANAGER.getNotificationGroup("ZhiYou.notify.none");
 
 
     /**
@@ -82,7 +82,7 @@ public class NotificationUtil {
                                       NotificationType notificationType,
                                       Project project) {
         // 提示进行配置
-        Notification notification = new Notification("ZhiYou.balloon", title, content, notificationType);
+        Notification notification = new Notification("ZhiYou.notify.balloon", title, content, notificationType);
         // 在提示消息中，增加一个 Action，可以通过 Action 一步打开配置界面
         for (NotificationAction action : notificationAction) {
             notification.addAction(action);

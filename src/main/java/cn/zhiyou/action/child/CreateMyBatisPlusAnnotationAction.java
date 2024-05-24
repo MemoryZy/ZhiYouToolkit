@@ -8,7 +8,6 @@ import cn.hutool.db.meta.Column;
 import cn.hutool.db.meta.MetaUtil;
 import cn.hutool.db.meta.Table;
 import cn.zhiyou.config.DataBaseSetting;
-import cn.zhiyou.constant.PluginNameConstant;
 import cn.zhiyou.entity.FieldMappedEntity;
 import cn.zhiyou.enums.MyBatisAnnotationEnum;
 import cn.zhiyou.exception.ZhiYouException;
@@ -19,6 +18,7 @@ import cn.zhiyou.ui.DasDataBaseChangeDialog;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
+import cn.zhiyou.utils.CompatibilityUtil;
 import cn.zhiyou.utils.NotificationUtil;
 import com.intellij.database.model.*;
 import com.intellij.database.util.DasUtil;
@@ -75,7 +75,7 @@ public class CreateMyBatisPlusAnnotationAction extends AnAction {
 
         List<FieldMappedEntity> fieldMappedEntityList = new ArrayList<>();
         // 先判断有没有Database以及有没有配置数据源，有的话叫用户选择
-        if (ActionUtil.existPlugin(PluginNameConstant.DB_TABLE_CLASS_NAME)) {
+        if (CompatibilityUtil.existDatabasePlugin()) {
             List<DasDataSource> dasDataSourceList = ActionUtil.getAllLocalDataSource(project);
             // 有Database插件无数据源
             if (CollUtil.isEmpty(dasDataSourceList)) {
