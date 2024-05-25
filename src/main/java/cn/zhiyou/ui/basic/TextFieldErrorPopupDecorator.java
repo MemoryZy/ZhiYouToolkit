@@ -1,7 +1,5 @@
 package cn.zhiyou.ui.basic;
 
-import com.intellij.concurrency.JobLauncher;
-import com.intellij.concurrency.JobScheduler;
 import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.openapi.ui.ComponentValidator;
 import com.intellij.openapi.ui.ValidationInfo;
@@ -20,7 +18,6 @@ import javax.swing.event.AncestorEvent;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * @author wcp

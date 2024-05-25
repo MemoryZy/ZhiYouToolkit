@@ -3,31 +3,17 @@ package cn.zhiyou.ui;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.config.CodeNoteSetting;
-import cn.zhiyou.entity.CodeNoteEntity;
 import cn.zhiyou.entity.CodeNoteLabelEntity;
 import cn.zhiyou.ui.basic.TextFieldErrorPopupDecorator;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.ui.ColorChooserService;
-import com.intellij.ui.ColorPicker;
-import com.intellij.ui.ColorUtil;
-import com.intellij.ui.JBColor;
-import com.intellij.ui.components.ActionLink;
 import com.intellij.ui.components.JBTextField;
-import com.intellij.ui.picker.ColorListener;
-import com.intellij.util.ui.ColorIcon;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.lang.ref.Reference;
 import java.util.*;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author wcp

@@ -2,14 +2,11 @@ package cn.zhiyou.ui.child;
 
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.config.JasyptSetting;
-import cn.zhiyou.ui.basic.TextFieldErrorPopupDecorator;
-import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.ui.components.fields.ExpandableTextField;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
 /**
  * @author wcp
