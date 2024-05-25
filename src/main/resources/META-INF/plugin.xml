@@ -14,56 +14,55 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    <p>ZhiYouToolkit, a tool plug-in that provides many features that can improve the efficiency and quality of code development.</p>
+    <p>ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain points in daily development, enhancing code development efficiency and quality.</p>
     <br/>
     <a href="https://home.memoryzy.cn/zhiyou/">Get Started</a>
     | <a href="https://home.memoryzy.cn/">Website</a>
     | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
+    | <a href="https://gitee.com/MemoryZy/ZhiYouToolkit">Gitee</a>
     <br/>
-    <h2>Features:</h2>
+    <h2>Features</h2>
     <ul>
-        <li>Code notes function, record code, notes, etc.</li>
-        <li>Json to Java classes (nested properties supported).</li>
-        <li>Convert java class attributes to json (support for nested attributes, FastJson annotations, Jackson annotations).</li>
-        <li>The text in hump and underline format is converted to each other.</li>
-        <li>Chinese can be converted to pinyin.</li>
-        <li>Single-line text comments can be converted to Java document comments.</li>
-        <li>Dynamically generate a ResultMap tag in MyBatis.</li>
-        <li>Dynamically generate Where tags in MyBatis (supports MyBatis Plus annotations, Jpa annotations).</li>
-        <li>Mapping of attributes to attributes (e.g. a.setX(b.setx)).</li>
-        <li>Generate a JDK serialization id.</li>
-        <li>Copy the Spring interface mapping path.</li>
-        <li>Json window (Format Json, compress Json, tree Json).</li>
-        <li>The timestamp is converted to the time.</li>
-        <li>Generate MyBatis related files (e.g., mapper).</li>
-        <li>Specify annotations and comments for class attribute generation.</li>
-        <li>Jasypt Encryption and decryption.</li>
-        <li>Convert JSON/XML text to each other.</li>
-        <li>Text comparison.</li>
+        <li>Code Notes: Code Logging, Note Import, Note Export, Note Tagging.</li>
+        <li>Convert JSON to JavaBean: Support for Nested Properties.</li>
+        <li>Convert JavaBean to JSON: Support for Nested Properties, FastJson, and Jackson Annotations.</li>
+        <li>JSON Window and JSON Processing: JSON Formatting, JSON Compression, JSON Structuring.</li>
+        <li>String Format Conversion: Convert Between Camel Case and Underscore, Convert Chinese to Pinyin.</li>
+        <li>Convert Single-line Comments to Documentation Comments</li>
+        <li>Generate ResultMap Tags: One-Click Generation of MyBatis ResultMap Tags.</li>
+        <li>Generate Where Tags: One-Click Generation of MyBatis Where Tags.</li>
+        <li>Class Property Mapping and Method Enumeration: Enumerate Getter and Setter Methods, Class Property Mapping Functionality.</li>
+        <li>Generate JDK Serialization ID: One-Click Generation of JDK Serialization ID.</li>
+        <li>Extract Spring Interface Paths</li>
+        <li>Convert Between Timestamps and Dates</li>
+        <li>Generate MyBatis-related Files: Generate Mapper Interface, Mapper XML, Mapping Class, and Other Files.</li>
+        <li>Generate Specified Annotations and Comments: Generate Specified Annotations and Comments for Class Properties.</li>
+        <li>Jasypt Encryption and Decryption: Jasypt Encryption and Decryption Functionality, Support for Symmetric and Asymmetric Encryption.</li>
+        <li>Convert Between JSON and XML</li>
+        <li>Text Comparison: Compare Differences Between Two Texts.</li>
         <li>......</li>
     </ul>
     <hr/>
     <br/>
-    <p>知游工具，一款提供了诸多功能，可以提高代码开发的效率和质量的工具插件。</p>
+    <p>知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。</p>
     <ul>
-        <li>代码笔记功能，记录代码、笔记等...</li>
-        <li>JSON文本转换为JavaBean (支持嵌套属性)</li>
-        <li>JavaBean属性转JSON (支持嵌套属性、支持FastJson、Jackson注解)</li>
-        <li>驼峰、下划线格式文本互相转换</li>
-        <li>将选中的中文文本转为拼音</li>
-        <li>将单行注释转换为文档注释</li>
-        <li>动态生成MyBatis-ResultMap标签</li>
-        <li>动态生成MyBatis-Where标签 (支持MyBatis Plus、Jpa注解)</li>
-        <li>属性与属性的映射、Getter、Setter方法生成，例如：a.setX(b.getX)</li>
-        <li>一键生成JDK序列化Id</li>
-        <li>一键复制Spring接口映射路径</li>
-        <li>JSON窗口（格式化Json、压缩Json、树化Json）</li>
-        <li>时间戳与时间互相转换</li>
-        <li>生成MyBatis-Mapper、MapperXml等文件</li>
-        <li>为类属性生成指定注解及注释</li>
-        <li>Jasypt加解密</li>
-        <li>JSON/XML互相转换</li>
-        <li>文本互相比对</li>
+        <li>代码笔记：记录代码、笔记导入、笔记导出、笔记标签。</li>
+        <li>Json转JavaBean：支持嵌套属性。</li>
+        <li>JavaBean转Json：支持嵌套属性，支持FastJson、Jackson注解。</li>
+        <li>Json窗口及Json处理：Json格式化、Json压缩、Json结构化。</li>
+        <li>字符串格式转换：驼峰与下划线互相转换、中文转拼音。</li>
+        <li>单行注释转文档注释</li>
+        <li>ResultMap标签生成：一键生成MyBatis-ResultMap标签。</li>
+        <li>Where标签生成：一键生成MyBatis-Where标签。</li>
+        <li>类属性映射与方法列举：Getter、Setter方法列举、类属性映射功能。</li>
+        <li>JDK序列化ID生成：一键生成JDK序列化Id。</li>
+        <li>Spring接口路径提取</li>
+        <li>时间戳与时间转换</li>
+        <li>MyBatis相关文件生成：生成Mapper接口、Mapper-Xml、映射类等文件。</li>
+        <li>指定注解、注释生成：为类属性生成指定注解及注释。</li>
+        <li>Jasypt加解密：Jasypt加密、解密功能，支持对称加密、非对称加密。</li>
+        <li>JSON/XML转换</li>
+        <li>文本互相比对：比对两份文本之间的不同之处。</li>
         <li>......</li>
     </ul>
   ]]></description>
@@ -264,12 +263,10 @@
 
         <!-- 文件创建组 (New下) -->
         <group id="cn.zhiyou.actionGroup.ConvertFileGroupId">
-            <add-to-group group-id="NewGroup" anchor="first"/>
-            <separator/>
-
+            <add-to-group group-id="NewGroup" relative-to-action="Kotlin.NewFile" anchor="before"/>
             <action id="cn.zhiyou.JsonConvertToJavaBeanActionId"
                     class="cn.zhiyou.action.JsonConvertToJavaBeanAction"
-                    text="Class By JSON"
+                    text="Java Class from Json"
                     icon="/icons/GroupByClass.svg"
                     description="Json转换为JavaBean">
             </action>
@@ -313,15 +310,15 @@
 
 
         <!-- 文件创建组2 (New下) -->
-        <group id="cn.zhiyou.actionGroup.DataBaseBySelfOperationsId">
-            <add-to-group group-id="NewGroup" anchor="last"/>
-            <separator/>
-            <action id="cn.zhiyou.action.CreateMyBatisMapperBySettingActionId"
-                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"
-                    icon="/icons/nav.svg"
-                    text="MyBatis Mapper (逆向)"/>
-            <separator/>
-        </group>
+<!--        <group id="cn.zhiyou.actionGroup.DataBaseBySelfOperationsId">-->
+<!--            <add-to-group group-id="NewGroup" anchor="last"/>-->
+<!--            <separator/>-->
+<!--            <action id="cn.zhiyou.action.CreateMyBatisMapperBySettingActionId"-->
+<!--                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"-->
+<!--                    icon="/icons/nav.svg"-->
+<!--                    text="MyBatis Mapper (逆向)"/>-->
+<!--            <separator/>-->
+<!--        </group>-->
 
 
     </actions>

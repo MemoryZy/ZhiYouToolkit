@@ -27,7 +27,7 @@ import java.util.Objects;
 public class MatchAttributesAction extends AnAction {
 
     public MatchAttributesAction() {
-        super("Attribute Matching Analysis (类与类间属性匹配)");
+        super("Attribute Matching Analysis (类属性匹配)");
     }
 
     @Override

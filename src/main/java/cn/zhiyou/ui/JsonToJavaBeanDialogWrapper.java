@@ -80,7 +80,7 @@ public class JsonToJavaBeanDialogWrapper extends DialogWrapper {
         // 声明 Json 类型编辑器
         jsonEditorTextField = new MultiRowLanguageTextField(Json5Language.INSTANCE, project, "", true);
         jsonEditorTextField.setFont(new Font("Consolas", Font.PLAIN, 15));
-        jsonEditorTextField.setPlaceholder("Json..");
+        jsonEditorTextField.setPlaceholder("Json...");
     }
 
     @Override

@@ -33,7 +33,7 @@ import java.util.Objects;
 public class GenerateMappingAction extends AnAction {
 
     public GenerateMappingAction() {
-        super("Generate Attributes Mapping (类与类间属性映射)");
+        super("Generate Attributes Mapping (类属性映射)");
     }
 
     @Override
