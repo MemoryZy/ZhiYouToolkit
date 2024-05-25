@@ -137,7 +137,7 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
         // 非模态弹窗（可以在展示弹窗时，不限制主页面的操作）
         setModal(false);
 
-        setOKButtonText("确定");
+        setOKButtonText("保存并退出");
         setCancelButtonText("取消");
 
         setTitle("笔记详情");
@@ -154,7 +154,7 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
                 // 将其换为Language实现类的全限定名，接着用反射获取字段值
                 String languageClassQualifiedName = languageEnum.getLanguageClassQualifiedName();
                 Object instance = ReflectUtil.getStaticFinalFieldValue(languageClassQualifiedName, "INSTANCE");
-                if (instance instanceof Language lang){
+                if (instance instanceof Language lang) {
                     language = lang;
                 }
             }
@@ -302,6 +302,28 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
     }
 
 
+    @Override
+    protected Action @NotNull [] createActions() {
+        List<Action> actions = new ArrayList<>();
+        actions.add(new SaveAction());
+        actions.add(getOKAction());
+        actions.add(getCancelAction());
+        return actions.toArray(new Action[0]);
+    }
+
+
+    private class SaveAction extends DialogWrapperExitAction {
+        public SaveAction() {
+            super("保存", 2);
+        }
+
+        @Override
+        protected void doAction(ActionEvent e) {
+            executeOkAction();
+        }
+    }
+
+
     private class CodeTypeAction extends AbstractAction {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -335,7 +357,7 @@ public class CodeNoteDetailDialogWrapper extends DialogWrapper {
                     // 将其换为Language实现类的全限定名，接着用反射获取字段值
                     String languageClassQualifiedName = value.getLanguageClassQualifiedName();
                     Object instance = ReflectUtil.getStaticFinalFieldValue(languageClassQualifiedName, "INSTANCE");
-                    if (instance instanceof Language lang){
+                    if (instance instanceof Language lang) {
                         language = lang;
                     }
 
