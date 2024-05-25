@@ -11,10 +11,7 @@ import cn.zhiyou.notify.OpenDatabaseToolWindowNotificationAction;
 import cn.zhiyou.ui.CreateMyBatisMapperWindow;
 import cn.zhiyou.ui.DataBaseSelectWindow;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
-import cn.zhiyou.utils.ActionUtil;
-import cn.zhiyou.utils.CommonUtil;
-import cn.zhiyou.utils.CompatibilityUtil;
-import cn.zhiyou.utils.NotificationUtil;
+import cn.zhiyou.utils.*;
 import com.intellij.database.model.*;
 import com.intellij.ide.IdeView;
 import com.intellij.notification.NotificationAction;
@@ -57,7 +54,7 @@ public class CreateMyBatisMapperAction extends AnAction {
         JBIterable<? extends DasTable> dasTables = null;
         // 先判断有没有Database以及有没有配置数据源，有的话叫用户选择
         if (CompatibilityUtil.existDatabasePlugin()) {
-            List<DasDataSource> dasDataSourceList = ActionUtil.getAllLocalDataSource(project);
+            List<DasDataSource> dasDataSourceList = DatabaseUtil.getAllLocalDataSource(project);
             // 有Database插件无数据源
             if (CollUtil.isEmpty(dasDataSourceList)) {
                 // 用插件数据源

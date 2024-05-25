@@ -1,7 +1,7 @@
 package cn.zhiyou.utils;
 
 import cn.hutool.core.util.StrUtil;
-import cn.zhiyou.constant.PluginNameConstant;
+import cn.zhiyou.constant.PluginConstant;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.extensions.PluginId;
@@ -81,7 +81,7 @@ public class CompatibilityUtil {
      * @return true：存在且启用；false：不存在或未启用
      */
     public static boolean existDatabasePlugin() {
-        return ActionUtil.isPluginInstalledAndEnabled(PluginNameConstant.DATABASE_ID, PluginNameConstant.DB_TABLE_CLASS_NAME);
+        return ActionUtil.isPluginInstalledAndEnabled(PluginConstant.DATABASE_ID, PluginConstant.DB_TABLE_CLASS_NAME);
     }
 
 

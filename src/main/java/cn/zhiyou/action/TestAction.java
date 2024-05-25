@@ -2,7 +2,7 @@ package cn.zhiyou.action;
 
 import cn.zhiyou.ui.DataBaseSelectWindow;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
-import cn.zhiyou.utils.ActionUtil;
+import cn.zhiyou.utils.DatabaseUtil;
 import com.intellij.database.model.DasDataSource;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -53,7 +53,7 @@ public class TestAction extends AnAction {
         //
         // PluginDescriptor pluginByClass = PluginManager.getPluginByClass(languageForPsi.getClass());
 
-        List<DasDataSource> dasDataSourceList = ActionUtil.getAllLocalDataSource(event.getProject());
+        List<DasDataSource> dasDataSourceList = DatabaseUtil.getAllLocalDataSource(event.getProject());
 
         DataBaseSelectWindow dataBaseSelectWindow = new DataBaseSelectWindow(event.getProject(), dasDataSourceList);
         if (dataBaseSelectWindow.showAndGet()) {

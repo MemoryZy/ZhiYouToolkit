@@ -27,8 +27,8 @@ public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
                     }
                 }
             }
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (Throwable e) {
+            // 不管
         }
 
         return Objects.isNull(matchField) ? null :ReflectUtil.getStaticFieldValue(matchField);

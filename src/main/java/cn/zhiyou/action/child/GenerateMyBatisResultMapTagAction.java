@@ -2,7 +2,7 @@ package cn.zhiyou.action.child;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.zhiyou.action.ExtendedFeaturesAction;
-import cn.zhiyou.ui.CreateMyBatisResultWindow;
+import cn.zhiyou.ui.CreateMyBatisResultMapWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.NotificationUtil;
 import com.intellij.notification.NotificationType;
@@ -75,6 +75,6 @@ public class GenerateMyBatisResultMapTagAction extends AnAction {
         }
 
         // 展示窗
-        new CreateMyBatisResultWindow(event,project, editor, editor.getDocument(), psiClass, needCopy).show();
+        new CreateMyBatisResultMapWindow(event,project, editor, editor.getDocument(), psiClass, needCopy).show();
     }
 }

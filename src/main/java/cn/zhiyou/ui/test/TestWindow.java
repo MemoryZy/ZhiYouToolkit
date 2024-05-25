@@ -1,15 +1,8 @@
 package cn.zhiyou.ui.test;
 
-import cn.zhiyou.ui.basic.MultiRowLanguageTextField;
-import cn.zhiyou.ui.basic.MultiRowTextField;
-import cn.zhiyou.utils.NotificationUtil;
-import com.intellij.notification.NotificationType;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.sql.SqlFileType;
-import com.intellij.ui.EditorNotificationProvider;
 import com.intellij.ui.EditorTextField;
-import com.intellij.ui.LanguageTextField;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;

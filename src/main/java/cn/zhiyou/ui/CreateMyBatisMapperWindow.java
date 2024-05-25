@@ -914,7 +914,7 @@ public class CreateMyBatisMapperWindow extends DialogWrapper {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < allList.size(); i++) {
             ColumnEntity columnEntity = allList.get(i);
-            String propertyName = CreateMyBatisResultWindow.handlePropertyMapping(columnEntity.getPropertyName());
+            String propertyName = CreateMyBatisResultMapWindow.handlePropertyMapping(columnEntity.getPropertyName());
 
             String result;
             if (columnEntity.isPk()) {

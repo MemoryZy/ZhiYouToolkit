@@ -1,6 +1,7 @@
 package cn.zhiyou.ui;
 
 import cn.hutool.core.util.StrUtil;
+import cn.zhiyou.constant.PluginConstant;
 import cn.zhiyou.constant.ZhiYouConstant;
 import cn.zhiyou.entity.template.ColumnEntity;
 import cn.zhiyou.entity.template.ResultMapEntity;
@@ -11,6 +12,8 @@ import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.fileTypes.PlainTextFileType;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.MessageType;
@@ -18,7 +21,6 @@ import com.intellij.openapi.ui.ValidationInfo;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiField;
-import com.intellij.sql.SqlFileType;
 import com.intellij.ui.EditorTextField;
 import com.intellij.ui.awt.RelativePoint;
 import net.sf.jsqlparser.JSQLParserException;
@@ -47,7 +49,7 @@ import java.util.Objects;
  * @author wcp
  * @since 2023/12/11
  */
-public class CreateMyBatisResultWindow extends DialogWrapper {
+public class CreateMyBatisResultMapWindow extends DialogWrapper {
     private JPanel rootPanel;
     private EditorTextField sqlEditorTextField;
     private final Project project;
@@ -58,8 +60,8 @@ public class CreateMyBatisResultWindow extends DialogWrapper {
     private final TextFieldErrorPopupDecorator errorPopupDecorator;
     private final AnActionEvent event;
 
-    public CreateMyBatisResultWindow(@NotNull AnActionEvent event, @Nullable Project project, Editor editor, Document document,
-                                     PsiClass psiClass, boolean needCopy) {
+    public CreateMyBatisResultMapWindow(@NotNull AnActionEvent event, @Nullable Project project, Editor editor, Document document,
+                                        PsiClass psiClass, boolean needCopy) {
         super(project, true);
         this.project = project;
         this.psiClass = psiClass;
@@ -88,7 +90,18 @@ public class CreateMyBatisResultWindow extends DialogWrapper {
     }
 
     private void createUIComponents() {
-        sqlEditorTextField = new MultiRowTextField("", project, SqlFileType.INSTANCE);
+        // 判断
+        FileType fileType = null;
+        Object instance = ReflectUtil.getStaticFinalFieldValue(PluginConstant.SQL_FILE_TYPE_NAME, "INSTANCE");
+        if (instance instanceof FileType type) {
+            fileType = type;
+        }
+
+        if (Objects.isNull(fileType)) {
+            fileType = PlainTextFileType.INSTANCE;
+        }
+
+        sqlEditorTextField = new MultiRowTextField("", project, fileType);
         sqlEditorTextField.setFont(new Font("Consolas", Font.PLAIN, 15));
         sqlEditorTextField.setPreferredSize(new Dimension(480, 450));
     }
