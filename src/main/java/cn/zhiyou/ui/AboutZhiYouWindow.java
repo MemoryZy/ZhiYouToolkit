@@ -61,10 +61,7 @@ public class AboutZhiYouWindow extends DialogWrapper {
             </head>
             <body>
             <p>
-                如若发现问题，请及时反馈给我。          \s
-            </p>
-            <p>
-                感谢您的使用与支持！
+                如若发现问题，请及时<a href="https://github.com/MemoryZy/ZhiYouToolkit/issues">反馈</a>给我，感谢支持！
             </p>
             </body>
             </html>""";

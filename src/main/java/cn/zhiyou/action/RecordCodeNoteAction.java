@@ -1,6 +1,6 @@
 package cn.zhiyou.action;
 
-import cn.zhiyou.ui.CodeNoteDetailDialogWrapper;
+import cn.zhiyou.ui.CodeNoteDetailWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CodeCreateUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
@@ -37,7 +37,7 @@ public class RecordCodeNoteAction extends AnAction {
         selectedText = CodeCreateUtil.removeShortestIndentation(selectedText);
 
         // 展示窗口
-        new CodeNoteDetailDialogWrapper(project, null, null, selectedText, true, false).show();
+        new CodeNoteDetailWindow(project, null, null, selectedText, true, false).show();
     }
 
     @Override

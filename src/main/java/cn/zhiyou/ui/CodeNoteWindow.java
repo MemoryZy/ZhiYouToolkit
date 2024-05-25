@@ -266,7 +266,7 @@ public class CodeNoteWindow {
             id = rowMap.get(row);
         }
 
-        new CodeNoteDetailDialogWrapper(project, id, codeName, codeContent, add, true).show();
+        new CodeNoteDetailWindow(project, id, codeName, codeContent, add, true).show();
     }
 
     private void move(int row, int nextRow) {

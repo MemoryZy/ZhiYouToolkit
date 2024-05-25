@@ -1,6 +1,6 @@
 package cn.zhiyou.action.child;
 
-import cn.zhiyou.ui.ConvertTimestampWindow;
+import cn.zhiyou.ui.ConvertTimestampAndDateWindow;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
@@ -23,7 +23,7 @@ public class ConvertTimestampAndDateAction extends AnAction {
         if (Objects.isNull(project))
             return;
 
-        new ConvertTimestampWindow(project).show();
+        new ConvertTimestampAndDateWindow(project).show();
     }
 
 }

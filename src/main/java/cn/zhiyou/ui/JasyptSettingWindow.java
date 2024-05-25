@@ -28,12 +28,12 @@ public class JasyptSettingWindow extends DialogWrapper {
     private JasyptSettingAsymmetricPanel asymmetricWindow;
     private final Project project;
     private String componentName;
-    private final JasyptOperationsWindow jasyptOperationsWindow;
+    private final JasyptEncryptAndDecryptWindow jasyptEncryptAndDecryptWindow;
 
-    public JasyptSettingWindow(@Nullable Project project, JasyptOperationsWindow jasyptOperationsWindow) {
+    public JasyptSettingWindow(@Nullable Project project, JasyptEncryptAndDecryptWindow jasyptEncryptAndDecryptWindow) {
         super(project, true);
         this.project = project;
-        this.jasyptOperationsWindow = jasyptOperationsWindow;
+        this.jasyptEncryptAndDecryptWindow = jasyptEncryptAndDecryptWindow;
 
         initRb();
 
@@ -150,7 +150,7 @@ public class JasyptSettingWindow extends DialogWrapper {
             jasyptSetting.privateKeyFormat = asymmetricWindow.getSelectFormat();
         }
 
-        jasyptOperationsWindow.validateConfigAndSyncPanel();
+        jasyptEncryptAndDecryptWindow.validateConfigAndSyncPanel();
         return true;
     }
 

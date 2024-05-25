@@ -1,6 +1,6 @@
 package cn.zhiyou.action;
 
-import cn.zhiyou.ui.DasDataBaseChangeDialog;
+import cn.zhiyou.ui.DataBaseSelectWindow;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import com.intellij.database.model.DasDataSource;
@@ -55,9 +55,9 @@ public class TestAction extends AnAction {
 
         List<DasDataSource> dasDataSourceList = ActionUtil.getAllLocalDataSource(event.getProject());
 
-        DasDataBaseChangeDialog dasDataBaseChangeDialog = new DasDataBaseChangeDialog(event.getProject(), dasDataSourceList);
-        if (dasDataBaseChangeDialog.showAndGet()) {
-            DasMutableTreeNode dasMutableTreeNode = dasDataBaseChangeDialog.getDasMutableTreeNode();
+        DataBaseSelectWindow dataBaseSelectWindow = new DataBaseSelectWindow(event.getProject(), dasDataSourceList);
+        if (dataBaseSelectWindow.showAndGet()) {
+            DasMutableTreeNode dasMutableTreeNode = dataBaseSelectWindow.getDasMutableTreeNode();
 
             System.out.println();
         }

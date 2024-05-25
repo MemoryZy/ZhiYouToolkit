@@ -1,6 +1,6 @@
 package cn.zhiyou.toolwindow;
 
-import cn.zhiyou.ui.JsonFormatWindow;
+import cn.zhiyou.ui.JsonPanelWindow;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
@@ -22,9 +22,9 @@ public class JsonFormatToolWindow implements ToolWindowFactory {
         ContentFactory contentFactory = ContentFactory.getInstance();
         ContentManager contentManager = toolWindow.getContentManager();
 
-        JsonFormatWindow jsonFormatWindow = new JsonFormatWindow(project, (ToolWindowEx) toolWindow);
-        Content jsonContent = contentFactory.createContent(jsonFormatWindow.getRootPanel(), null, false);
-        jsonContent.setPreferredFocusableComponent(jsonFormatWindow.getJsonEditorTextField());
+        JsonPanelWindow jsonPanelWindow = new JsonPanelWindow(project, (ToolWindowEx) toolWindow);
+        Content jsonContent = contentFactory.createContent(jsonPanelWindow.getRootPanel(), null, false);
+        jsonContent.setPreferredFocusableComponent(jsonPanelWindow.getJsonEditorTextField());
         contentManager.addContent(jsonContent);
     }
 

@@ -8,8 +8,8 @@ import cn.zhiyou.config.DataBaseSetting;
 import cn.zhiyou.entity.PackageAndPath;
 import cn.zhiyou.notify.OpenDataBaseSettingNotificationAction;
 import cn.zhiyou.notify.OpenDatabaseToolWindowNotificationAction;
-import cn.zhiyou.ui.CreateMyBatisMapperDialogWrapper;
-import cn.zhiyou.ui.DasDataBaseChangeDialog;
+import cn.zhiyou.ui.CreateMyBatisMapperWindow;
+import cn.zhiyou.ui.DataBaseSelectWindow;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
@@ -78,10 +78,10 @@ public class CreateMyBatisMapperAction extends AnAction {
                         dataBaseSetting.driver);
             } else {
                 // 有Database插件有数据源，做选择
-                DasDataBaseChangeDialog dasDataBaseChangeDialog = new DasDataBaseChangeDialog(project, dasDataSourceList);
+                DataBaseSelectWindow dataBaseSelectWindow = new DataBaseSelectWindow(project, dasDataSourceList);
 
-                if (dasDataBaseChangeDialog.showAndGet()) {
-                    DasMutableTreeNode dasMutableTreeNode = dasDataBaseChangeDialog.getDasMutableTreeNode();
+                if (dataBaseSelectWindow.showAndGet()) {
+                    DasMutableTreeNode dasMutableTreeNode = dataBaseSelectWindow.getDasMutableTreeNode();
                     dasDataSource = dasMutableTreeNode.getDasDataSource();
                     // 获取选择的schema
                     DasNamespace schema = dasMutableTreeNode.getSchema();
@@ -116,7 +116,7 @@ public class CreateMyBatisMapperAction extends AnAction {
         // 根据xml文件获取
         PackageAndPath packageAndPath = searchFilePath(project, virtualFiles);
         // 弹窗
-        new CreateMyBatisMapperDialogWrapper(event, project, module, packageAndPath, simpleDataSource, dasTables, dasDataSource).show();
+        new CreateMyBatisMapperWindow(event, project, module, packageAndPath, simpleDataSource, dasTables, dasDataSource).show();
     }
 
 

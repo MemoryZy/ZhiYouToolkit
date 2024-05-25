@@ -2,7 +2,7 @@ package cn.zhiyou.action;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.*;
-import cn.zhiyou.ui.JsonCollectTreeWindow;
+import cn.zhiyou.ui.JsonStructureWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
@@ -37,7 +37,7 @@ public class JsonStructureAction extends AnAction {
         if (StrUtil.isNotBlank(jsonStr)) {
             if (CommonUtil.isJson(jsonStr)) {
                 JSON json = JSONUtil.parse(jsonStr, JSONConfig.create().setIgnoreNullValue(false));
-                new JsonCollectTreeWindow(project, json).show();
+                new JsonStructureWindow(project, json).show();
             }
         }
     }

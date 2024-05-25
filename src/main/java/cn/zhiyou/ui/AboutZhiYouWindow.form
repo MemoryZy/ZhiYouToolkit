@@ -11,7 +11,6 @@
       <grid id="c1f6c" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="340" height="140"/>
             <preferred-size width="340" height="140"/>
           </grid>
         </constraints>

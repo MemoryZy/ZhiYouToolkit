@@ -1,7 +1,7 @@
 package cn.zhiyou.action;
 
 import cn.hutool.core.util.ArrayUtil;
-import cn.zhiyou.ui.CreateMyBatisMapperOnDataBaseDialogWrapper;
+import cn.zhiyou.ui.CreateMyBatisMapperOnDataBaseWindow;
 import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.database.psi.DbTable;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
@@ -40,7 +40,7 @@ public class CreateMyBatisMapperOnDataBaseAction extends AnAction {
 
         PsiElement[] psiElements = event.getData(LangDataKeys.PSI_ELEMENT_ARRAY);
         List<DbTable> dbTables = Arrays.stream(psiElements).map(el -> (DbTable) el).toList();
-        new CreateMyBatisMapperOnDataBaseDialogWrapper(event, project, dbTables).show();
+        new CreateMyBatisMapperOnDataBaseWindow(event, project, dbTables).show();
     }
 
 

@@ -35,7 +35,7 @@ import java.util.Objects;
  * @author wcp
  * @since 2024/5/19
  */
-public class DasDataBaseChangeDialog extends DialogWrapper {
+public class DataBaseSelectWindow extends DialogWrapper {
 
     private JPanel rootPanel;
     private Tree tree;
@@ -43,7 +43,7 @@ public class DasDataBaseChangeDialog extends DialogWrapper {
     private final List<DasDataSource> dasDataSourceList;
     private DasMutableTreeNode dasMutableTreeNode;
 
-    public DasDataBaseChangeDialog(@Nullable Project project, List<DasDataSource> dasDataSourceList) {
+    public DataBaseSelectWindow(@Nullable Project project, List<DasDataSource> dasDataSourceList) {
         super(project, true);
 
         this.project = project;

@@ -5,7 +5,7 @@ import cn.zhiyou.action.child.CreateFastJsonAnnotationAction;
 import cn.zhiyou.action.child.CreateJacksonAnnotationAction;
 import cn.zhiyou.action.child.CreateMyBatisPlusAnnotationAction;
 import cn.zhiyou.action.child.CreateSwaggerAnnotationAction;
-import cn.zhiyou.ui.CreateAnnotationDialogWrapper;
+import cn.zhiyou.ui.CreateAnnotationWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CompatibilityUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
@@ -108,7 +108,7 @@ public class CreateAnnotationOnFieldAction extends AnAction {
 
             return true;
         }).toList();
-        new CreateAnnotationDialogWrapper(project, psiClass, title, fieldList, annotationQualifiedNames[0], memberName).show();
+        new CreateAnnotationWindow(project, psiClass, title, fieldList, annotationQualifiedNames[0], memberName).show();
     }
 
 }

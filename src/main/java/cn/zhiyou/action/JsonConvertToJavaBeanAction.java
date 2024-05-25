@@ -1,6 +1,6 @@
 package cn.zhiyou.action;
 
-import cn.zhiyou.ui.JsonToJavaBeanDialogWrapper;
+import cn.zhiyou.ui.JsonToJavaBeanWindow;
 import com.intellij.ide.IdeView;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.diagnostic.Logger;
@@ -36,7 +36,7 @@ public class JsonConvertToJavaBeanAction extends AnAction {
         // 文件夹(包)
         PsiDirectory directory = ideView.getOrChooseDirectory();
         // 窗口
-        new JsonToJavaBeanDialogWrapper(project, directory, module).show();
+        new JsonToJavaBeanWindow(project, directory, module).show();
     }
 
     @Override

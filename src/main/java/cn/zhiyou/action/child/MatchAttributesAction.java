@@ -3,7 +3,7 @@ package cn.zhiyou.action.child;
 import cn.zhiyou.action.CreateSetterGetterMappingAction;
 import cn.zhiyou.entity.FieldMethodPair;
 import cn.zhiyou.enums.PropertyTreeNodeValueTypeEnum;
-import cn.zhiyou.ui.PropertyMatchWindow;
+import cn.zhiyou.ui.MatchAttributesWindow;
 import cn.zhiyou.ui.basic.PropertyMatchMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
@@ -95,6 +95,6 @@ public class MatchAttributesAction extends AnAction {
             }
         }
 
-        new PropertyMatchWindow(project, currentPsiClass.getName(), selectPsiClass.getName(),successNodeList, failedNodeList).show();
+        new MatchAttributesWindow(project, currentPsiClass.getName(), selectPsiClass.getName(),successNodeList, failedNodeList).show();
     }
 }

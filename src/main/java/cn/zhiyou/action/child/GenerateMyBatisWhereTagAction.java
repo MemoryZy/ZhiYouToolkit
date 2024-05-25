@@ -2,7 +2,7 @@ package cn.zhiyou.action.child;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.zhiyou.action.ExtendedFeaturesAction;
-import cn.zhiyou.ui.CreateConditionDialogWrapper;
+import cn.zhiyou.ui.CreateMyBatisWhereWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.NotificationUtil;
 import com.intellij.notification.NotificationType;
@@ -76,7 +76,7 @@ public class GenerateMyBatisWhereTagAction extends AnAction {
 
         // 展示窗
         // new CreateConditionDialogWrapper(event.getProject(), editor, editor.getDocument(), fields, needCopy).show();
-        new CreateConditionDialogWrapper(event, event.getProject(), editor, editor.getDocument(), fields, needCopy).show();
+        new CreateMyBatisWhereWindow(event, event.getProject(), editor, editor.getDocument(), fields, needCopy).show();
     }
 
 }

@@ -1,6 +1,6 @@
 package cn.zhiyou.action.child;
 
-import cn.zhiyou.ui.JasyptOperationsWindow;
+import cn.zhiyou.ui.JasyptEncryptAndDecryptWindow;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
@@ -24,6 +24,6 @@ public class JasyptEncryptAndDecryptAction extends AnAction {
         if (Objects.isNull(project))
             return;
 
-        new JasyptOperationsWindow(project).show();
+        new JasyptEncryptAndDecryptWindow(project).show();
     }
 }

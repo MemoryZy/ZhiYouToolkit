@@ -13,8 +13,8 @@ import cn.zhiyou.enums.MyBatisAnnotationEnum;
 import cn.zhiyou.exception.ZhiYouException;
 import cn.zhiyou.notify.OpenDataBaseSettingNotificationAction;
 import cn.zhiyou.notify.OpenDatabaseToolWindowNotificationAction;
-import cn.zhiyou.ui.CreateMpAnnotationDialogWrapper;
-import cn.zhiyou.ui.DasDataBaseChangeDialog;
+import cn.zhiyou.ui.CreateMpAnnotationWindow;
+import cn.zhiyou.ui.DataBaseSelectWindow;
 import cn.zhiyou.ui.basic.DasMutableTreeNode;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
@@ -97,9 +97,9 @@ public class CreateMyBatisPlusAnnotationAction extends AnAction {
             } else {
                 // 有Database插件有数据源，做选择
                 DasTable matchDasTable = null;
-                DasDataBaseChangeDialog dasDataBaseChangeDialog = new DasDataBaseChangeDialog(project, dasDataSourceList);
-                if (dasDataBaseChangeDialog.showAndGet()) {
-                    DasMutableTreeNode dasMutableTreeNode = dasDataBaseChangeDialog.getDasMutableTreeNode();
+                DataBaseSelectWindow dataBaseSelectWindow = new DataBaseSelectWindow(project, dasDataSourceList);
+                if (dataBaseSelectWindow.showAndGet()) {
+                    DasMutableTreeNode dasMutableTreeNode = dataBaseSelectWindow.getDasMutableTreeNode();
                     // 获取选择的schema
                     DasNamespace schema = dasMutableTreeNode.getSchema();
                     // 获取schema中的表
@@ -183,7 +183,7 @@ public class CreateMyBatisPlusAnnotationAction extends AnAction {
             }
         }
 
-        new CreateMpAnnotationDialogWrapper(
+        new CreateMpAnnotationWindow(
                 project,
                 psiClass,
                 "生成MyBatis Plus注解",
