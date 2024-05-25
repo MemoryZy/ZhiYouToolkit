@@ -56,5 +56,10 @@
 
 <br/>
 
-## 许可证
+## 反馈
+> 使用过程中发现任何问题都可以提 [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls)，感谢支持。
+
+<br/>
+
+## 开源许可证
 [![Licence](https://img.shields.io/badge/Licence-Apache%202.0-97ca00.svg?style=for-the-badge&logoColor=white)](./LICENSE)

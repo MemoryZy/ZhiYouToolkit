@@ -60,5 +60,10 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 
 <br/>
 
+## Feedback
+> If you encounter any issues during use, feel free to submit an [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) or [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls), Thanks for support.
+
+<br/>
+
 ## License
 [![Licence](https://img.shields.io/badge/Licence-Apache%202.0-97ca00.svg?style=for-the-badge&logoColor=white)](./LICENSE)
