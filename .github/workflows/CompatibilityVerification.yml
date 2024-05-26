@@ -15,7 +15,7 @@ jobs:
 
     - name: Build the plugin using Gradle
       run: ./gradlew buildPlugin
-    - uses: thepieterdc/intellij-plugin-verifier-action@v1.4.0
+    - uses: thepieterdc/intellij-plugin-verifier-action@v1.3.0
       with:
         plugin: '/home/runner/work/ZhiYouToolkit/ZhiYouToolkit/build/distributions/ZhiYouToolkit-*'
         verifier_version: 1.4.0
