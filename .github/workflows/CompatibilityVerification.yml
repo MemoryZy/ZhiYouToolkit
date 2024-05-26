@@ -1,4 +1,4 @@
-name: Plugin Compatibility Verification
+name: Compatibility Verification
 on: [push]
 jobs:
   run:
@@ -15,12 +15,10 @@ jobs:
 
     - name: Build the plugin using Gradle
       run: ./gradlew buildPlugin
-
-    - name: List current directory contents
-      run: ls -alh
-
-    - name: List build directory contents
-      run: ls -alh build
-
-    - name: List distributions directory contents
-      run: ls -alh build/distributions
+    - uses: thepieterdc/intellij-plugin-verifier-action@v1.4.0
+      with:
+        plugin: '/home/runner/work/ZhiYouToolkit/ZhiYouToolkit/build/distributions/ZhiYouToolkit-*'
+        verifier_version: 1.4.0
+        versions: |
+          2022.3.3
+          LATEST-EAP-SNAPSHOT
