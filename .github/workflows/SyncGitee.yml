@@ -16,11 +16,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Modify files for Gitee
-        run: |
-          sed -i 's/Github Release/Gitee Release/g' README.md
-          
-
       - name: Sync Github to Gitee
         uses: Yikun/hub-mirror-action@master
         if: env.dst_key && env.dst_token && env.gitee_user
@@ -32,7 +27,7 @@ jobs:
           # 必选，Gitee公钥对应的私钥，https://gitee.com/profile/sshkeys
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           # 必选，Gitee对应的用于创建仓库的token，https://gitee.com/profile/personal_access_tokens
-          dst_token:  ${{ secrets.GITEE_TOKEN }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
           # 如果是组织，指定组织即可，默认为用户 user
           account_type: user
           # 直接取当前项目的仓库名
@@ -44,5 +39,23 @@ jobs:
           # black_list: 'repo_name,repo_name2'
           # white_list: 'repo_name,repo_name2'
 
+      - name: Modify README for Gitee
+        run: |
+          # 拉取代码
+          git clone https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_USER }}/${{ github.event.repository.name }}.git
+          # 切换目录
+          cd ${{ github.event.repository.name }}
           
-          
+          # 修改文件
+          sed -i 's|https://cdn.jsdelivr.net/gh/MemoryZy/ZhiYouToolkit/src/main/resources/META-INF/pluginIcon@30x30.svg|https://gitee.com/MemoryZy/ZhiYouToolkit/raw/main/src/main/resources/META-INF/pluginIcon@30x30.svg|g' README.md README_zh.md
+          sed -i 's|https://github.com|https://gitee.com|g' README.md README_zh.md
+          sed -i 's|Github Release|Gitee Release|g' README.md README_zh.md
+  
+          # 提交修改
+          git config --global user.name '${{ secrets.GITEE_COMMIT_USER }}'
+          git config --global user.email '${{ secrets.GITEE_COMMIT_EMAIL }}'
+          git add README.md README_zh.md
+          git commit -m "Update README for Gitee"
+
+          # 推送修改到Gitee
+          git push origin main
