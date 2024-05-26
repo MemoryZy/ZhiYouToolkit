@@ -16,6 +16,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Modify files for Gitee
+        run: |
+          sed -i 's/Github Release/Gitee Release/g' README.md
+          
+
       - name: Sync Github to Gitee
         uses: Yikun/hub-mirror-action@master
         if: env.dst_key && env.dst_token && env.gitee_user
