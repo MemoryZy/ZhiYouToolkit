@@ -1,0 +1,23 @@
+name: Plugin Compatibility Verification
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: 17
+
+    - name: Build the plugin using Gradle
+      run: ./gradlew buildPlugin
+
+    - name: List current directory contents
+      run: ls -alh
+
+    - name: List build directory contents
+      run: ls -alh build
+
+    - name: List distributions directory contents
+      run: ls -alh build/distributions
