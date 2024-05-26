@@ -33,7 +33,8 @@ jobs:
           # 直接取当前项目的仓库名
           static_list: ${{ github.event.repository.name }}
           # 默认为false, 配置后，启用git push -f强制同步，注意：开启后，会强制覆盖目的端仓库。
-          force_update: false
+          # 开启强制提交，避免因下一步修改README文件的操作，导致的下一次同步失败，只要保证Gitee的文件都是这里同步过去的就好。
+          force_update: true
           # 还有黑、白名单，静态名单机制，可以用于更新某些指定库
           # static_list: 'repo_name,repo_name2'
           # black_list: 'repo_name,repo_name2'
