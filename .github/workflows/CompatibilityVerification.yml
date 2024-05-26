@@ -20,7 +20,7 @@ jobs:
         plugin: '/home/runner/work/ZhiYouToolkit/ZhiYouToolkit/build/distributions/ZhiYouToolkit-*'
         # 这里指的是 https://github.com/JetBrains/intellij-plugin-verifier版本
         # Jetbrains提供的工具，这个操作利用该工具做验证
-        verifier_version: 1.365
+        verifier_version: 1.301
         versions: |
           2022.3.3
           LATEST-EAP-SNAPSHOT
