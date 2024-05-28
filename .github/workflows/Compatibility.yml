@@ -5,7 +5,7 @@ on:
       - main
       - '**/compat/*'
     paths-ignore:
-      # - '.github/**'
+      - '.github/**'
       - 'gradle/**'
       - 'icons/**'
       - 'images/**'
@@ -16,6 +16,7 @@ on:
 
   pull_request:
     paths-ignore:
+      - '.github/**'
       - 'gradle/**'
       - 'icons/**'
       - 'images/**'

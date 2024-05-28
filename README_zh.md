@@ -55,11 +55,11 @@
 
 ## 插件截图
 
-![Json Panel](images/JsonPanel.jpg)
+![Json Panel](https://home.memoryzy.cn/zhiyou/JsonPanel.jpg)
 
-![MyBatis](images/MyBatis.jpg)
+![MyBatis](https://home.memoryzy.cn/zhiyou/MyBatis.jpg)
 
-![Mapping](images/Mapping.gif)
+![Mapping](https://home.memoryzy.cn/zhiyou/Mapping.gif)
 
 <br/>
 
