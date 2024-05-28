@@ -50,6 +50,7 @@ jobs:
           # 需要验证的IDEA，将指定的版本放至ide_versions_file.txt文件
           ide-versions: .github/workflows/ide_versions_file.txt
           failure-levels: |
+            COMPATIBILITY_WARNINGS
             COMPATIBILITY_PROBLEMS
             DEPRECATED_API_USAGES
             INTERNAL_API_USAGES
