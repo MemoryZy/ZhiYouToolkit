@@ -8,6 +8,7 @@ on:
       # - '.github/**'
       - 'gradle/**'
       - 'icons/**'
+      - 'images/**'
       - '.gitignore'
       - 'README.md'
       - 'README_zh.md'
@@ -17,6 +18,7 @@ on:
     paths-ignore:
       - 'gradle/**'
       - 'icons/**'
+      - 'images/**'
       - '.gitignore'
       - 'README.md'
       - 'README_zh.md'
