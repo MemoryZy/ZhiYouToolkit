@@ -11,7 +11,7 @@ on:
       - '.gitignore'
       - 'README.md'
       - 'README_zh.md'
-      - 'ide_versions_file.txt'
+      - '.github/workflows/ide_versions_file.txt'
 
   pull_request:
     paths-ignore:
@@ -20,7 +20,7 @@ on:
       - '.gitignore'
       - 'README.md'
       - 'README_zh.md'
-      - 'ide_versions_file.txt'
+      - '.github/workflows/ide_versions_file.txt'
 
 jobs:
   compatibility:
