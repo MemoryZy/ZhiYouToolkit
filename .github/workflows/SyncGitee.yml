@@ -52,12 +52,6 @@ jobs:
           sed -i 's|https://github.com|https://gitee.com|g' README.md README_zh.md
           sed -i 's|Github Release|Gitee Release|g' README.md README_zh.md
           sed -i 's|https://gitee.com/MemoryZy/ZhiYouToolkit/actions/workflows/Compatibility.yml|https://gitee.com/MemoryZy/ZhiYouToolkit|g' README.md README_zh.md
-          
-#          sed -i 's|images/JsonPanel.jpg|https://gitee.com/MemoryZy/ZhiYouToolkit/raw/main/images/JsonPanel.jpg|g' README.md README_zh.md
-#          sed -i 's|images/MyBatis.jpg|https://gitee.com/MemoryZy/ZhiYouToolkit/raw/main/images/MyBatis.jpg|g' README.md README_zh.md
-#          sed -i 's|images/Mapping.gif|https://gitee.com/MemoryZy/ZhiYouToolkit/raw/main/images/Mapping.gif|g' README.md README_zh.md
-
-          
   
           # 提交修改
           git config --global user.name '${{ secrets.GITEE_COMMIT_USER }}'
