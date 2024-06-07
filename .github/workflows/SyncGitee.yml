@@ -54,7 +54,7 @@ jobs:
           sed -i 's|https://gitee.com/MemoryZy/ZhiYouToolkit/actions/workflows/Compatibility.yml|https://gitee.com/MemoryZy/ZhiYouToolkit|g' README.md README_zh.md
                   
           sed -i 's|You can raise [issues](https://gitee.com/MemoryZy/ZhiYouToolkit/issues) and [PR](https://gitee.com/MemoryZy/ZhiYouToolkit/pulls) for any problems found during use, and any ideas can be directly submitted to [Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas), thanks for your support.|If you encounter any issues during use, feel free to submit an [issue](https://gitee.com/MemoryZy/ZhiYouToolkit/issues) or [PR](https://gitee.com/MemoryZy/ZhiYouToolkit/pulls), Thanks for support.|g' README.md
-          sed -i 's|使用过程中发现任何问题都可以提 [Issue](https://gitee.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://gitee.com/MemoryZy/ZhiYouToolkit/pulls)，并且有任何想法也可以直接提交至 [Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas)，感谢支持。|使用过程中发现任何问题都可以提 [Issue](https://gitee.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://gitee.com/MemoryZy/ZhiYouToolkit/pulls)，感谢支持。|g' README_zh.md
+          sed -i 's|并且有任何想法也可以直接提交至 [Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas)||g' README_zh.md
   
           # 提交修改
           git config --global user.name '${{ secrets.GITEE_COMMIT_USER }}'
