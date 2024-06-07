@@ -53,8 +53,8 @@ jobs:
           sed -i 's|Github Releases|Gitee Releases|g' README.md README_zh.md
           sed -i 's|https://gitee.com/MemoryZy/ZhiYouToolkit/actions/workflows/Compatibility.yml|https://gitee.com/MemoryZy/ZhiYouToolkit|g' README.md README_zh.md
                   
-          sed -i 's|You can raise [issues](https://gitee.com/MemoryZy/ZhiYouToolkit/issues) and [PR](https://gitee.com/MemoryZy/ZhiYouToolkit/pulls) for any problems found during use, and any ideas can be directly submitted to [Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas), thanks for your support.|If you encounter any issues during use, feel free to submit an [issue](https://gitee.com/MemoryZy/ZhiYouToolkit/issues) or [PR](https://gitee.com/MemoryZy/ZhiYouToolkit/pulls), Thanks for support.|g' README.md
-          sed -i 's|并且有任何想法也可以直接提交至 [Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas)||g' README_zh.md
+          sed -i 's|[Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas)|[mail](mailto:memoryzk@outlook.com)|g' README.md
+          sed -i 's|[Discussions](https://gitee.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas)|[邮箱](mailto:memoryzk@outlook.com)|g' README_zh.md
   
           # 提交修改
           git config --global user.name '${{ secrets.GITEE_COMMIT_USER }}'
