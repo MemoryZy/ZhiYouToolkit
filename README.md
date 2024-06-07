@@ -57,6 +57,21 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 
 <br/>
 
+## Tip
+> For IntelliJ IDEA, the plugin only supports IntelliJ IDEA 2022.2 and above.
+
+<br/>
+
+## Feedback
+> You can raise [issues](https://github.com/MemoryZy/ZhiYouToolkit/issues) and [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls) for any problems found during use, and any ideas can be directly submitted to [Discussions](https://github.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas), thanks for your support.
+
+<br/>
+
+## License
+[![Licence](https://img.shields.io/github/license/MemoryZy/ZhiYouToolkit?style=for-the-badge)](./LICENSE)
+
+<br/>
+
 ## Plugin Screenshots
 
 ![Json Panel](https://home.memoryzy.cn/zhiyou/JsonPanel.jpg)
@@ -65,17 +80,5 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 
 ![Mapping](https://home.memoryzy.cn/zhiyou/Mapping.gif)
 
-<br/>
 
-## Tip
-> For IntelliJ IDEA, the plugin only supports IntelliJ IDEA 2022.2 and above.
 
-<br/>
-
-## Feedback
-> If you encounter any issues during use, feel free to submit an [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) or [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls), Thanks for support.
-
-<br/>
-
-## License
-[![Licence](https://img.shields.io/github/license/MemoryZy/ZhiYouToolkit?style=for-the-badge)](./LICENSE)

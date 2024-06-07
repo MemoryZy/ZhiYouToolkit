@@ -58,6 +58,16 @@
 
 <br/>
 
+## 反馈
+> 使用过程中发现任何问题都可以提 [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls)，并且有任何想法也可以直接提交至 [Discussions](https://github.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas)，感谢支持。
+
+<br/>
+
+## 开源许可证
+[![Licence](https://img.shields.io/github/license/MemoryZy/ZhiYouToolkit?style=for-the-badge)](./LICENSE)
+
+<br/>
+
 ## 插件截图
 
 ![Json Panel](https://home.memoryzy.cn/zhiyou/JsonPanel.jpg)
@@ -67,12 +77,3 @@
 ![Mapping](https://home.memoryzy.cn/zhiyou/Mapping.gif)
 
 
-<br/>
-
-## 反馈
-> 使用过程中发现任何问题都可以提 [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls)，并且有任何想法也可以直接提交至 [Discussions](https://github.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas) 感谢支持。
-
-<br/>
-
-## 开源许可证
-[![Licence](https://img.shields.io/github/license/MemoryZy/ZhiYouToolkit?style=for-the-badge)](./LICENSE)
