@@ -1,6 +1,5 @@
 plugins {
     id("java")
-//    id("org.jetbrains.kotlin.jvm") version "1.9.0"
     id("org.jetbrains.intellij") version "1.15.0"
 }
 
@@ -30,24 +29,23 @@ intellij {
 
     downloadSources.set(true)
 
-    // 添加Java模块，同时要在plugin.xml中定义引入Java扩展 -> <depends>com.intellij.java</depends>
-    plugins.set(listOf(
-        "com.intellij.java",
-        "com.intellij.database",
-        "com.jetbrains.sh",
-        "org.jetbrains.kotlin",
-        "JavaScript"
-
-        // "org.intellij.plugins.markdown",
-        // "org.jetbrains.plugins.yaml",
-        // "com.intellij.properties",
-        // "org.intellij.groovy",
-    ))
+    plugins.set(
+        listOf(
+            "com.intellij.java",
+            "com.intellij.database",
+            "com.jetbrains.sh",
+            "org.jetbrains.kotlin",
+            "JavaScript"
+        )
+    )
 }
 
 tasks {
     runIde {
+        // 开启内部模式
         systemProperty("idea.is.internal", true)
+
+        autoReloadPlugins.set(true)
 
         // Enable hotswap, requires JBR 17+ or JBR 11 with DCEVM, and run in debug mode.
         jvmArgs(listOf("-XX:+AllowEnhancedClassRedefinition"))
@@ -59,9 +57,6 @@ tasks {
         targetCompatibility = "17"
         options.encoding = "UTF-8"
     }
-//    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-//        kotlinOptions.jvmTarget = "17"
-//    }
 
     patchPluginXml {
         // 支持2022.3版本到2024.1版本 (2022.3需要JDK17)

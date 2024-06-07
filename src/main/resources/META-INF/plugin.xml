@@ -8,7 +8,7 @@
     <name>ZhiYouToolkit</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="ricardo4265@163.com" url="https://home.memoryzy.cn/">Memory</vendor>
+    <vendor email="memoryzk@outlook.com" url="https://home.memoryzy.cn/">Memory</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -16,7 +16,7 @@
     <description><![CDATA[
     <p>ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain points in daily development, enhancing code development efficiency and quality.</p>
     <br/>
-    <a href="https://home.memoryzy.cn/zhiyou/">Get Started</a>
+    <a href="https://zhiyou.memoryzy.cn/overview.html">Get Started</a>
     | <a href="https://home.memoryzy.cn/">Website</a>
     | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
     | <a href="https://gitee.com/MemoryZy/ZhiYouToolkit">Gitee</a>
@@ -174,6 +174,10 @@
         <listener class="cn.zhiyou.listener.ProjectOpenInitActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>
 <!--        &lt;!&ndash; 处理IDEA打开事件 &ndash;&gt;-->
 <!--        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+
+        <listener class="cn.zhiyou.listener.ErrorSubmissionHandler" topic="com.intellij.openapi.diagnostic.ErrorReportSubmitter"/>
+
+
     </applicationListeners>
 
     <!-- 消息 -->

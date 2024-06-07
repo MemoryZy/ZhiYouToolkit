@@ -6,7 +6,7 @@
 
 知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
-[![Plugin Homepage](https://img.shields.io/badge/Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTEwIDE5di01aDR2NWMwIC41NS40NSAxIDEgMWgzYy41NSAwIDEtLjQ1IDEtMXYtN2gxLjdjLjQ2IDAgLjY4LS41Ny4zMy0uODdMMTIuNjcgMy42Yy0uMzgtLjM0LS45Ni0uMzQtMS4zNCAwbC04LjM2IDcuNTNjLS4zNC4zLS4xMy44Ny4zMy44N0g1djdjMCAuNTUuNDUgMSAxIDFoM2MuNTUgMCAxLS40NSAxLTEiLz48L3N2Zz4=)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
+[![Homepage](https://img.shields.io/badge/Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTEwIDE5di01aDR2NWMwIC41NS40NSAxIDEgMWgzYy41NSAwIDEtLjQ1IDEtMXYtN2gxLjdjLjQ2IDAgLjY4LS41Ny4zMy0uODdMMTIuNjcgMy42Yy0uMzgtLjM0LS45Ni0uMzQtMS4zNCAwbC04LjM2IDcuNTNjLS4zNC4zLS4xMy44Ny4zMy44N0g1djdjMCAuNTUuNDUgMSAxIDFoM2MuNTUgMCAxLS40NSAxLTEiLz48L3N2Zz4=)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
 [![Release](https://img.shields.io/github/v/release/MemoryZy/ZhiYouToolkit?style=Plastic&label=Release&color=d05ce3&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSJub25lIj48cGF0aCBkPSJNMjQgMHYyNEgwVjB6TTEyLjU5MyAyMy4yNThsLS4wMTEuMDAybC0uMDcxLjAzNWwtLjAyLjAwNGwtLjAxNC0uMDA0bC0uMDcxLS4wMzVjLS4wMS0uMDA0LS4wMTktLjAwMS0uMDI0LjAwNWwtLjAwNC4wMWwtLjAxNy40MjhsLjAwNS4wMmwuMDEuMDEzbC4xMDQuMDc0bC4wMTUuMDA0bC4wMTItLjAwNGwuMTA0LS4wNzRsLjAxMi0uMDE2bC4wMDQtLjAxN2wtLjAxNy0uNDI3Yy0uMDAyLS4wMS0uMDA5LS4wMTctLjAxNy0uMDE4bS4yNjUtLjExM2wtLjAxMy4wMDJsLS4xODUuMDkzbC0uMDEuMDFsLS4wMDMuMDExbC4wMTguNDNsLjAwNS4wMTJsLjAwOC4wMDdsLjIwMS4wOTNjLjAxMi4wMDQuMDIzIDAgLjAyOS0uMDA4bC4wMDQtLjAxNGwtLjAzNC0uNjE0Yy0uMDAzLS4wMTItLjAxLS4wMi0uMDItLjAyMm0tLjcxNS4wMDJhLjAyMy4wMjMgMCAwIDAtLjAyNy4wMDZsLS4wMDYuMDE0bC0uMDM0LjYxNGMwIC4wMTIuMDA3LjAyLjAxNy4wMjRsLjAxNS0uMDAybC4yMDEtLjA5M2wuMDEtLjAwOGwuMDA0LS4wMTFsLjAxNy0uNDNsLS4wMDMtLjAxMmwtLjAxLS4wMXoiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTIwLjI0NSAxNC43NWMuOTM1LjYxNC44OTIgMi4wMzctLjEyOSAyLjU3NmwtNy4xODEgMy43OTZhMiAyIDAgMCAxLTEuODcgMGwtNy4xODEtMy43OTZjLTEuMDItLjU0LTEuMDY0LTEuOTYyLS4xMjktMi41NzZsLjA2My4wNGw3LjI0NyAzLjgzMmEyIDIgMCAwIDAgMS44NyAwbDcuMTgxLTMuNzk2YTEuNTkgMS41OSAwIDAgMCAuMTMtLjA3NlptMC00YTEuNSAxLjUgMCAwIDEgMCAyLjUwMWwtLjEyOS4wNzVsLTcuMTgxIDMuNzk2YTIgMiAwIDAgMS0xLjcwNy4wNzdsLS4xNjItLjA3N2wtNy4xODItMy43OTZjLTEuMDItLjU0LTEuMDY0LTEuOTYyLS4xMjktMi41NzZsLjA2My4wNGw3LjI0NyAzLjgzMmEyIDIgMCAwIDAgMS43MDguMDc3bC4xNjItLjA3N2w3LjE4MS0zLjc5NmExLjU5IDEuNTkgMCAwIDAgLjEzLS4wNzZabS03LjMxLTcuODcybDcuMTgxIDMuNzk2YzEuMDY2LjU2MyAxLjA2NiAyLjA5IDAgMi42NTJsLTcuMTgxIDMuNzk3YTIgMiAwIDAgMS0xLjg3IDBMMy44ODQgOS4zMjZjLTEuMDY2LS41NjMtMS4wNjYtMi4wODkgMC0yLjY1Mmw3LjE4MS0zLjc5NmEyIDIgMCAwIDEgMS44NyAwIi8+PC9nPjwvc3ZnPg==)](https://github.com/MemoryZy/ZhiYouToolkit/releases)
 &nbsp;
@@ -21,35 +21,40 @@
 <br/>
 
 ## 功能 🎉
-- [代码笔记](https://home.memoryzy.cn/zhiyou/codenote/)：记录代码、笔记导入、笔记导出、笔记标签。
-- [Json转JavaBean](https://home.memoryzy.cn/zhiyou/jsontobean/)：支持嵌套属性。
-- [JavaBean转Json](https://home.memoryzy.cn/zhiyou/beantojson/)：支持嵌套属性，支持FastJson、Jackson注解。
-- [Json窗口及Json处理](https://home.memoryzy.cn/zhiyou/json/panel/)：Json格式化、Json压缩、Json结构化。
-- [字符串格式转换](https://home.memoryzy.cn/zhiyou/format/conversion/)：驼峰与下划线互相转换、中文转拼音。
-- [单行注释转文档注释](https://home.memoryzy.cn/zhiyou/doc/comment/)
-- [ResultMap标签生成](https://home.memoryzy.cn/zhiyou/mybatis/resultmap/)：一键生成MyBatis-ResultMap标签。
-- [Where标签生成](https://home.memoryzy.cn/zhiyou/mybatis/where/)：一键生成MyBatis-Where标签。
-- [类属性映射与方法列举](https://home.memoryzy.cn/zhiyou/property/mapping/)：Getter、Setter方法列举、类属性映射功能。
-- [JDK序列化ID生成](https://home.memoryzy.cn/zhiyou/generate/serialversionid/)：一键生成JDK序列化Id。
-- [Spring接口路径提取](https://home.memoryzy.cn/zhiyou/get/path/)
-- [时间戳与时间转换](https://home.memoryzy.cn/zhiyou/timestamp/)
-- [MyBatis相关文件生成](https://home.memoryzy.cn/zhiyou/mybatis/generate/)：生成Mapper接口、Mapper-Xml、映射类等文件。
-- [指定注解、注释生成](https://home.memoryzy.cn/zhiyou/create/annotation/)：为类属性生成指定注解及注释。
-- [Jasypt加解密](https://home.memoryzy.cn/zhiyou/jasypt/)：Jasypt加密、解密功能，支持对称加密、非对称加密。
-- [JSON/XML转换](https://home.memoryzy.cn/zhiyou/jsontoxml/)
-- [文本互相比对](https://home.memoryzy.cn/zhiyou/textcompare/)：比对两份文本之间的不同之处。
+- [代码笔记](https://zhiyou.memoryzy.cn/code-note.html)：记录代码、笔记导入、笔记导出、笔记标签。
+- [Json转JavaBean](https://zhiyou.memoryzy.cn/json-to-javabean.html)：支持嵌套属性。
+- [JavaBean转Json](https://zhiyou.memoryzy.cn/javabean-to-json.html)：支持嵌套属性，支持FastJson、Jackson注解。
+- [Json窗口及Json处理](https://zhiyou.memoryzy.cn/json-panel.html)：Json格式化、Json压缩、Json结构化。
+- [字符串格式转换](https://zhiyou.memoryzy.cn/convert-strings.html)：驼峰与下划线互相转换、中文转拼音。
+- [单行注释转文档注释](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
+- [ResultMap标签生成](https://zhiyou.memoryzy.cn/generates-resultmap-tag.html)：一键生成MyBatis-ResultMap标签。
+- [Where标签生成](https://zhiyou.memoryzy.cn/generates-where-tag.html)：一键生成MyBatis-Where标签。
+- [类属性映射与方法列举](https://zhiyou.memoryzy.cn/attributes-mapping.html)：Getter、Setter方法列举、类属性映射功能。
+- [JDK序列化ID生成](https://zhiyou.memoryzy.cn/generate-serialization-id.html)：一键生成JDK序列化Id。
+- [Spring接口路径提取](https://zhiyou.memoryzy.cn/copy-restful-path.html)
+- [时间戳与时间转换](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html)
+- [MyBatis相关文件生成](https://zhiyou.memoryzy.cn/generate-mybatis-files.html)：生成Mapper接口、Mapper-Xml、映射类等文件。
+- [指定注解、注释生成](https://zhiyou.memoryzy.cn/generate-annotation.html)：为类属性生成指定注解及注释。
+- [Jasypt加解密](https://zhiyou.memoryzy.cn/jasypt-encrypt-and-decrypt.html)：Jasypt加密、解密功能，支持对称加密、非对称加密。
+- [JSON/XML转换](https://zhiyou.memoryzy.cn/convert-json-to-xml.html)
+- [文本互相比对](https://zhiyou.memoryzy.cn/text-comparison.html)：比对两份文本之间的不同之处。
 - ......
 
 <br/>
 
 ## 快速开始 🚀
-> 导航：[插件介绍与使用文档](https://home.memoryzy.cn/zhiyou/)
+> 导航：[使用文档](https://zhiyou.memoryzy.cn/overview.html)
 
 <br/>
 
 ## 安装
-> \> &nbsp;通过 **[Jetbrains插件市场](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)** 安装。  
-> \> &nbsp;通过 **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** 下载插件并手动安装。
+> - 通过 IDE 内置插件系统搜索 `ZhiYouToolkit` 并安装。
+> - 通过 **[JetBrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)** 或 **[Github Releases](https://github.com/MemoryZy/ZhiYouToolkit/releases)** 下载插件并手动安装。
+
+<br/>
+
+## 提示
+> 对于 IntelliJ IDEA 来说，插件仅支持 IntelliJ IDEA 2022.2 及以上版本。
 
 <br/>
 
@@ -61,15 +66,11 @@
 
 ![Mapping](https://home.memoryzy.cn/zhiyou/Mapping.gif)
 
-<br/>
-
-## 提示
-> 支持IDEA Ultimate 2022.2及以上版本。
 
 <br/>
 
 ## 反馈
-> 使用过程中发现任何问题都可以提 [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls)，感谢支持。
+> 使用过程中发现任何问题都可以提 [Issue](https://github.com/MemoryZy/ZhiYouToolkit/issues) 和 [PR](https://github.com/MemoryZy/ZhiYouToolkit/pulls)，并且有任何想法也可以直接提交至 [Discussions](https://github.com/MemoryZy/ZhiYouToolkit/discussions/categories/ideas) 感谢支持。
 
 <br/>
 

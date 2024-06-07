@@ -98,8 +98,6 @@ public class AboutZhiYouWindow extends DialogWrapper {
     protected void doOKAction() {
         if (getOKAction().isEnabled()) {
             // 执行逻辑
-            // OpenHelpNotificationAction.openHelpHtmlEditor(project);
-
             String message = ZhiYouBundle.message("how.to.use");
             URL url = URLUtil.url(message);
             BrowserUtil.browse(url);

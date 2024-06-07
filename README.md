@@ -9,7 +9,7 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
 
 
-[![Plugin Homepage](https://img.shields.io/badge/Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTEwIDE5di01aDR2NWMwIC41NS40NSAxIDEgMWgzYy41NSAwIDEtLjQ1IDEtMXYtN2gxLjdjLjQ2IDAgLjY4LS41Ny4zMy0uODdMMTIuNjcgMy42Yy0uMzgtLjM0LS45Ni0uMzQtMS4zNCAwbC04LjM2IDcuNTNjLS4zNC4zLS4xMy44Ny4zMy44N0g1djdjMCAuNTUuNDUgMSAxIDFoM2MuNTUgMCAxLS40NSAxLTEiLz48L3N2Zz4=)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
+[![Homepage](https://img.shields.io/badge/Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTEwIDE5di01aDR2NWMwIC41NS40NSAxIDEgMWgzYy41NSAwIDEtLjQ1IDEtMXYtN2gxLjdjLjQ2IDAgLjY4LS41Ny4zMy0uODdMMTIuNjcgMy42Yy0uMzgtLjM0LS45Ni0uMzQtMS4zNCAwbC04LjM2IDcuNTNjLS4zNC4zLS4xMy44Ny4zMy44N0g1djdjMCAuNTUuNDUgMSAxIDFoM2MuNTUgMCAxLS40NSAxLTEiLz48L3N2Zz4=)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
 [![Release](https://img.shields.io/github/v/release/MemoryZy/ZhiYouToolkit?style=Plastic&label=Release&color=d05ce3&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSJub25lIj48cGF0aCBkPSJNMjQgMHYyNEgwVjB6TTEyLjU5MyAyMy4yNThsLS4wMTEuMDAybC0uMDcxLjAzNWwtLjAyLjAwNGwtLjAxNC0uMDA0bC0uMDcxLS4wMzVjLS4wMS0uMDA0LS4wMTktLjAwMS0uMDI0LjAwNWwtLjAwNC4wMWwtLjAxNy40MjhsLjAwNS4wMmwuMDEuMDEzbC4xMDQuMDc0bC4wMTUuMDA0bC4wMTItLjAwNGwuMTA0LS4wNzRsLjAxMi0uMDE2bC4wMDQtLjAxN2wtLjAxNy0uNDI3Yy0uMDAyLS4wMS0uMDA5LS4wMTctLjAxNy0uMDE4bS4yNjUtLjExM2wtLjAxMy4wMDJsLS4xODUuMDkzbC0uMDEuMDFsLS4wMDMuMDExbC4wMTguNDNsLjAwNS4wMTJsLjAwOC4wMDdsLjIwMS4wOTNjLjAxMi4wMDQuMDIzIDAgLjAyOS0uMDA4bC4wMDQtLjAxNGwtLjAzNC0uNjE0Yy0uMDAzLS4wMTItLjAxLS4wMi0uMDItLjAyMm0tLjcxNS4wMDJhLjAyMy4wMjMgMCAwIDAtLjAyNy4wMDZsLS4wMDYuMDE0bC0uMDM0LjYxNGMwIC4wMTIuMDA3LjAyLjAxNy4wMjRsLjAxNS0uMDAybC4yMDEtLjA5M2wuMDEtLjAwOGwuMDA0LS4wMTFsLjAxNy0uNDNsLS4wMDMtLjAxMmwtLjAxLS4wMXoiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTIwLjI0NSAxNC43NWMuOTM1LjYxNC44OTIgMi4wMzctLjEyOSAyLjU3NmwtNy4xODEgMy43OTZhMiAyIDAgMCAxLTEuODcgMGwtNy4xODEtMy43OTZjLTEuMDItLjU0LTEuMDY0LTEuOTYyLS4xMjktMi41NzZsLjA2My4wNGw3LjI0NyAzLjgzMmEyIDIgMCAwIDAgMS44NyAwbDcuMTgxLTMuNzk2YTEuNTkgMS41OSAwIDAgMCAuMTMtLjA3NlptMC00YTEuNSAxLjUgMCAwIDEgMCAyLjUwMWwtLjEyOS4wNzVsLTcuMTgxIDMuNzk2YTIgMiAwIDAgMS0xLjcwNy4wNzdsLS4xNjItLjA3N2wtNy4xODItMy43OTZjLTEuMDItLjU0LTEuMDY0LTEuOTYyLS4xMjktMi41NzZsLjA2My4wNGw3LjI0NyAzLjgzMmEyIDIgMCAwIDAgMS43MDguMDc3bC4xNjItLjA3N2w3LjE4MS0zLjc5NmExLjU5IDEuNTkgMCAwIDAgLjEzLS4wNzZabS03LjMxLTcuODcybDcuMTgxIDMuNzk2YzEuMDY2LjU2MyAxLjA2NiAyLjA5IDAgMi42NTJsLTcuMTgxIDMuNzk3YTIgMiAwIDAgMS0xLjg3IDBMMy44ODQgOS4zMjZjLTEuMDY2LS41NjMtMS4wNjYtMi4wODkgMC0yLjY1Mmw3LjE4MS0zLjc5NmEyIDIgMCAwIDEgMS44NyAwIi8+PC9nPjwvc3ZnPg==)](https://github.com/MemoryZy/ZhiYouToolkit/releases)
 &nbsp;
@@ -25,50 +25,50 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 
 
 ## Features 🎉
-- [Code Notes](https://home.memoryzy.cn/zhiyou/codenote/): Code Logging, Note Import, Note Export, Note Tagging.
-- [Convert JSON to JavaBean](https://home.memoryzy.cn/zhiyou/jsontobean/): Support for Nested Properties.
-- [Convert JavaBean to JSON](https://home.memoryzy.cn/zhiyou/beantojson/): Support for Nested Properties, FastJson, and Jackson Annotations.
-- [JSON Window and JSON Processing](https://home.memoryzy.cn/zhiyou/json/panel/): JSON Formatting, JSON Compression, JSON Structuring.
-- [String Format Conversion](https://home.memoryzy.cn/zhiyou/format/conversion/): Convert Between Camel Case and Underscore, Convert Chinese to Pinyin.
-- [Convert Single-line Comments to Documentation Comments](https://home.memoryzy.cn/zhiyou/doc/comment/)
-- [Generate ResultMap Tags](https://home.memoryzy.cn/zhiyou/mybatis/resultmap/): One-Click Generation of MyBatis ResultMap Tags.
-- [Generate Where Tags](https://home.memoryzy.cn/zhiyou/mybatis/where/): One-Click Generation of MyBatis Where Tags.
-- [Class Property Mapping and Method Enumeration](https://home.memoryzy.cn/zhiyou/property/mapping/): Enumerate Getter and Setter Methods, Class Property Mapping Functionality.
-- [Generate JDK Serialization ID](https://home.memoryzy.cn/zhiyou/generate/serialversionid/): One-Click Generation of JDK Serialization ID.
-- [Extract Spring Interface Paths](https://home.memoryzy.cn/zhiyou/get/path/)
-- [Convert Between Timestamps and Dates](https://home.memoryzy.cn/zhiyou/timestamp/)
-- [Generate MyBatis-related Files](https://home.memoryzy.cn/zhiyou/mybatis/generate/): Generate Mapper Interface, Mapper XML, Mapping Class, and Other Files.
-- [Generate Specified Annotations and Comments](https://home.memoryzy.cn/zhiyou/create/annotation/): Generate Specified Annotations and Comments for Class Properties.
-- [Jasypt Encryption and Decryption](https://home.memoryzy.cn/zhiyou/jasypt/): Jasypt Encryption and Decryption Functionality, Support for Symmetric and Asymmetric Encryption.
-- [Convert Between JSON and XML](https://home.memoryzy.cn/zhiyou/jsontoxml/)
-- [Text Comparison](https://home.memoryzy.cn/zhiyou/textcompare/): Compare Differences Between Two Texts.
+- [Code Notes](https://zhiyou.memoryzy.cn/code-note.html): Code Logging, Note Import, Note Export, Note Tagging.
+- [Convert JSON to JavaBean](https://zhiyou.memoryzy.cn/json-to-javabean.html): Support for Nested Properties.
+- [Convert JavaBean to JSON](https://zhiyou.memoryzy.cn/javabean-to-json.html): Support for Nested Properties, FastJson, and Jackson Annotations.
+- [JSON Window and JSON Processing](https://zhiyou.memoryzy.cn/json-panel.html): JSON Formatting, JSON Compression, JSON Structuring.
+- [String Format Conversion](https://zhiyou.memoryzy.cn/convert-strings.html): Convert Between Camel Case and Underscore, Convert Chinese to Pinyin.
+- [Convert Single-line Comments to Documentation Comments](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
+- [Generate ResultMap Tags](https://zhiyou.memoryzy.cn/generates-resultmap-tag.html): One-Click Generation of MyBatis ResultMap Tags.
+- [Generate Where Tags](https://zhiyou.memoryzy.cn/generates-where-tag.html): One-Click Generation of MyBatis Where Tags.
+- [Class Property Mapping and Method Enumeration](https://zhiyou.memoryzy.cn/attributes-mapping.html): Enumerate Getter and Setter Methods, Class Property Mapping Functionality.
+- [Generate JDK Serialization ID](https://zhiyou.memoryzy.cn/generate-serialization-id.html): One-Click Generation of JDK Serialization ID.
+- [Extract Spring Interface Paths](https://zhiyou.memoryzy.cn/copy-restful-path.html)
+- [Convert Between Timestamps and Dates](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html)
+- [Generate MyBatis-related Files](https://zhiyou.memoryzy.cn/generate-mybatis-files.html): Generate Mapper Interface, Mapper XML, Mapping Class, and Other Files.
+- [Generate Specified Annotations and Comments](https://zhiyou.memoryzy.cn/generate-annotation.html): Generate Specified Annotations and Comments for Class Properties.
+- [Jasypt Encryption and Decryption](https://zhiyou.memoryzy.cn/jasypt-encrypt-and-decrypt.html): Jasypt Encryption and Decryption Functionality, Support for Symmetric and Asymmetric Encryption.
+- [Convert Between JSON and XML](https://zhiyou.memoryzy.cn/convert-json-to-xml.html)
+- [Text Comparison](https://zhiyou.memoryzy.cn/text-comparison.html): Compare Differences Between Two Texts.
 - ......
         
 <br/>
 
 ## Get Started 🚀
-> Navigation：**[Introduction and usage documentation](https://home.memoryzy.cn/zhiyou/)**
+> Navigation：**[Documentation](https://zhiyou.memoryzy.cn/overview.html)**
 
 <br/>
 
 ## Installed
-> \> &nbsp;Install via **[Jetbrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)**.  
-> \> &nbsp;Download the plugin on **[Github Release](https://github.com/MemoryZy/ZhiYouToolkit/releases)** and install it manually.
+> - Search for `ZhiYouToolkit` in the IDE built-in plug-in system and install it.
+> - Download the plugin via the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit) or [Github Releases](https://github.com/MemoryZy/ZhiYouToolkit/releases) and install it manually.
 
 <br/>
 
 ## Plugin Screenshots
 
-![Json Panel](https://private-user-images.githubusercontent.com/64096987/336691550-573a9ef0-e882-46a9-8a67-a60fd2fd1584.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1NjMzODMsIm5iZiI6MTcxNzU2MzA4MywicGF0aCI6Ii82NDA5Njk4Ny8zMzY2OTE1NTAtNTczYTllZjAtZTg4Mi00NmE5LThhNjctYTYwZmQyZmQxNTg0LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA1VDA0NTEyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTMzYWZjMTgxOWQ1ZDdjMjFlOGExYjIyODFjOTQ5ZjQxZmUwMzJjNmI4YjQ1YTU2N2Y3MWZkN2U3M2QzZjQ3NjcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.CL5kvst_kiW3D_s4lZejloca-ybCsQXP4BJtiNG9lKA)
+![Json Panel](https://home.memoryzy.cn/zhiyou/JsonPanel.jpg)
 
-![MyBatis](https://private-user-images.githubusercontent.com/64096987/336691618-b25ead49-4b73-4fbf-a773-79feba93ee05.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1NjMzODMsIm5iZiI6MTcxNzU2MzA4MywicGF0aCI6Ii82NDA5Njk4Ny8zMzY2OTE2MTgtYjI1ZWFkNDktNGI3My00ZmJmLWE3NzMtNzlmZWJhOTNlZTA1LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA1VDA0NTEyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFmNzg1YmRhNWQ5YThmODE1NjgwZmI2MDA2NDM3YWZhYzRlZDViOTZlMWFiMDZlMzQ4NzRjNzE3NTEwMDI3YTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.5pFov9GKcJ3tijLwweBqmuQmsZkd0FmRL9Q7pbTSrqg)
+![MyBatis](https://home.memoryzy.cn/zhiyou/MyBatis.jpg)
 
-![Mapping](https://private-user-images.githubusercontent.com/64096987/336691597-c2562a24-83c5-4384-a40c-ef0b74ac8286.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1NjMzODMsIm5iZiI6MTcxNzU2MzA4MywicGF0aCI6Ii82NDA5Njk4Ny8zMzY2OTE1OTctYzI1NjJhMjQtODNjNS00Mzg0LWE0MGMtZWYwYjc0YWM4Mjg2LmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA1VDA0NTEyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJlYmY3OTc3NzA5YzY1NDQzM2YwOWYwNzQ1NDQ3YTBlOGQzMDc3ZGNmOWQxODhjY2Y0YzZjZDJiYTM1ZTE1MWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.bbrLtTgUQE1T49loezioeGUWoR0SXq535EDpSPVavhw)
+![Mapping](https://home.memoryzy.cn/zhiyou/Mapping.gif)
 
 <br/>
 
 ## Tip
-> IDEA Ultimate 2022.2 or later is supported.
+> For IntelliJ IDEA, the plugin only supports IntelliJ IDEA 2022.2 and above.
 
 <br/>
 

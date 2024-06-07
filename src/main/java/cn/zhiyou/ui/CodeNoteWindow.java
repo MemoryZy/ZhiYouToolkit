@@ -145,6 +145,8 @@ public class CodeNoteWindow {
         columnModel.getColumn(1).setPreferredWidth(200);
         columnModel.getColumn(2).setPreferredWidth(130);
 
+        showTable.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 13));
+
         // 触发快速查找
         CompatibilityUtil.speedSearchInstallOn(showTable);
 

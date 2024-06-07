@@ -13,13 +13,17 @@ import cn.zhiyou.ui.basic.TextFieldErrorPopupDecorator;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CodeCreateUtil;
 import cn.zhiyou.utils.CommonUtil;
-import cn.zhiyou.validator.ClassValidator;
+import com.intellij.codeInsight.daemon.impl.analysis.HighlightClassUtil;
 import com.intellij.json.json5.Json5Language;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.InputValidatorEx;
+import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
 import com.intellij.psi.javadoc.PsiDocComment;
+import com.intellij.psi.util.PsiUtil;
 import com.intellij.ui.EditorTextField;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
@@ -279,4 +283,44 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
         }
     }
 
+
+    /**
+     * 类名验证
+     *
+     * @author wcp
+     * @since 2024/1/26
+     */
+    public static class ClassValidator implements InputValidatorEx {
+        private final Project project;
+        private final LanguageLevel level;
+
+        public ClassValidator(Project project, PsiDirectory directory) {
+            this.project = project;
+            level = PsiUtil.getLanguageLevel(directory);
+        }
+
+        @Override
+        public String getErrorText(String inputString) {
+            if (!inputString.isEmpty() && !PsiNameHelper.getInstance(project).isQualifiedName(inputString)) {
+                // return JavaErrorBundle.message("create.class.action.this.not.valid.java.qualified.name");
+                return "非法类名";
+            }
+            String shortName = StringUtil.getShortName(inputString);
+            if (HighlightClassUtil.isRestrictedIdentifier(shortName, level)) {
+                // return JavaErrorBundle.message("restricted.identifier", shortName);
+                return StrUtil.format("{} 不能用于类名", shortName);
+            }
+            return null;
+        }
+
+        @Override
+        public boolean checkInput(String inputString) {
+            return true;
+        }
+
+        @Override
+        public boolean canClose(String inputString) {
+            return !StringUtil.isEmptyOrSpaces(inputString) && getErrorText(inputString) == null;
+        }
+    }
 }

@@ -1,14 +1,14 @@
 package cn.zhiyou.action;
 
-import cn.zhiyou.ui.DataBaseSelectWindow;
-import cn.zhiyou.ui.basic.DasMutableTreeNode;
-import cn.zhiyou.utils.DatabaseUtil;
-import com.intellij.database.model.DasDataSource;
+import cn.zhiyou.utils.ActionUtil;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
+import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 /**
  * @author wcp
@@ -16,52 +16,43 @@ import java.util.List;
  */
 public class TestAction extends AnAction {
 
+    private static final Logger LOG = Logger.getInstance(TestAction.class);
+
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {
-        // Editor editor = ActionUtil.getEditor(event);
-        // EditorImpl editor1 = (EditorImpl) editor;
-        //
-        // Document document = editor.getDocument();
-        //
-        // EditorHighlighter highlighter = editor.getHighlighter();
-        // VirtualFile virtualFile = editor.getVirtualFile();
-        //
-        // Language languageForPsi = LanguageUtil.getLanguageForPsi(event.getProject(), virtualFile);
-        // // json、groovy、shell、java、kotlin、sql、xml、html、js
-        //
-        //
-        // String name = languageForPsi.getClass().getName();
-        //
-        // String displayName = languageForPsi.getDisplayName();
-        // String id = languageForPsi.getID();
-        //
-        //
-        //
-        //
-        //
-        // IdeaPluginDescriptor[] plugins = PluginManager.getPlugins();
-        //
-        // for (IdeaPluginDescriptor plugin : plugins) {
-        //
-        //     System.out.println();
-        // }
-        //
-        // // JavascriptLanguage
-        //
-        //
-        // boolean pluginInstalled = PluginManager.isPluginInstalled(PluginId.getId("org.intellij.groovy"));
-        //
-        // PluginDescriptor pluginByClass = PluginManager.getPluginByClass(languageForPsi.getClass());
+        Project project = event.getProject();
+        ProgressManager.getInstance().run(new Task.Backgroundable(project, "File generation") {
+            @Override
+            public void run(@NotNull ProgressIndicator progressIndicator) {
+                progressIndicator.setIndeterminate(false);
+                progressIndicator.setText("File generation in progress...");
+                progressIndicator.setFraction(0);
 
-        List<DasDataSource> dasDataSourceList = DatabaseUtil.getAllLocalDataSource(event.getProject());
+                try {
+                    Thread.sleep(500L);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
 
-        DataBaseSelectWindow dataBaseSelectWindow = new DataBaseSelectWindow(event.getProject(), dasDataSourceList);
-        if (dataBaseSelectWindow.showAndGet()) {
-            DasMutableTreeNode dasMutableTreeNode = dataBaseSelectWindow.getDasMutableTreeNode();
 
-            System.out.println();
-        }
+                ActionUtil.runWriteCommandAction(project, () -> {
 
+                    try {
+                        throw new RuntimeException();
+                    } catch (RuntimeException e) {
+                        // LOG.error(e.getMessage(), e);
+                        throw e;
+                    }
+
+                    // ErrorReportSubmitter
+
+                });
+
+
+                progressIndicator.setFraction(1.0);
+                progressIndicator.setText("Finished");
+            }
+        });
     }
 
 }

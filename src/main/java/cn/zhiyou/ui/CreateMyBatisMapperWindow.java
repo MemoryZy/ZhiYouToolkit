@@ -29,6 +29,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.module.Module;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.*;
 import com.intellij.openapi.ui.popup.Balloon;
@@ -530,86 +533,99 @@ public class CreateMyBatisMapperWindow extends DialogWrapper {
      */
     private void createMapper(Table tableMeta, DasTable dasTable, String tableName, String mapperQualifiedName,
                               String entityQualifiedName, String xmlFileName, PsiPackage mapperPackage, PsiPackage entityPackage) {
-        // 是否存在主键
-        boolean hasPk;
-        // 是否为唯一主键
-        boolean singlePk;
-        // 是否自增主键
-        boolean autoIncrement;
-        // 表注释
-        String tableComment;
-        // 列信息
-        List<ColumnEntity> columnEntityList = new ArrayList<>();
-        // 主键列表信息
-        List<ColumnEntity> primaryKeyEntityList = new ArrayList<>();
 
-        if (dasTable != null) {
-            Set<DasColumn> pkSet = new HashSet<>();
-            // 遍历列
-            JBIterable<? extends DasColumn> columns = DasUtil.getColumns(dasTable);
-            // 表注释
-            tableComment = dasTable.getComment();
-            // 是否自增主键
-            autoIncrement = fillColumnList(columns, pkSet, primaryKeyEntityList, columnEntityList);
-            // 是否存在主键
-            hasPk = CollUtil.isNotEmpty(pkSet);
-            // 是否为唯一主键
-            singlePk = hasPk && pkSet.size() == 1;
-        } else {
-            // 主键列表
-            Set<String> pkNames = tableMeta.getPkNames();
-            // 所有列
-            Collection<Column> columns = tableMeta.getColumns();
-            // 表注释
-            tableComment = tableMeta.getComment();
-            // 是否存在主键
-            hasPk = CollUtil.isNotEmpty(pkNames);
-            // 是否为唯一主键
-            singlePk = hasPk && pkNames.size() == 1;
-            // 是否自增主键
-            autoIncrement = fillColumnList(columns, pkNames, primaryKeyEntityList, columnEntityList);
-        }
+        ProgressManager.getInstance().run(new Task.Backgroundable(project, "File generation") {
+            @Override
+            public void run(@NotNull ProgressIndicator progressIndicator) {
+                progressIndicator.setIndeterminate(false);
+                progressIndicator.setText("File generation in progress...");
+                progressIndicator.setFraction(0);
 
-        if (defaultRb.isSelected()) {
-            // 默认
-            createEntityTemplate(
-                    entityPackage,
-                    columnEntityList,
-                    primaryKeyEntityList,
-                    entityQualifiedName,
-                    tableName,
-                    tableComment,
-                    autoIncrement);
+                // 是否存在主键
+                boolean hasPk;
+                // 是否为唯一主键
+                boolean singlePk;
+                // 是否自增主键
+                boolean autoIncrement;
+                // 表注释
+                String tableComment;
+                // 列信息
+                List<ColumnEntity> columnEntityList = new ArrayList<>();
+                // 主键列表信息
+                List<ColumnEntity> primaryKeyEntityList = new ArrayList<>();
 
-            createDefaultTemplate(
-                    mapperPackage,
-                    mapperQualifiedName,
-                    entityQualifiedName,
-                    xmlFileName,
-                    tableName,
-                    hasPk,
-                    singlePk,
-                    autoIncrement,
-                    columnEntityList,
-                    primaryKeyEntityList);
+                if (dasTable != null) {
+                    Set<DasColumn> pkSet = new HashSet<>();
+                    // 遍历列
+                    JBIterable<? extends DasColumn> columns = DasUtil.getColumns(dasTable);
+                    // 表注释
+                    tableComment = dasTable.getComment();
+                    // 是否自增主键
+                    autoIncrement = fillColumnList(columns, pkSet, primaryKeyEntityList, columnEntityList);
+                    // 是否存在主键
+                    hasPk = CollUtil.isNotEmpty(pkSet);
+                    // 是否为唯一主键
+                    singlePk = hasPk && pkSet.size() == 1;
+                } else {
+                    // 主键列表
+                    Set<String> pkNames = tableMeta.getPkNames();
+                    // 所有列
+                    Collection<Column> columns = tableMeta.getColumns();
+                    // 表注释
+                    tableComment = tableMeta.getComment();
+                    // 是否存在主键
+                    hasPk = CollUtil.isNotEmpty(pkNames);
+                    // 是否为唯一主键
+                    singlePk = hasPk && pkNames.size() == 1;
+                    // 是否自增主键
+                    autoIncrement = fillColumnList(columns, pkNames, primaryKeyEntityList, columnEntityList);
+                }
 
-        } else if (mpRb.isSelected()) {
-            // mybatis-plus
-            // 生成实体
-            createEntityTemplate(entityPackage, columnEntityList, primaryKeyEntityList, entityQualifiedName, tableName, tableComment, autoIncrement);
-            // 生成mapper接口及xml
-            createMpTemplate(mapperPackage, mapperQualifiedName, entityQualifiedName, xmlFileName, columnEntityList, primaryKeyEntityList);
-        } else {
-            // 只生成实体类
-            createEntityTemplate(
-                    entityPackage,
-                    columnEntityList,
-                    primaryKeyEntityList,
-                    entityQualifiedName,
-                    tableName,
-                    tableComment,
-                    autoIncrement);
-        }
+                if (defaultRb.isSelected()) {
+                    // 默认
+                    createEntityTemplate(
+                            entityPackage,
+                            columnEntityList,
+                            primaryKeyEntityList,
+                            entityQualifiedName,
+                            tableName,
+                            tableComment,
+                            autoIncrement);
+
+                    createDefaultTemplate(
+                            mapperPackage,
+                            mapperQualifiedName,
+                            entityQualifiedName,
+                            xmlFileName,
+                            tableName,
+                            hasPk,
+                            singlePk,
+                            autoIncrement,
+                            columnEntityList,
+                            primaryKeyEntityList);
+
+                } else if (mpRb.isSelected()) {
+                    // mybatis-plus
+                    // 生成实体
+                    createEntityTemplate(entityPackage, columnEntityList, primaryKeyEntityList, entityQualifiedName, tableName, tableComment, autoIncrement);
+                    // 生成mapper接口及xml
+                    createMpTemplate(mapperPackage, mapperQualifiedName, entityQualifiedName, xmlFileName, columnEntityList, primaryKeyEntityList);
+                } else {
+                    // 只生成实体类
+                    createEntityTemplate(
+                            entityPackage,
+                            columnEntityList,
+                            primaryKeyEntityList,
+                            entityQualifiedName,
+                            tableName,
+                            tableComment,
+                            autoIncrement);
+                }
+
+                progressIndicator.setFraction(1.0);
+                progressIndicator.setText("Finished");
+            }
+        });
     }
 
     /**
