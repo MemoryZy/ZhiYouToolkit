@@ -36,7 +36,7 @@ public class JsonPanelWindow {
         this.project = project;
         this.toolWindow = toolWindow;
 
-        toolWindow.setTitleActions(List.of(new JsonCollectTreeAction()));
+        toolWindow.setTitleActions(List.of(new CodeNoteWindow.FloatingWindowAction(toolWindow), new JsonCollectTreeAction()));
     }
 
     private void createUIComponents() {

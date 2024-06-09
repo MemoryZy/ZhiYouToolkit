@@ -29,6 +29,7 @@ import com.intellij.openapi.ui.popup.JBPopupListener;
 import com.intellij.openapi.ui.popup.LightweightWindowEvent;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileWrapper;
+import com.intellij.openapi.wm.ToolWindowType;
 import com.intellij.openapi.wm.ex.ToolWindowEx;
 import com.intellij.ui.CheckBoxList;
 import com.intellij.ui.ToolbarDecorator;
@@ -80,7 +81,7 @@ public class CodeNoteWindow {
         this.toolWindow = toolWindow;
 
         // 添加操作（setTitleActions显示右边，setTabActions显示左边）
-        toolWindow.setTitleActions(List.of(new OpenLabelButtonAction()));
+        toolWindow.setTitleActions(List.of(new FloatingWindowAction(toolWindow), new OpenLabelButtonAction()));
         // toolWindow.setTabActions(new OpenLabelButtonAction());
         // 这个是窗口那里的三个点省略号那里
         // toolWindow.setAdditionalGearActions();
@@ -686,6 +687,22 @@ public class CodeNoteWindow {
     }
 
 
+    public static class FloatingWindowAction extends AnAction {
+
+        private final ToolWindowEx toolWindow;
+
+        public FloatingWindowAction(ToolWindowEx toolWindow) {
+            super("窗口浮动化", null, AllIcons.General.OpenInToolWindow);
+            this.toolWindow = toolWindow;
+        }
+
+        @Override
+        public void actionPerformed(@NotNull AnActionEvent e) {
+            toolWindow.setType(ToolWindowType.FLOATING, null);
+        }
+    }
+
+
     private class FilterLabelAction extends AnAction {
         public FilterLabelAction() {
             super("筛选", null, AllIcons.General.Filter);
@@ -764,3 +781,6 @@ public class CodeNoteWindow {
 
     }
 }
+
+
+// AllIcons.General.OpenInToolWindow
