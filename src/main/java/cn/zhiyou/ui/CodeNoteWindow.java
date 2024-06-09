@@ -351,12 +351,31 @@ public class CodeNoteWindow {
         columnModel.getColumn(2).setPreferredWidth(130);
     }
 
+
+    public void refreshLabelForAddNote(Integer labelId) {
+        if (!selectIdList.contains(labelId)) {
+            selectIdList.add(labelId);
+            // 重新加载table，并将选中的标签id保存到 static修饰的变量，重启了idea就不作数
+            reloadTable();
+        }
+    }
+
+
     public static void refreshTable(Project project) {
         // 刷新侧边栏
         CodeNotePanel page = (CodeNotePanel) ActionUtil.getPageInToolWindow(project, "Code Note", 0);
         if (Objects.nonNull(page)) {
             CodeNoteWindow codeNoteWindow = page.getCodeNoteWindow();
             codeNoteWindow.reloadTable();
+        }
+    }
+
+    public static void refreshLabelForAddNote(Project project, Integer labelId) {
+        // 刷新侧边栏
+        CodeNotePanel page = (CodeNotePanel) ActionUtil.getPageInToolWindow(project, "Code Note", 0);
+        if (Objects.nonNull(page)) {
+            CodeNoteWindow codeNoteWindow = page.getCodeNoteWindow();
+            codeNoteWindow.refreshLabelForAddNote(labelId);
         }
     }
 

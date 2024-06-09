@@ -257,6 +257,9 @@ public class CodeNoteDetailWindow extends DialogWrapper {
 
             // 刷新侧边栏
             CodeNoteWindow.refreshTable(project);
+
+            CodeNoteWindow.refreshLabelForAddNote(project, codeNoteLabelEntity.getId());
+
             NotificationUtil.notifyApplication("添加笔记成功!", NotificationType.INFORMATION, project);
         } else {
             if (ArrayUtil.isNotEmpty(codeNoteEntityList)) {
