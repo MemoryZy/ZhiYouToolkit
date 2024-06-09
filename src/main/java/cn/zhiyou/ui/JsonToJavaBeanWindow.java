@@ -15,6 +15,7 @@ import cn.zhiyou.utils.CodeCreateUtil;
 import cn.zhiyou.utils.CommonUtil;
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightClassUtil;
 import com.intellij.json.json5.Json5Language;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
@@ -41,6 +42,9 @@ import java.util.Objects;
  * @since 2023/12/11
  */
 public class JsonToJavaBeanWindow extends DialogWrapper {
+
+    private static final Logger LOG = Logger.getInstance(JsonToJavaBeanWindow.class);
+
     private JPanel rootPanel;
     private JTextField classNameTextField;
     private EditorTextField jsonEditorTextField;
@@ -49,7 +53,7 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
     private final PsiDirectory directory;
     private final Module module;
 
-    private final TextFieldErrorPopupDecorator classNameerrorPopupDecorator;
+    private final TextFieldErrorPopupDecorator classNameErrorPopupDecorator;
     private final TextFieldErrorPopupDecorator jsonErrorPopupDecorator;
 
     public JsonToJavaBeanWindow(Project project, PsiDirectory directory, Module module) {
@@ -58,7 +62,7 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
         this.directory = directory;
         this.module = module;
 
-        this.classNameerrorPopupDecorator = new TextFieldErrorPopupDecorator(getRootPane(), classNameTextField);
+        this.classNameErrorPopupDecorator = new TextFieldErrorPopupDecorator(getRootPane(), classNameTextField);
         this.jsonErrorPopupDecorator = new TextFieldErrorPopupDecorator(getRootPane(), jsonEditorTextField);
 
         getWindow().addWindowListener(new WindowAdapter() {
@@ -119,7 +123,7 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
             // 存在名字，校验
             ClassValidator classValidator = new ClassValidator(project, directory);
             if (!(classValidator.checkInput(className) && classValidator.canClose(className))) {
-                classNameerrorPopupDecorator.setError(classValidator.getErrorText(className));
+                classNameErrorPopupDecorator.setError(classValidator.getErrorText(className));
                 return false;
             }
         }
@@ -127,7 +131,7 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
         // 判断文件是否已经存在
         if (directory.findFile(className + ".java") != null) {
             // 提示
-            classNameerrorPopupDecorator.setError(StrUtil.format("{} 类已经存在", className));
+            classNameErrorPopupDecorator.setError(StrUtil.format("{} 类已经存在", className));
             return false;
         }
 
@@ -168,20 +172,24 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
         boolean hasLibrary = ActionUtil.hasLibrary(module, "org.projectlombok:lombok");
 
         ActionUtil.runWriteCommandAction(project, () -> {
-            // Java元素构建器
-            PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
-            // 递归添加Json字段
-            recursionAddProperty(jsonObject, newClass, factory);
-            // 添加lombok注解，给内部类也加上
-            if (hasLibrary) {
-                // 增加导入
-                this.importClass(project, newClass, factory);
-            }
+            try {
+                // Java元素构建器
+                PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
+                // 递归添加Json字段
+                recursionAddProperty(jsonObject, newClass, factory);
+                // 添加lombok注解，给内部类也加上
+                if (hasLibrary) {
+                    // 增加导入
+                    this.importClass(project, newClass, factory);
+                }
 
-            // 刷新文件系统
-            ActionUtil.refreshFileSystem();
-            // 编辑器定位到新建类
-            newClass.navigate(true);
+                // 刷新文件系统
+                ActionUtil.refreshFileSystem();
+                // 编辑器定位到新建类
+                newClass.navigate(true);
+            } catch (Exception e) {
+                LOG.error(e.getMessage(), e);
+            }
         });
 
         return true;
@@ -254,16 +262,24 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
                 psiClass.add(psiField);
             } else if (value instanceof JSONArray jsonArray) {
                 if (CollUtil.isNotEmpty(jsonArray)) {
-                    JSONObject jsonObj = (JSONObject) jsonArray.get(0);
-                    String innerClassName = StrUtil.upperFirst(key + "Bean");
-                    // 如果是对象，则还需要创建内部类
-                    PsiClass innerClass = factory.createClass(innerClassName);
-                    // 则递归添加
-                    recursionAddProperty(jsonObj, innerClass, factory);
-                    // 添加内部类至主类
-                    psiClass.add(innerClass);
+                    String innerClassName;
+                    Object element = jsonArray.get(0);
+                    if (element instanceof JSONObject jsonObj) {
+                        // 对象值
+                        innerClassName = StrUtil.upperFirst(key + "Bean");
+                        // 如果是对象，则还需要创建内部类
+                        PsiClass innerClass = factory.createClass(innerClassName);
+                        // 则递归添加
+                        recursionAddProperty(jsonObj, innerClass, factory);
+                        // 添加内部类至主类
+                        psiClass.add(innerClass);
+                    } else {
+                        // 普通值
+                        innerClassName = (Objects.nonNull(element)) ? element.getClass().getSimpleName() : Object.class.getSimpleName();
+                    }
+
                     // 添加当前内部类类型的字段
-                    String fieldText = StrUtil.format("private List<{}> {};", innerClass.getName(), StrUtil.lowerFirst(key));
+                    String fieldText = StrUtil.format("private List<{}> {};", innerClassName, StrUtil.lowerFirst(key));
                     // 构建字段对象
                     PsiField psiField = factory.createFieldFromText(fieldText, psiClass);
                     // 添加到Class

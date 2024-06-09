@@ -326,7 +326,7 @@
 <!--            <action id="cn.zhiyou.action.CreateMyBatisMapperBySettingActionId"-->
 <!--                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"-->
 <!--                    icon="/icons/nav.svg"-->
-<!--                    text="MyBatis Mapper (逆向)"/>-->
+<!--                    text="Generate MyBatis Mapper"/>-->
 <!--            <separator/>-->
 <!--        </group>-->
 
