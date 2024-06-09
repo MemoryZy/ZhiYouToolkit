@@ -56,7 +56,7 @@ public class CodeNoteDetailWindow extends DialogWrapper {
     private ComboBox<String> codeLabelCb;
     private ActionLink codeTypeLink;
     private final Project project;
-    private final String id;
+    private String id;
     private final boolean add;
     private final boolean needFormat;
     private final String codeContent;
@@ -210,7 +210,10 @@ public class CodeNoteDetailWindow extends DialogWrapper {
         }
 
         List<CodeNoteEntity> codeNoteEntityList = CodeNoteSetting.getInstance().codeNoteEntityList;
-        if (add) {
+
+
+        // 判断当前是否属于同一窗口的操作
+        if (add && Objects.isNull(this.id)) {
             if (Objects.isNull(codeNoteEntityList)) {
                 codeNoteEntityList = new ArrayList<>();
                 CodeNoteSetting.getInstance().codeNoteEntityList = codeNoteEntityList;
@@ -248,6 +251,9 @@ public class CodeNoteDetailWindow extends DialogWrapper {
                     sortNum,
                     codeType
             ));
+
+            // 默认当前窗口生命周期未结束，给id赋值
+            this.id = id;
 
             // 刷新侧边栏
             CodeNoteWindow.refreshTable(project);

@@ -8,7 +8,7 @@
     <name>ZhiYouToolkit</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="memoryzk@outlook.com" url="https://home.memoryzy.cn/">Memory</vendor>
+    <vendor email="memoryzk@outlook.com" url="https://github.com/MemoryZy">Memory</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -182,6 +182,7 @@
 
     <!-- 消息 -->
     <resource-bundle>messages.ZhiYouBundle</resource-bundle>
+    <resource-bundle>messages.ActionBundle</resource-bundle>
 
     <actions>
         <!-- 生成相关 -->

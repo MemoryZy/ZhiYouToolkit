@@ -9,16 +9,16 @@ import org.jetbrains.annotations.PropertyKey;
 public class ZhiYouBundle extends DynamicBundle {
 
     @NonNls
-    public static final String BUNDLE = "messages.ZhiYouBundle";
+    public static final String ZHI_YOU_BUNDLE = "messages.ZhiYouBundle";
 
     private static final ZhiYouBundle INSTANCE = new ZhiYouBundle();
 
     private ZhiYouBundle() {
-        super(BUNDLE);
+        super(ZHI_YOU_BUNDLE);
     }
 
     @NotNull
-    public static @Nls String message(@NotNull @PropertyKey(resourceBundle = BUNDLE) String key, Object @NotNull ... params) {
+    public static @Nls String message(@NotNull @PropertyKey(resourceBundle = ZHI_YOU_BUNDLE) String key, Object @NotNull ... params) {
         return INSTANCE.getMessage(key, params);
     }
 

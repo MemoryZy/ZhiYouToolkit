@@ -15,4 +15,23 @@ public class ZhiYouConstant {
             "information_schema", "mysql", "performance_schema", "sys"
     };
 
+    public static final String GITHUB_ISSUES_URL = "https://github.com/MemoryZy/ZhiYouToolkit/issues/new?";
+
+    public static final String REPORT_ERROR_TEMPLATE = """
+            # Description
+            {}
+            
+            # Information
+            > OS: {}
+            >
+            > IDE Version: {}
+            >
+            > Plugin Version: {}
+
+            # Stacktrace
+            ```
+            {}
+            ```
+            """;
+
 }
