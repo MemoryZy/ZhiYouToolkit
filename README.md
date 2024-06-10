@@ -25,23 +25,23 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 
 
 ## Features 🎉
-- [Code Notes](https://zhiyou.memoryzy.cn/code-note.html): Code Logging, Note Import, Note Export, Note Tagging.
-- [Convert JSON to JavaBean](https://zhiyou.memoryzy.cn/json-to-javabean.html): Support for Nested Properties.
-- [Convert JavaBean to JSON](https://zhiyou.memoryzy.cn/javabean-to-json.html): Support for Nested Properties, FastJson, and Jackson Annotations.
-- [JSON Window and JSON Processing](https://zhiyou.memoryzy.cn/json-panel.html): JSON Formatting, JSON Compression, JSON Structuring.
-- [String Format Conversion](https://zhiyou.memoryzy.cn/convert-strings.html): Convert Between Camel Case and Underscore, Convert Chinese to Pinyin.
-- [Convert Single-line Comments to Documentation Comments](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
-- [Generate ResultMap Tags](https://zhiyou.memoryzy.cn/generates-resultmap-tag.html): One-Click Generation of MyBatis ResultMap Tags.
-- [Generate Where Tags](https://zhiyou.memoryzy.cn/generates-where-tag.html): One-Click Generation of MyBatis Where Tags.
+- [Code note-taking functionality](https://zhiyou.memoryzy.cn/code-note.html): Record code snippets, notes, and memos with support for tagging, import, and export functionalities.
+- [Convert JSON to JavaBean](https://zhiyou.memoryzy.cn/json-to-javabean.html): Deserialize JSON into JavaBean, supporting nested Array and Object properties.
+- [Convert JavaBean to JSON](https://zhiyou.memoryzy.cn/javabean-to-json.html): Serialize JavaBean to JSON, supporting nested Object properties and FastJson/Jackson annotations.
+- [JSON Window and JSON Processing](https://zhiyou.memoryzy.cn/json-panel.html): Support JSON formatting, compression, and structuring.
+- [String Format Conversion](https://zhiyou.memoryzy.cn/convert-strings.html): Support camelCase to snake_case conversion, Chinese to Pinyin conversion, and multiline text conversion.
+- [Convert single-line comments to JavaDoc](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
+- [Generate ResultMap Tags](https://zhiyou.memoryzy.cn/generates-resultmap-tag.html): Generate MyBatis `<resultMap>` tag based on SQL and Java class property mappings.
+- [Generate Where Tags](https://zhiyou.memoryzy.cn/generates-where-tag.html): Generate MyBatis `<where>` condition tag based on Java class properties.
 - [Class Property Mapping and Method Enumeration](https://zhiyou.memoryzy.cn/attributes-mapping.html): Enumerate Getter and Setter Methods, Class Property Mapping Functionality.
-- [Generate JDK Serialization ID](https://zhiyou.memoryzy.cn/generate-serialization-id.html): One-Click Generation of JDK Serialization ID.
-- [Extract Spring Interface Paths](https://zhiyou.memoryzy.cn/copy-restful-path.html)
-- [Convert Between Timestamps and Dates](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html)
-- [Generate MyBatis-related Files](https://zhiyou.memoryzy.cn/generate-mybatis-files.html): Generate Mapper Interface, Mapper XML, Mapping Class, and Other Files.
-- [Generate Specified Annotations and Comments](https://zhiyou.memoryzy.cn/generate-annotation.html): Generate Specified Annotations and Comments for Class Properties.
-- [Jasypt Encryption and Decryption](https://zhiyou.memoryzy.cn/jasypt-encrypt-and-decrypt.html): Jasypt Encryption and Decryption Functionality, Support for Symmetric and Asymmetric Encryption.
-- [Convert Between JSON and XML](https://zhiyou.memoryzy.cn/convert-json-to-xml.html)
-- [Text Comparison](https://zhiyou.memoryzy.cn/text-comparison.html): Compare Differences Between Two Texts.
+- [Generate JDK Serialization ID](https://zhiyou.memoryzy.cn/generate-serialization-id.html): Generate JDK serialization ID for Java classes and implement the serialization interface.
+- [Extract Spring Interface Paths](https://zhiyou.memoryzy.cn/copy-restful-path.html): Quickly copy Spring RESTful API paths.
+- [Convert Between Timestamps and Dates](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html): Quickly convert between timestamps and dates/times.
+- [MyBatis Mapper file generation](https://zhiyou.memoryzy.cn/generate-mybatis-files.html): Generate Mapper interface, Mapper XML, mapping classes, and automatically match file paths.
+- [Generate Specified Annotations and Comments](https://zhiyou.memoryzy.cn/generate-annotation.html): Generate specified annotations and comments for class attributes.
+- [Jasypt Encryption and Decryption](https://zhiyou.memoryzy.cn/jasypt-encrypt-and-decrypt.html): Jasypt encryption and decryption functionality, supporting symmetric and asymmetric encryption.
+- [Convert Between JSON and XML](https://zhiyou.memoryzy.cn/convert-json-to-xml.html): Quickly convert JSON/XML.
+- [Text Comparison](https://zhiyou.memoryzy.cn/text-comparison.html): Accurately identify differences between texts.
 - ......
         
 <br/>

@@ -23,46 +23,46 @@
     <br/>
     <h2>Features</h2>
     <ul>
-        <li>Code Notes: Code Logging, Note Import, Note Export, Note Tagging.</li>
-        <li>Convert JSON to JavaBean: Support for Nested Properties.</li>
-        <li>Convert JavaBean to JSON: Support for Nested Properties, FastJson, and Jackson Annotations.</li>
-        <li>JSON Window and JSON Processing: JSON Formatting, JSON Compression, JSON Structuring.</li>
-        <li>String Format Conversion: Convert Between Camel Case and Underscore, Convert Chinese to Pinyin.</li>
-        <li>Convert Single-line Comments to Documentation Comments</li>
-        <li>Generate ResultMap Tags: One-Click Generation of MyBatis ResultMap Tags.</li>
-        <li>Generate Where Tags: One-Click Generation of MyBatis Where Tags.</li>
+        <li>Code note-taking functionality: Record code snippets, notes, and memos with support for tagging, import, and export functionalities.</li>
+        <li>Convert JSON to JavaBean: Deserialize JSON into JavaBean, supporting nested Array and Object properties.</li>
+        <li>Convert JavaBean to JSON: Serialize JavaBean to JSON, supporting nested Object properties and FastJson/Jackson annotations.</li>
+        <li>JSON Window and JSON Processing: Support JSON formatting, compression, and structuring.</li>
+        <li>String Format Conversion: Support camelCase to snake_case conversion, Chinese to Pinyin conversion, and multiline text conversion.</li>
+        <li>Convert single-line comments to JavaDoc</li>
+        <li>Generate ResultMap Tags: Generate MyBatis `resultMap` tag based on SQL and Java class property mappings.</li>
+        <li>Generate Where Tags: Generate MyBatis `where` condition tag based on Java class properties.</li>
         <li>Class Property Mapping and Method Enumeration: Enumerate Getter and Setter Methods, Class Property Mapping Functionality.</li>
-        <li>Generate JDK Serialization ID: One-Click Generation of JDK Serialization ID.</li>
-        <li>Extract Spring Interface Paths</li>
-        <li>Convert Between Timestamps and Dates</li>
-        <li>Generate MyBatis-related Files: Generate Mapper Interface, Mapper XML, Mapping Class, and Other Files.</li>
-        <li>Generate Specified Annotations and Comments: Generate Specified Annotations and Comments for Class Properties.</li>
-        <li>Jasypt Encryption and Decryption: Jasypt Encryption and Decryption Functionality, Support for Symmetric and Asymmetric Encryption.</li>
-        <li>Convert Between JSON and XML</li>
-        <li>Text Comparison: Compare Differences Between Two Texts.</li>
+        <li>Generate JDK Serialization ID: Generate JDK serialization ID for Java classes and implement the serialization interface.</li>
+        <li>Extract Spring Interface Paths: Quickly copy Spring RESTful API paths.</li>
+        <li>Convert Between Timestamps and Dates: Quickly convert between timestamps and dates/times.</li>
+        <li>MyBatis Mapper file generation: Generate Mapper interface, Mapper XML, mapping classes, and automatically match file paths.</li>
+        <li>Generate Specified Annotations and Comments: Generate specified annotations and comments for class attributes.</li>
+        <li>Jasypt Encryption and Decryption: Jasypt encryption and decryption functionality, supporting symmetric and asymmetric encryption.</li>
+        <li>Convert Between JSON and XML: Quickly convert JSON/XML.</li>
+        <li>Text Comparison: Accurately identify differences between texts.</li>
         <li>......</li>
     </ul>
     <hr/>
     <br/>
     <p>知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。</p>
     <ul>
-        <li>代码笔记：记录代码、笔记导入、笔记导出、笔记标签。</li>
-        <li>Json转JavaBean：支持嵌套属性。</li>
-        <li>JavaBean转Json：支持嵌套属性，支持FastJson、Jackson注解。</li>
-        <li>Json窗口及Json处理：Json格式化、Json压缩、Json结构化。</li>
-        <li>字符串格式转换：驼峰与下划线互相转换、中文转拼音。</li>
-        <li>单行注释转文档注释</li>
-        <li>ResultMap标签生成：一键生成MyBatis-ResultMap标签。</li>
-        <li>Where标签生成：一键生成MyBatis-Where标签。</li>
-        <li>类属性映射与方法列举：Getter、Setter方法列举、类属性映射功能。</li>
-        <li>JDK序列化ID生成：一键生成JDK序列化Id。</li>
-        <li>Spring接口路径提取</li>
-        <li>时间戳与时间转换</li>
-        <li>MyBatis相关文件生成：生成Mapper接口、Mapper-Xml、映射类等文件。</li>
+        <li>代码笔记功能：记录代码片段、笔记、备忘，支持标签、导入、导出等功能。</li>
+        <li>Json转JavaBean：Json 反序列化为 JavaBean，支持嵌套 Array、Object 属性。</li>
+        <li>JavaBean转Json：JavaBean 序列化为 Json，支持嵌套 Object 属性，支持 FastJson、Jackson 注解。</li>
+        <li>Json窗口及Json处理：支持 Json格式化、Json压缩、Json结构化。</li>
+        <li>字符串格式转换：包含驼峰、下划线互转，中文转拼音功能，支持多行多文本转换。</li>
+        <li>单行注释转Java文档注释</li>
+        <li>ResultMap标签生成：通过 SQL 与 Java 类属性映射生成 MyBatis-ResultMap 标签。</li>
+        <li>Where标签生成：通过 Java 类属性生成 MyBatis-Where 条件标签。</li>
+        <li>类属性映射与方法列举：类与类之间属性匹配，单独类的列举 Getter、Setter 方法等功能。</li>
+        <li>JDK序列化ID生成：为 Java 类生成 JDK序列化ID，并实现序列化接口。</li>
+        <li>Spring接口路径提取：快速复制 Spring 接口路径。</li>
+        <li>时间戳与时间转换：快速转换时间戳 / 时间。</li>
+        <li>MyBatis-Mapper生成：生成 Mapper 接口、Mapper-Xml、映射类等文件，并自动匹配文件路径。</li>
         <li>指定注解、注释生成：为类属性生成指定注解及注释。</li>
-        <li>Jasypt加解密：Jasypt加密、解密功能，支持对称加密、非对称加密。</li>
-        <li>JSON/XML转换</li>
-        <li>文本互相比对：比对两份文本之间的不同之处。</li>
+        <li>Jasypt加解密：Jasypt 加密、解密功能，支持对称加密、非对称加密。</li>
+        <li>JSON/XML转换：快速转换 Json / XML。</li>
+        <li>文本互相比对：精准辨识文本的不同之处。</li>
         <li>......</li>
     </ul>
   ]]></description>
