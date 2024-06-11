@@ -24,6 +24,8 @@ on:
       - 'README.md'
       - 'README_zh.md'
       - '.github/workflows/ide_versions_file.txt'
+  # 可手动操控
+  workflow_dispatch:
 
 jobs:
   compatibility:
