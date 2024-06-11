@@ -1,4 +1,4 @@
-name: Compatibility Verification
+name: CompatibilityVerification
 on:
   push:
     branches:
