@@ -74,11 +74,11 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 
 ## Plugin Screenshots
 
-![Json Panel](https://home.memoryzy.cn/zhiyou/JsonPanel.jpg)
+![Json Panel](https://web-images-5we.pages.dev/images/JsonPanel.jpg)
 
-![MyBatis](https://home.memoryzy.cn/zhiyou/MyBatis.jpg)
+![MyBatis](https://web-images-5we.pages.dev/images/MyBatis.jpg)
 
-![Mapping](https://home.memoryzy.cn/zhiyou/Mapping.gif)
+![Mapping](https://web-images-5we.pages.dev/images/Mapping.gif)
 
 
 
