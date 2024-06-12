@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.entity.FieldMappedEntity;
 import cn.zhiyou.enums.JavaDocumentEnum;
 import cn.zhiyou.enums.MyBatisAnnotationEnum;
+import cn.zhiyou.ui.basic.ColorTableCellRenderer;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import cn.zhiyou.utils.CompatibilityUtil;
@@ -127,6 +128,9 @@ public class CreateMpAnnotationWindow extends DialogWrapper {
         columnModel.getColumn(PROPERTY_COLUMN).setPreferredWidth(125);
         columnModel.getColumn(ANNOTATION_COLUMN).setPreferredWidth(125);
         columnModel.getColumn(COMMENT_COLUMN).setPreferredWidth(125);
+
+        // 设置自定义的渲染器
+        showTable.setDefaultRenderer(Object.class, new ColorTableCellRenderer());
     }
 
 

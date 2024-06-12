@@ -12,6 +12,7 @@ import cn.zhiyou.constant.Icons;
 import cn.zhiyou.entity.CodeNoteEntity;
 import cn.zhiyou.entity.CodeNoteLabelEntity;
 import cn.zhiyou.enums.LanguageEnum;
+import cn.zhiyou.ui.basic.ColorTableCellRenderer;
 import cn.zhiyou.ui.basic.note.CodeNotePanel;
 import cn.zhiyou.utils.*;
 import com.intellij.icons.AllIcons;
@@ -150,6 +151,9 @@ public class CodeNoteWindow {
 
         // 触发快速查找
         CompatibilityUtil.speedSearchInstallOn(showTable);
+
+        // 设置自定义的渲染器
+        showTable.setDefaultRenderer(Object.class, new ColorTableCellRenderer());
 
         // 增加工具栏（新增按钮、删除按钮、上移按钮、下移按钮）
         ToolbarDecorator decorator = ToolbarDecorator.createDecorator(showTable)
@@ -394,6 +398,7 @@ public class CodeNoteWindow {
     public JBTable getShowTable() {
         return showTable;
     }
+
 
 
     public class ClearButtonAction extends AnAction {

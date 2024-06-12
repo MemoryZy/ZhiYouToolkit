@@ -4,6 +4,7 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.constant.Icons;
 import cn.zhiyou.enums.JavaDocumentEnum;
+import cn.zhiyou.ui.basic.ColorTableCellRenderer;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import cn.zhiyou.utils.CompatibilityUtil;
@@ -129,6 +130,9 @@ public class CreateAnnotationWindow extends DialogWrapper {
 
         // 触发快速查找
         CompatibilityUtil.speedSearchInstallOn(showTable);
+
+        // 设置自定义的渲染器
+        showTable.setDefaultRenderer(Object.class, new ColorTableCellRenderer());
 
         // 设置第0列的编辑器和渲染器为布尔类型的编辑器和渲染器
         TableColumnModel columnModel = showTable.getColumnModel();

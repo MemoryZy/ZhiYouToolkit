@@ -4,6 +4,7 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.entity.template.ColumnEntity;
 import cn.zhiyou.enums.MyBatisAnnotationEnum;
+import cn.zhiyou.ui.basic.ColorTableCellRenderer;
 import cn.zhiyou.utils.*;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -307,6 +308,9 @@ public class CreateMyBatisWhereWindow extends DialogWrapper {
         columnModel.getColumn(IS_CREATE_COLUMN).setPreferredWidth(10);
         columnModel.getColumn(PROPERTY_COLUMN).setPreferredWidth(200);
         columnModel.getColumn(COLUMN_COLUMN).setPreferredWidth(200);
+
+        // 设置自定义的渲染器
+        showTable.setDefaultRenderer(Object.class, new ColorTableCellRenderer());
     }
 
     /**
