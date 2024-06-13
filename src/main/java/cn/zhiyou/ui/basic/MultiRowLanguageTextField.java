@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/19
  */
 public class MultiRowLanguageTextField extends LanguageTextField {

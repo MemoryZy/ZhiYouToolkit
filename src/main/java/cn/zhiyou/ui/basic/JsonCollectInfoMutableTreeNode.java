@@ -5,7 +5,7 @@ import cn.zhiyou.enums.JsonTreeNodeValueTypeEnum;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/28
  */
 public class JsonCollectInfoMutableTreeNode extends DefaultMutableTreeNode {

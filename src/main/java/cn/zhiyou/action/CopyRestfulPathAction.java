@@ -22,7 +22,7 @@ import java.util.Objects;
 /**
  * 拷贝完整SpringBoot项目接口路径
  *
- * @author wcp
+ * @author Memory
  * @since 2023/12/1
  */
 public class CopyRestfulPathAction extends AnAction {

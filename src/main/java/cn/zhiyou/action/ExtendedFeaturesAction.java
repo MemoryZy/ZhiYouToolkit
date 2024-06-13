@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/22
  */
 public class ExtendedFeaturesAction extends AnAction {

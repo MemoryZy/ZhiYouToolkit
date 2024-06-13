@@ -1,7 +1,7 @@
 package cn.zhiyou.enums;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/6
  */
 public enum CreateMapperTextFieldEnum {

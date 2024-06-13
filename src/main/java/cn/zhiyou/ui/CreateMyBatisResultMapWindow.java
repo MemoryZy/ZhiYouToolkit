@@ -46,7 +46,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/11
  */
 public class CreateMyBatisResultMapWindow extends DialogWrapper {

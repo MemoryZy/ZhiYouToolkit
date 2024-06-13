@@ -6,7 +6,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/29
  */
 public class PropertyMatchMutableTreeNode extends DefaultMutableTreeNode {

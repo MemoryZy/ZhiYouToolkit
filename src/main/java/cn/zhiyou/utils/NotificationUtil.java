@@ -4,7 +4,7 @@ import com.intellij.notification.*;
 import com.intellij.openapi.project.Project;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/11/27
  */
 public class NotificationUtil {

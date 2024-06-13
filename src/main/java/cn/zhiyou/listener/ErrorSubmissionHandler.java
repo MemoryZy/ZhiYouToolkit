@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.awt.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/5/27
  */
 public class ErrorSubmissionHandler extends ErrorReportSubmitter {
@@ -23,7 +23,7 @@ public class ErrorSubmissionHandler extends ErrorReportSubmitter {
 
     @Override
     public @NlsActions.ActionText @NotNull String getReportActionText() {
-        return ActionBundle.message("report.action.text");
+        return ActionBundle.message("action.report.text");
     }
 
     @Override

@@ -1,7 +1,7 @@
 package cn.zhiyou.entity.template;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/28
  */
 public class MapperInterfaceEntity extends TemplateEntity {

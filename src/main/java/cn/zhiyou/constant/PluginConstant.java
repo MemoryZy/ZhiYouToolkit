@@ -1,7 +1,7 @@
 package cn.zhiyou.constant;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/4
  */
 public class PluginConstant {

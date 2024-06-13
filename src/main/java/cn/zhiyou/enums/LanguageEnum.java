@@ -3,7 +3,7 @@ package cn.zhiyou.enums;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/9
  */
 public enum LanguageEnum {

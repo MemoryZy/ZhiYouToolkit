@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/11
  */
 public class CodeNoteLabelListConverter extends Converter<List<CodeNoteLabelEntity>> {

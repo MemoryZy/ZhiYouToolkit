@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.net.URL;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/5
  */
 public class OpenHelpNotificationAction extends NotificationAction {

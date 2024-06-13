@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/7
  */
 public class JsonStructureWindow extends DialogWrapper {

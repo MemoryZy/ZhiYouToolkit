@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/8
  */
 public class CodeNotePanel extends JPanel {

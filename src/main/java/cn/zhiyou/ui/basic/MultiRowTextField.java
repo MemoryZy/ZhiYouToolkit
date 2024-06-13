@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/19
  */
 public class MultiRowTextField extends EditorTextField {

@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/7
  */
 public class ConvertJsonXmlDialogWrapper extends DialogWrapper {

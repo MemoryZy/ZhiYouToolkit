@@ -1,7 +1,7 @@
 package cn.zhiyou.enums;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/28
  */
 public enum JsonTreeNodeValueTypeEnum {

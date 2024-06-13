@@ -4,6 +4,7 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.enums.JsonAnnotationEnum;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.NotificationUtil;
@@ -11,6 +12,7 @@ import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiAnnotation;
@@ -24,12 +26,21 @@ import java.util.*;
 /**
  * Java类转Json（递归找嵌套属性）
  *
- * @author wcp
+ * @author Memory
  * @since 2023/11/27
  */
 public class JavaBeanConvertToJsonAction extends AnAction {
 
     private static final Logger LOG = Logger.getInstance(JavaBeanConvertToJsonAction.class);
+
+    public JavaBeanConvertToJsonAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.convert.javaBean.to.Json.text"));
+        presentation.setDescription(ActionBundle.message("action.convert.javaBean.to.Json.description"));
+    }
+
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {

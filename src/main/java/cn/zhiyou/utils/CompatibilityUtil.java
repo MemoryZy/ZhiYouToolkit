@@ -15,7 +15,7 @@ import com.intellij.ui.treeStructure.Tree;
 import java.util.List;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/5/6
  */
 public class CompatibilityUtil {

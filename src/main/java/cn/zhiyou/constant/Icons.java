@@ -5,7 +5,7 @@ import com.intellij.openapi.util.IconLoader;
 import javax.swing.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/5
  */
 public class Icons {

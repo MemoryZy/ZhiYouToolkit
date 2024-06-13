@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/4
  */
 public class CreateMyBatisMapperOnDataBaseAction extends AnAction {

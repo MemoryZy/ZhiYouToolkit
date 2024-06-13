@@ -35,7 +35,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.function.Function;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/16
  */
 public class CreateAnnotationWindow extends DialogWrapper {

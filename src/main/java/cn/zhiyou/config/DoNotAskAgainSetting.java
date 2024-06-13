@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/6
  */
 // @State(name = "ZhiYouDoNotAskAgain", storages = {@Storage(value = "ZhiYouDoNotAskAgain.xml")})

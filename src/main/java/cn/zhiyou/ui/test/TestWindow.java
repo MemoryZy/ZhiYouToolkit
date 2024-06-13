@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/4
  */
 public class TestWindow extends DialogWrapper {

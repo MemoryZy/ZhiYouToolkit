@@ -11,7 +11,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/15
  */
 public class TextComparisonAction extends AnAction {

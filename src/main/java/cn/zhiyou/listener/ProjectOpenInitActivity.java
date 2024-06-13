@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * 项目启动
  *
- * @author wcp
+ * @author Memory
  * @since 2024/1/2
  */
 public class ProjectOpenInitActivity implements ProjectManagerListener {

@@ -16,7 +16,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/21
  */
 @SuppressWarnings("DuplicatedCode")

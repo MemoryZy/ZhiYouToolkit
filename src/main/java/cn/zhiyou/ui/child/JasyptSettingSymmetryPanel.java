@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/7
  */
 public class JasyptSettingSymmetryPanel {

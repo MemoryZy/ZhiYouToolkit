@@ -13,7 +13,7 @@ import com.intellij.util.textCompletion.TextCompletionUtil;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/9
  */
 public class MyDocumentProvider {

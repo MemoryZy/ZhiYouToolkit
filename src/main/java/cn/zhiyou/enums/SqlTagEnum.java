@@ -3,7 +3,7 @@ package cn.zhiyou.enums;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/1
  */
 public enum SqlTagEnum {

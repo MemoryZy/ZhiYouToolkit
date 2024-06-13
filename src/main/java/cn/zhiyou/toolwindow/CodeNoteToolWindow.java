@@ -11,7 +11,7 @@ import com.intellij.ui.content.ContentManager;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/17
  */
 public class CodeNoteToolWindow implements ToolWindowFactory {

@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * 单行注释转多行注释
  *
- * @author wcp
+ * @author Memory
  * @since 2023/11/28
  */
 public class ConvertToJavadocAction extends AnAction {

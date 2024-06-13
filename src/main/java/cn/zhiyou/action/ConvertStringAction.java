@@ -2,8 +2,9 @@ package cn.zhiyou.action;
 
 import cn.zhiyou.action.child.ChineseToPinyinWithTone;
 import cn.zhiyou.action.child.ChineseToPinyinWithoutTone;
-import cn.zhiyou.action.child.ConvertToCamelAction;
+import cn.zhiyou.action.child.ConvertToHumpAction;
 import cn.zhiyou.action.child.ConvertToSnakeCaseAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import com.intellij.openapi.actionSystem.*;
@@ -22,10 +23,18 @@ import java.util.Objects;
 /**
  * 字符串操作
  *
- * @author wcp
+ * @author Memory
  * @since 2023/11/27
  */
 public class ConvertStringAction extends AnAction {
+
+    public ConvertStringAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.convert.string.text"));
+        presentation.setDescription(ActionBundle.message("action.convert.string.description"));
+    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {
@@ -59,7 +68,7 @@ public class ConvertStringAction extends AnAction {
         @Override
         public AnAction @NotNull [] getChildren(@Nullable AnActionEvent e) {
             return new AnAction[]{
-                    new ConvertToCamelAction(),
+                    new ConvertToHumpAction(),
                     new ConvertToSnakeCaseAction(),
                     new ChineseToPinyinWithTone(),
                     new ChineseToPinyinWithoutTone()

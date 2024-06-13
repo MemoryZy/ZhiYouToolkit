@@ -20,7 +20,7 @@ import java.util.Objects;
 /**
  * 用于编辑器中有Json格式化的文本
  *
- * @author wcp
+ * @author Memory
  * @since 2023/12/18
  */
 @SuppressWarnings("DuplicatedCode")

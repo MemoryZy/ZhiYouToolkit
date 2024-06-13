@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/19
  */
 public class CodeNoteDetailWindow extends DialogWrapper {

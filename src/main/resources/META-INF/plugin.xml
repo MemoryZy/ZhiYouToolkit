@@ -102,16 +102,10 @@
     <!-- 需要可选依赖的话，需要把用到依赖的配置地方迁移到另一份plugin.xml配置中，这样当依赖不存在于目标idea时，该功能亦不可用 -->
 
     <!-- 可选依赖 -->
-    <depends optional="true" config-file="database.xml">com.intellij.database</depends>
-    <depends optional="true" config-file="shell.xml">com.jetbrains.sh</depends>
-    <depends optional="true" config-file="kotlin.xml">org.jetbrains.kotlin</depends>
-    <depends optional="true" config-file="js.xml">JavaScript</depends>
-
-    <!--    <depends>org.intellij.plugins.markdown</depends>-->
-    <!--    <depends>org.jetbrains.plugins.yaml</depends>-->
-    <!--    <depends>com.intellij.properties</depends>-->
-    <!--    <depends>org.intellij.groovy</depends>-->
-    <!--    <depends>JavaScript</depends>-->
+    <depends optional="true" config-file="optional/database.xml">com.intellij.database</depends>
+    <depends optional="true" config-file="optional/shell.xml">com.jetbrains.sh</depends>
+    <depends optional="true" config-file="optional/kotlin.xml">org.jetbrains.kotlin</depends>
+    <depends optional="true" config-file="optional/js.xml">JavaScript</depends>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
@@ -186,48 +180,37 @@
 
     <actions>
         <!-- 生成相关 -->
-        <group id="cn.zhiyou.actionGroup.GenerateGroupId" description="生成相关组">
+        <group id="zhiyou.actionGroup.GenerateGroup">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
             <separator/>
-
-            <action id="cn.zhiyou.action.CreateSerialVersionUIDActionId"
-                    class="cn.zhiyou.action.CreateSerialVersionAction"
-                    text="SerialVersionUID (序列化)"
-                    description="创建序列化Id，并实现序列化类">
+            <!-- Action: 生成序列化ID -->
+            <action id="zhiyou.action.CreateSerialVersionUID" class="cn.zhiyou.action.CreateSerialVersionAction">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 5"/>
             </action>
-
             <separator/>
         </group>
 
-
-        <action id="cn.zhiyou.action.RecordCodeNoteActionId"
-                class="cn.zhiyou.action.RecordCodeNoteAction"
-                icon="/icons/inkBrush.svg"
-                text="_Record Notes (笔记)">
-            <add-to-group group-id="EditorPopupMenu" relative-to-action="cn.zhiyou.actionGroup.ClassFunctionGroupId"
-                          anchor="before"/>
+        <!-- Action: 记录代码片段 -->
+        <action id="zhiyou.action.RecordCodeNote" class="cn.zhiyou.action.RecordCodeNoteAction" icon="/icons/inkBrush.svg">
+            <add-to-group group-id="EditorPopupMenu" relative-to-action="zhiyou.actionGroup.ClassFunctionGroup" anchor="before"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 2"/>
         </action>
 
-        <group id="cn.zhiyou.actionGroup.ClassFunctionGroupId" description="对类普通功能组">
+        <group id="zhiyou.actionGroup.ClassFunctionGroup">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <separator/>
 
-            <action id="cn.zhiyou.action.JavaBeanConvertToJsonActionId"
-                    class="cn.zhiyou.action.JavaBeanConvertToJsonAction"
-                    text="_Convert to JSON"
-                    icon="/icons/json.svg"
-                    description="JavaBean转Json">
+            <!-- Action: 将JavaBean转换为Json -->
+            <action id="zhiyou.action.JavaBeanConvertToJson" class="cn.zhiyou.action.JavaBeanConvertToJsonAction" icon="/icons/json.svg">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 0"/>
             </action>
+
             <separator/>
-            <action id="cn.zhiyou.action.ConvertStringActionId"
-                    class="cn.zhiyou.action.ConvertStringAction"
-                    text="Convert Strings"
-                    description="字符串操作">
+            <!-- Action: 字符串转换操作 -->
+            <action id="zhiyou.action.ConvertStringAction" class="cn.zhiyou.action.ConvertStringAction">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 6"/>
             </action>
+
             <separator/>
             <action id="cn.zhiyou.action.ConvertToJavadocActionId"
                     class="cn.zhiyou.action.ConvertToJavadocAction"

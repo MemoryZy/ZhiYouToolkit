@@ -7,7 +7,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/15
  */
 public class CreateFastJsonAnnotationAction extends AnAction {

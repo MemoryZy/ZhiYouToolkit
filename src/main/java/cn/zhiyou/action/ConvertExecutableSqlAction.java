@@ -27,7 +27,7 @@
 // /**
 //  * 将XML文件中的SQL转换为可执行的SQL语句
 //  *
-//  * @author wcp
+//  * @author Memory
 //  * @since 2023/12/1
 //  */
 // public class ConvertExecutableSqlAction extends AnAction {

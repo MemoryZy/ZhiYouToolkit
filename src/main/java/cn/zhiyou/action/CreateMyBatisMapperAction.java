@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/22
  */
 public class CreateMyBatisMapperAction extends AnAction {

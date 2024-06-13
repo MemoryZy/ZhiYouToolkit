@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/27
  */
 public class ResultMapEntity extends TemplateEntity {

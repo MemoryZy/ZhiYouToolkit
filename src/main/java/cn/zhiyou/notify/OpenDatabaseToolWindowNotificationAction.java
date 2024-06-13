@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/7
  */
 public class OpenDatabaseToolWindowNotificationAction extends NotificationAction {

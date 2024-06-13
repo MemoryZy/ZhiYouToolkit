@@ -5,7 +5,7 @@ import cn.hutool.http.Method;
 /**
  * Spring请求的一些注解
  *
- * @author wcp
+ * @author Memory
  * @since 2023/12/1
  */
 public enum SpringRequestAnnotationEnum {

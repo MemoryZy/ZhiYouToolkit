@@ -39,7 +39,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/10
  */
 public class CreateMyBatisWhereWindow extends DialogWrapper {

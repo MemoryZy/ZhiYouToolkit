@@ -7,7 +7,7 @@ import com.intellij.openapi.options.ShowSettingsUtil;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/20
  */
 public class OpenDataBaseSettingNotificationAction extends NotificationAction {

@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/27
  */
 public abstract class TemplateEntity {

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/11
  */
 public class CodeNoteLabelEntity {

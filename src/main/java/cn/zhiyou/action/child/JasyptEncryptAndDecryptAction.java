@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/15
  */
 public class JasyptEncryptAndDecryptAction extends AnAction {

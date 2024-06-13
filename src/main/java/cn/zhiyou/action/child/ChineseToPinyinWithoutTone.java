@@ -1,6 +1,7 @@
 package cn.zhiyou.action.child;
 
 import cn.zhiyou.action.ConvertStringAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
@@ -9,12 +10,12 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/15
  */
 public class ChineseToPinyinWithoutTone extends AnAction {
     public ChineseToPinyinWithoutTone() {
-        super("Chinese to Pinyin (不带音调)");
+        super(ActionBundle.message("action.chinese.to.pinyin.without.tone.text"));
     }
 
     @Override

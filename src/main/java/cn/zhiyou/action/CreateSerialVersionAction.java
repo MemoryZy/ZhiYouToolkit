@@ -2,11 +2,13 @@ package cn.zhiyou.action;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CodeCreateUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import org.jetbrains.annotations.NotNull;
@@ -18,10 +20,18 @@ import java.util.Objects;
 /**
  * 生成序列化Id
  *
- * @author wcp
+ * @author Memory
  * @since 2023/11/27
  */
 public class CreateSerialVersionAction extends AnAction {
+
+    public CreateSerialVersionAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.create.serialVersion.text"));
+        presentation.setDescription(ActionBundle.message("action.create.serialVersion.description"));
+    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {

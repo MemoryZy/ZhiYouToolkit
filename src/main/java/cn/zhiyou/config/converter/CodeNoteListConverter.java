@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 自定义持久化类型的转换器
  *
- * @author wcp
+ * @author Memory
  * @since 2024/1/15
  */
 public class CodeNoteListConverter extends Converter<List<CodeNoteEntity>> {

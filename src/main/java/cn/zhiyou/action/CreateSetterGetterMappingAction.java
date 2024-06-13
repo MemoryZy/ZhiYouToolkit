@@ -28,7 +28,7 @@ import java.util.*;
 import java.util.function.Predicate;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/7
  */
 @SuppressWarnings("DuplicatedCode")

@@ -1,7 +1,7 @@
 package cn.zhiyou.entity.template;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/26
  */
 public class PrimaryKeyEntity extends TemplateEntity {

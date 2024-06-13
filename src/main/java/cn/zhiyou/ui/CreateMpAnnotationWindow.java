@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/5
  */
 public class CreateMpAnnotationWindow extends DialogWrapper {

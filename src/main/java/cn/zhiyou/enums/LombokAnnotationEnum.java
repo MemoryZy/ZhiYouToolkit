@@ -1,7 +1,7 @@
 package cn.zhiyou.enums;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/4
  */
 public enum LombokAnnotationEnum {

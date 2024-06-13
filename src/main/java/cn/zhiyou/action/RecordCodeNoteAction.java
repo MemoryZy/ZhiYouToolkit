@@ -1,11 +1,13 @@
 package cn.zhiyou.action;
 
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.ui.CodeNoteDetailWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CodeCreateUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
@@ -14,14 +16,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/15
  */
 public class RecordCodeNoteAction extends AnAction {
 
-    // public StoreCodeNoteAction() {
-    //     super(IconLoader.getIcon("/icons/bookmark.svg", CreateAnnotationDialogWrapper.class.getClassLoader()));
-    // }
+    public RecordCodeNoteAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.record.codeNote.text"));
+        presentation.setDescription(ActionBundle.message("action.record.codeNote.description"));
+    }
 
     @Override
     @SuppressWarnings("DataFlowIssue")

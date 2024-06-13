@@ -16,7 +16,7 @@ import java.awt.event.WindowEvent;
 import java.util.*;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/3/11
  */
 public class CodeNoteLabelDetailWindow extends DialogWrapper {

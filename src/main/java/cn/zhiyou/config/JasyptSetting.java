@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/23
  */
 // @State(name = "ZhiYouJasypt", storages = {@Storage(value = "ZhiYouJasypt.xml")})

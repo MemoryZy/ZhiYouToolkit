@@ -20,7 +20,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/1/26
  */
 public class TextFieldErrorPopupDecorator {

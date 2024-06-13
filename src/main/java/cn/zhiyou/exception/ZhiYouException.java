@@ -3,7 +3,7 @@ package cn.zhiyou.exception;
 import cn.zhiyou.enums.CreateMapperTextFieldEnum;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/28
  */
 public class ZhiYouException extends RuntimeException {

@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/8
  */
 public class JasyptSettingAsymmetricPanel extends AbstractAction {

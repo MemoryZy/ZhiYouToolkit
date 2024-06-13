@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/7
  */
 public class JasyptSettingWindow extends DialogWrapper {

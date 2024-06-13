@@ -11,7 +11,7 @@ import com.intellij.ui.content.ContentManager;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/8
  */
 public class JsonFormatToolWindow implements ToolWindowFactory {

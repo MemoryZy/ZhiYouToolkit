@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/11
  */
 public class JsonToJavaBeanWindow extends DialogWrapper {
@@ -303,7 +303,7 @@ public class JsonToJavaBeanWindow extends DialogWrapper {
     /**
      * 类名验证
      *
-     * @author wcp
+     * @author Memory
      * @since 2024/1/26
      */
     public static class ClassValidator implements InputValidatorEx {

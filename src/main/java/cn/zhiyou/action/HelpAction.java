@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * 插件帮助
  *
- * @author wcp
+ * @author Memory
  * @since 2024/2/5
  */
 public class HelpAction extends DumbAwareAction {

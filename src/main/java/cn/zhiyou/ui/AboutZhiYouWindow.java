@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/10
  */
 public class AboutZhiYouWindow extends DialogWrapper {

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/26
  */
 public class MapperEntity extends TemplateEntity {

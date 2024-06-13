@@ -26,7 +26,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/18
  */
 public class DataBaseSettingConfigurationWindow {

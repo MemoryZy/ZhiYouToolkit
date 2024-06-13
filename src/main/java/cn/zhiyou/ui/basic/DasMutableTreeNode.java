@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/5/19
  */
 public class DasMutableTreeNode extends DefaultMutableTreeNode {

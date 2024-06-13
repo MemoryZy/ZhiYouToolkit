@@ -1,7 +1,7 @@
 package cn.zhiyou.enums;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/2/29
  */
 public enum PropertyTreeNodeValueTypeEnum {

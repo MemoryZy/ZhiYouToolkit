@@ -12,7 +12,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2024/4/9
  */
 public class AsymmetricStringEncryptor implements StringEncryptor {

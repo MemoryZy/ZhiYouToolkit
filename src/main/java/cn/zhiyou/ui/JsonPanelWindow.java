@@ -23,7 +23,7 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * @author wcp
+ * @author Memory
  * @since 2023/12/11
  */
 public class JsonPanelWindow {

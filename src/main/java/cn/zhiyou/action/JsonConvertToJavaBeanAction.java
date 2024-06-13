@@ -15,7 +15,7 @@ import java.util.Objects;
 /**
  * Json转换为JavaBean
  *
- * @author wcp
+ * @author Memory
  * @since 2023/11/28
  */
 @SuppressWarnings("DuplicatedCode")

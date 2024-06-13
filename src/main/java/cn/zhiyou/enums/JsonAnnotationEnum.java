@@ -3,7 +3,7 @@ package cn.zhiyou.enums;
 /**
  * Json注解
  *
- * @author wcp
+ * @author Memory
  * @since 2023/11/27
  */
 public enum JsonAnnotationEnum {
