@@ -1,6 +1,7 @@
 package cn.zhiyou.action.child;
 
 import cn.zhiyou.action.CreateAnnotationOnFieldAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.enums.JsonAnnotationEnum;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class CreateJacksonAnnotationAction extends AnAction {
     public CreateJacksonAnnotationAction() {
-        super("Jackson Annotation");
+        super(ActionBundle.message("action.create.Jackson.annotation.text"));
     }
 
     @Override

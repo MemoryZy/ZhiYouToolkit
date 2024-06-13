@@ -4,16 +4,14 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.action.child.*;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.entity.FieldMethodPair;
 import cn.zhiyou.exception.ZhiYouException;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import cn.zhiyou.utils.NotificationUtil;
 import com.intellij.notification.NotificationType;
-import com.intellij.openapi.actionSystem.ActionUpdateThread;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
@@ -33,6 +31,14 @@ import java.util.function.Predicate;
  */
 @SuppressWarnings("DuplicatedCode")
 public class CreateSetterGetterMappingAction extends AnAction {
+
+    public CreateSetterGetterMappingAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.create.setter.getter.mapping.text"));
+        presentation.setDescription(ActionBundle.message("action.create.setter.getter.mapping.description"));
+    }
 
     public static final String ACTION_TITLE = "类属性操作";
 

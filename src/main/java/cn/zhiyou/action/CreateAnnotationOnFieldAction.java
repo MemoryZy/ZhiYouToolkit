@@ -5,13 +5,11 @@ import cn.zhiyou.action.child.CreateFastJsonAnnotationAction;
 import cn.zhiyou.action.child.CreateJacksonAnnotationAction;
 import cn.zhiyou.action.child.CreateMyBatisPlusAnnotationAction;
 import cn.zhiyou.action.child.CreateSwaggerAnnotationAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.ui.CreateAnnotationWindow;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CompatibilityUtil;
-import com.intellij.openapi.actionSystem.ActionUpdateThread;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.ui.popup.ListPopup;
@@ -31,6 +29,14 @@ import java.util.Objects;
  * @since 2024/1/5
  */
 public class CreateAnnotationOnFieldAction extends AnAction {
+
+    public CreateAnnotationOnFieldAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.create.annotation.on.field.text"));
+        presentation.setDescription(ActionBundle.message("action.create.annotation.on.field.description"));
+    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {

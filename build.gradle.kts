@@ -59,6 +59,9 @@ tasks {
     }
 
     patchPluginXml {
+        pluginDescription.set(projectDir.resolve("DESCRIPTION.md").readText())
+        changeNotes.set(projectDir.resolve("CHANGENOTES.md").readText())
+
         // 支持2022.3版本到2024.1版本 (2022.3需要JDK17)
         sinceBuild.set("223")
         untilBuild.set("")

@@ -7,6 +7,7 @@ import cn.hutool.db.ds.simple.SimpleDataSource;
 import cn.hutool.db.meta.Column;
 import cn.hutool.db.meta.MetaUtil;
 import cn.hutool.db.meta.Table;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.config.DataBaseSetting;
 import cn.zhiyou.entity.FieldMappedEntity;
 import cn.zhiyou.enums.MyBatisAnnotationEnum;
@@ -46,7 +47,7 @@ public class CreateMyBatisPlusAnnotationAction extends AnAction {
     private final DataBaseSetting dataBaseSetting = DataBaseSetting.getInstance();
 
     public CreateMyBatisPlusAnnotationAction() {
-        super("MyBatis Plus Annotation");
+        super(ActionBundle.message("action.create.myBatis.plus.annotation.text"));
     }
 
     @Override

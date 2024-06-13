@@ -2,6 +2,7 @@ package cn.zhiyou.action;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Method;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.enums.SpringRequestAnnotationEnum;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.NotificationUtil;
@@ -9,6 +10,7 @@ import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiClass;
@@ -28,6 +30,14 @@ import java.util.Objects;
 public class CopyRestfulPathAction extends AnAction {
 
     private static final String ACTION_TITLE = "提取接口路径";
+
+    public CopyRestfulPathAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.copy.restful.path.text"));
+        presentation.setDescription(ActionBundle.message("action.copy.restful.path.description"));
+    }
 
     @Override
     @SuppressWarnings("DataFlowIssue")

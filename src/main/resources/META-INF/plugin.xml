@@ -10,96 +10,11 @@
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="memoryzk@outlook.com" url="https://github.com/MemoryZy">Memory</vendor>
 
-    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description><![CDATA[
-    <p>ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain points in daily development, enhancing code development efficiency and quality.</p>
-    <br/>
-    <a href="https://zhiyou.memoryzy.cn/overview.html">Get Started</a>
-    | <a href="https://home.memoryzy.cn/">Website</a>
-    | <a href="https://github.com/MemoryZy/ZhiYouToolkit">GitHub</a>
-    | <a href="https://gitee.com/MemoryZy/ZhiYouToolkit">Gitee</a>
-    <br/>
-    <h2>Features</h2>
-    <ul>
-        <li>Code note-taking functionality: Record code snippets, notes, and memos with support for tagging, import, and export functionalities.</li>
-        <li>Convert JSON to JavaBean: Deserialize JSON into JavaBean, supporting nested Array and Object properties.</li>
-        <li>Convert JavaBean to JSON: Serialize JavaBean to JSON, supporting nested Object properties and FastJson/Jackson annotations.</li>
-        <li>JSON Window and JSON Processing: Support JSON formatting, compression, and structuring.</li>
-        <li>String Format Conversion: Support camelCase to snake_case conversion, Chinese to Pinyin conversion, and multiline text conversion.</li>
-        <li>Convert single-line comments to JavaDoc</li>
-        <li>Generate ResultMap Tags: Generate MyBatis `resultMap` tag based on SQL and Java class property mappings.</li>
-        <li>Generate Where Tags: Generate MyBatis `where` condition tag based on Java class properties.</li>
-        <li>Class Property Mapping and Method Enumeration: Enumerate Getter and Setter Methods, Class Property Mapping Functionality.</li>
-        <li>Generate JDK Serialization ID: Generate JDK serialization ID for Java classes and implement the serialization interface.</li>
-        <li>Extract Spring Interface Paths: Quickly copy Spring RESTful API paths.</li>
-        <li>Convert Between Timestamps and Dates: Quickly convert between timestamps and dates/times.</li>
-        <li>MyBatis Mapper file generation: Generate Mapper interface, Mapper XML, mapping classes, and automatically match file paths.</li>
-        <li>Generate Specified Annotations and Comments: Generate specified annotations and comments for class attributes.</li>
-        <li>Jasypt Encryption and Decryption: Jasypt encryption and decryption functionality, supporting symmetric and asymmetric encryption.</li>
-        <li>Convert Between JSON and XML: Quickly convert JSON/XML.</li>
-        <li>Text Comparison: Accurately identify differences between texts.</li>
-        <li>......</li>
-    </ul>
-    <hr/>
-    <br/>
-    <p>知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。</p>
-    <ul>
-        <li>代码笔记功能：记录代码片段、笔记、备忘，支持标签、导入、导出等功能。</li>
-        <li>Json转JavaBean：Json 反序列化为 JavaBean，支持嵌套 Array、Object 属性。</li>
-        <li>JavaBean转Json：JavaBean 序列化为 Json，支持嵌套 Object 属性，支持 FastJson、Jackson 注解。</li>
-        <li>Json窗口及Json处理：支持 Json格式化、Json压缩、Json结构化。</li>
-        <li>字符串格式转换：包含驼峰、下划线互转，中文转拼音功能，支持多行多文本转换。</li>
-        <li>单行注释转Java文档注释</li>
-        <li>ResultMap标签生成：通过 SQL 与 Java 类属性映射生成 MyBatis-ResultMap 标签。</li>
-        <li>Where标签生成：通过 Java 类属性生成 MyBatis-Where 条件标签。</li>
-        <li>类属性映射与方法列举：类与类之间属性匹配，单独类的列举 Getter、Setter 方法等功能。</li>
-        <li>JDK序列化ID生成：为 Java 类生成 JDK序列化ID，并实现序列化接口。</li>
-        <li>Spring接口路径提取：快速复制 Spring 接口路径。</li>
-        <li>时间戳与时间转换：快速转换时间戳 / 时间。</li>
-        <li>MyBatis-Mapper生成：生成 Mapper 接口、Mapper-Xml、映射类等文件，并自动匹配文件路径。</li>
-        <li>指定注解、注释生成：为类属性生成指定注解及注释。</li>
-        <li>Jasypt加解密：Jasypt 加密、解密功能，支持对称加密、非对称加密。</li>
-        <li>JSON/XML转换：快速转换 Json / XML。</li>
-        <li>文本互相比对：精准辨识文本的不同之处。</li>
-        <li>......</li>
-    </ul>
-  ]]></description>
-
-    <change-notes><![CDATA[
-    <h3>v1.4.0</h3>
-      <ul>
-          <li>BUG修复..</li>
-          <li>兼容Android Studio与IDEA Community Edition</li>
-          <li>用户交互体验优化与改进</li>
-      </ul>
-      <h3>v1.3.2</h3>
-      <ul>
-          <li>BUG修复..</li>
-          <li>用户交互体验优化与改进</li>
-      </ul>
-      <h3>v1.3.1</h3>
-      <ul>
-          <li>优化图标</li>
-          <li>解决并优化笔记导入、导出问题</li>
-      </ul>
-       <h3>v1.2.1</h3>
-      <ul>
-          <li>功能新增</li>
-          <li>BUG修复</li>
-          <li>......</li>
-      </ul>
-      ]]>
-    </change-notes>
-
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <!-- 引入Java扩展 -->
     <depends>com.intellij.java</depends>
-
-    <!-- 需要可选依赖的话，需要把用到依赖的配置地方迁移到另一份plugin.xml配置中，这样当依赖不存在于目标idea时，该功能亦不可用 -->
 
     <!-- 可选依赖 -->
     <depends optional="true" config-file="optional/database.xml">com.intellij.database</depends>
@@ -138,9 +53,6 @@
                     icon="/icons/favorites.svg"
                     anchor="right"
                     factoryClass="cn.zhiyou.toolwindow.CodeNoteToolWindow"/>
-
-        <!-- 扫描xml文件用 -->
-        <!--        <dom.fileMetaData implementation="cn.zhiyou.doc.MyBatisXmlDomFileDescription"/>-->
 
         <!-- 注册持久化实现类，这个是应用级别的，想要项目级别的可以用project -->
         <applicationService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>
@@ -212,46 +124,32 @@
             </action>
 
             <separator/>
-            <action id="cn.zhiyou.action.ConvertToJavadocActionId"
-                    class="cn.zhiyou.action.ConvertToJavadocAction"
-                    text="_Convert to Javadoc" description="单行注释转文档注释">
+            <action id="zhiyou.action.ConvertToJavadocAction" class="cn.zhiyou.action.ConvertToJavadocAction">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
             </action>
-            <separator/>
-            <action id="cn.zhiyou.action.CopyRestfulPathActionId"
-                    class="cn.zhiyou.action.CopyRestfulPathAction"
-                    text="Copy RESTful Path"
-                    description="复制接口完整路径">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 4"/>
-            </action>
-            <separator/>
 
             <separator/>
-            <action id="cn.zhiyou.action.CreateAnnotationOnFieldActionId"
-                    class="cn.zhiyou.action.CreateAnnotationOnFieldAction"
-                    icon="/icons/at.svg"
-                    text="_Create Annotations">
+            <action id="zhiyou.action.CopyRestfulPathAction" class="cn.zhiyou.action.CopyRestfulPathAction">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 4"/>
+            </action>
+
+            <separator/>
+            <action id="zhiyou.action.CreateAnnotationOnFieldAction" class="cn.zhiyou.action.CreateAnnotationOnFieldAction" icon="/icons/at.svg">
                 <keyboard-shortcut first-keystroke="ctrl alt 8" keymap="$default"/>
             </action>
+
             <separator/>
-            <action id="cn.zhiyou.action.CreateSetterGetterMappingActionId"
-                    class="cn.zhiyou.action.CreateSetterGetterMappingAction"
-                    icon="/icons/eco.svg"
-                    text="Mapping (Get/Set)"
-                    description="类属性操作">
+            <action id="zhiyou.action.CreateSetterGetterMappingAction" class="cn.zhiyou.action.CreateSetterGetterMappingAction" icon="/icons/eco.svg">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 9"/>
             </action>
+
             <separator/>
-            <action id="cn.zhiyou.action.ExtendedFeaturesActionId"
+            <action id="zhiyou.action.ExtendedFeaturesActionId"
                     class="cn.zhiyou.action.ExtendedFeaturesAction"
                     icon="/icons/open.svg"
                     text="_Extended Features...">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 7"/>
             </action>
-            <separator/>
-<!--            <action id="zhiyou.TestActionId" class="cn.zhiyou.action.TestAction"  text="测试"/>-->
-            <separator/>
-
         </group>
 
 

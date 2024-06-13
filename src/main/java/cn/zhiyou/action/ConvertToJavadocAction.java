@@ -1,12 +1,14 @@
 package cn.zhiyou.action;
 
 import cn.hutool.core.util.StrUtil;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.enums.JavaDocumentEnum;
 import cn.zhiyou.utils.ActionUtil;
 import cn.zhiyou.utils.CommonUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
@@ -24,6 +26,14 @@ import org.jetbrains.annotations.NotNull;
 public class ConvertToJavadocAction extends AnAction {
 
     private static final Logger LOG = Logger.getInstance(ConvertToJavadocAction.class);
+
+    public ConvertToJavadocAction() {
+        super();
+        setEnabledInModalContext(true);
+        Presentation presentation = getTemplatePresentation();
+        presentation.setText(ActionBundle.message("action.convert.to.javadoc.text"));
+        presentation.setDescription(ActionBundle.message("action.convert.to.javadoc.description"));
+    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {
