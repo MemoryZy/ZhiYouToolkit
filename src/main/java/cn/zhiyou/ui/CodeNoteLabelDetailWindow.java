@@ -73,14 +73,7 @@ public class CodeNoteLabelDetailWindow extends DialogWrapper {
         }
 
         List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-        if (labelList == null) {
-            ArrayList<CodeNoteLabelEntity> list = new ArrayList<>();
-            CodeNoteSetting.getInstance().labelList = list;
-            list.add(new CodeNoteLabelEntity(-1, "默认"));
-        }
-
-        List<CodeNoteLabelEntity> sameLabel = CodeNoteSetting.getInstance().labelList
-                .stream().filter(el -> Objects.equals(el.getLabel(), labelNameText)).toList();
+        List<CodeNoteLabelEntity> sameLabel = labelList.stream().filter(el -> Objects.equals(el.getLabel(), labelNameText)).toList();
 
         if (CollUtil.isNotEmpty(sameLabel)) {
             textFieldErrorPopupDecorator.setError("已有同名标签！");

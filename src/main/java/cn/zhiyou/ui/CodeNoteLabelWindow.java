@@ -61,21 +61,13 @@ public class CodeNoteLabelWindow extends DialogWrapper {
 
     @Override
     public @Nullable JComponent createCenterPanel() {
-        List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
         listModel = new DefaultListModel<>();
-        if (labelList == null) {
-            List<CodeNoteLabelEntity> list = new ArrayList<>();
-            CodeNoteSetting.getInstance().labelList = list;
-            list.add(new CodeNoteLabelEntity(-1, "默认"));
-            labelList = list;
-        }
 
-        if (CollUtil.isNotEmpty(labelList)) {
-            for (CodeNoteLabelEntity label : labelList) {
-                // 不把默认的展示出来
-                if (!Objects.equals(-1, label.getId())) {
-                    listModel.addElement(label);
-                }
+        List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
+        for (CodeNoteLabelEntity label : labelList) {
+            // 不把默认的展示出来
+            if (!Objects.equals(-1, label.getId())) {
+                listModel.addElement(label);
             }
         }
 
@@ -127,13 +119,6 @@ public class CodeNoteLabelWindow extends DialogWrapper {
                 Messages.getQuestionIcon());
 
         if (Objects.equals(MessageConstants.OK, result)) {
-            List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-            if (labelList == null) {
-                ArrayList<CodeNoteLabelEntity> list = new ArrayList<>();
-                CodeNoteSetting.getInstance().labelList = list;
-                list.add(new CodeNoteLabelEntity(-1, "默认"));
-            }
-
             Integer id = selectedValue.getId();
             CodeNoteSetting.getInstance().labelList.removeIf(el -> Objects.equals(id, el.getId()));
             refreshList();
@@ -254,11 +239,6 @@ public class CodeNoteLabelWindow extends DialogWrapper {
 
                     if (CollUtil.isNotEmpty(newCodeNoteLabelEntities)) {
                         List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-                        if (labelList == null) {
-                            labelList = new ArrayList<>();
-                            CodeNoteSetting.getInstance().labelList = labelList;
-                            labelList.add(new CodeNoteLabelEntity(-1, "默认"));
-                        }
 
                         // 同名的标签直接不管
                         for (CodeNoteLabelEntity newEntity : newCodeNoteLabelEntities) {

@@ -97,27 +97,15 @@ public class CodeNoteDetailWindow extends DialogWrapper {
         });
 
         List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-        if (labelList == null) {
-            labelList = new ArrayList<>();
-            CodeNoteSetting.getInstance().labelList = labelList;
-            labelList.add(new CodeNoteLabelEntity(-1, "默认"));
-        }
-
-        if (CollUtil.isNotEmpty(labelList)) {
-            for (CodeNoteLabelEntity labelEntity : labelList) {
-                codeLabelCb.addItem(labelEntity.getLabel());
-            }
+        for (CodeNoteLabelEntity labelEntity : labelList) {
+            codeLabelCb.addItem(labelEntity.getLabel());
         }
 
         String codeType = LanguageEnum.Text.name();
         CodeNoteEntity codeNoteEntity = CodeNoteEntity.of(id);
         if (Objects.nonNull(codeNoteEntity)) {
             CodeNoteLabelEntity codeNoteLabelEntity = CodeNoteLabelEntity.of(codeNoteEntity.getLabelId());
-            if (Objects.nonNull(codeNoteLabelEntity)) {
-                codeLabelCb.setSelectedItem(codeNoteLabelEntity.getLabel());
-            } else {
-                codeLabelCb.setSelectedItem("默认");
-            }
+            codeLabelCb.setSelectedItem(codeNoteLabelEntity.getLabel());
 
             String codeTypeStr = codeNoteEntity.getCodeType();
             codeType = Objects.isNull(codeTypeStr) ? LanguageEnum.Text.name() : codeTypeStr;
@@ -293,15 +281,8 @@ public class CodeNoteDetailWindow extends DialogWrapper {
         }
 
         List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-        if (labelList == null) {
-            ArrayList<CodeNoteLabelEntity> list = new ArrayList<>();
-            CodeNoteSetting.getInstance().labelList = list;
-            list.add(new CodeNoteLabelEntity(-1, "默认"));
-        }
-
-        List<CodeNoteLabelEntity> list = CodeNoteSetting.getInstance().labelList;
-        for (int i = 0; i < list.size(); i++) {
-            CodeNoteLabelEntity codeNoteLabelEntity = list.get(selectedIndex);
+        for (int i = 0; i < labelList.size(); i++) {
+            CodeNoteLabelEntity codeNoteLabelEntity = labelList.get(selectedIndex);
             if (Objects.equals(selectedItem, codeNoteLabelEntity.getLabel())) {
                 return codeNoteLabelEntity;
             }

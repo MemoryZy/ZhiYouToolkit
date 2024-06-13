@@ -1,5 +1,6 @@
 package cn.zhiyou.config;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.zhiyou.config.converter.CodeNoteLabelListConverter;
 import cn.zhiyou.config.converter.CodeNoteListConverter;
 import cn.zhiyou.entity.CodeNoteEntity;
@@ -44,11 +45,13 @@ public class CodeNoteSetting implements PersistentStateComponent<CodeNoteSetting
     }
 
     public static void initDefaultLabel() {
-        // 初始化默认标签
-        List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-        if (labelList == null) {
+        if (CodeNoteSetting.getInstance().labelList == null) {
             CodeNoteSetting.getInstance().labelList = new ArrayList<>();
-            CodeNoteSetting.getInstance().labelList.add(new CodeNoteLabelEntity(-1, "默认"));
+        }
+
+        List<CodeNoteLabelEntity> labelEntities = CodeNoteSetting.getInstance().labelList;
+        if (CollUtil.isEmpty(labelEntities)) {
+            labelEntities.add(new CodeNoteLabelEntity(-1, "默认"));
         }
     }
 

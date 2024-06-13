@@ -2,8 +2,6 @@ package cn.zhiyou.entity;
 
 import cn.zhiyou.config.CodeNoteSetting;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -44,13 +42,6 @@ public class CodeNoteLabelEntity {
     }
 
     public static CodeNoteLabelEntity of(Integer labelId) {
-        List<CodeNoteLabelEntity> labelList = CodeNoteSetting.getInstance().labelList;
-        if (labelList == null) {
-            ArrayList<CodeNoteLabelEntity> list = new ArrayList<>();
-            CodeNoteSetting.getInstance().labelList = list;
-            list.add(new CodeNoteLabelEntity(-1, "默认"));
-        }
-
         return CodeNoteSetting.getInstance().labelList.stream()
                 .filter(el -> Objects.equals(el.getId(), labelId))
                 .findFirst()
