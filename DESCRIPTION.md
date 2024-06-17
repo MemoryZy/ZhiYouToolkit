@@ -1,4 +1,4 @@
-<p>ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain points in daily development, enhancing code development efficiency and quality.</p>
+<p><b>ZhiYouToolkit</b> is an integrated tool plug-in based on IntelliJ IDEA. It brings together a variety of features that are commonly used in daily development and is designed to help developers simplify repetitive tasks and improve code development efficiency and quality.</p>
 <br/>
 <p>
     <b>
@@ -44,7 +44,7 @@
 </ul>
 
 <br/>
-<p>知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。</p>
+<p><b>ZhiYouToolkit</b> 是一款基于 IntelliJ IDEA 的集成工具插件。它汇集了日常开发中常用的各种功能，旨在帮助开发者简化重复工作、提高代码开发效率和质量。</p>
 <ul>
     <li><b>代码生成与辅助</b>
         <ul>
@@ -55,7 +55,7 @@
             <li>类属性映射与方法列举：类与类之间属性匹配，单独类的列举 Getter、Setter 方法等功能。</li>
             <li>JDK序列化ID生成：为 Java 类生成 JDK序列化ID，并实现序列化接口。</li>
             <li>MyBatis-Mapper生成：生成 Mapper 接口、Mapper-Xml、映射类等文件，并自动匹配文件路径。</li>
-            <li>指定注解、注释生成：为类属性生成指定注解及注释。</li>
+            <li>指定注解、注释生成：为类属性生成指定注解及注释。</li> 
         </ul>
     </li>
     <br/>

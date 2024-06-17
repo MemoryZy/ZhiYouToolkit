@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "cn.zhiyou"
-version = "1.4.0"
+version = "1.4.2"
 
 repositories {
     mavenCentral()
@@ -74,6 +74,7 @@ tasks {
     }
 
     publishPlugin {
+        channels.set(listOf("beta"))
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 }
