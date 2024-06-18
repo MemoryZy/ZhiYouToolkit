@@ -58,7 +58,7 @@ public class CreateMyBatisMapperAction extends AnAction {
             // 有Database插件无数据源
             if (CollUtil.isEmpty(dasDataSourceList)) {
                 // 用插件数据源
-                if (!checkPluginDataSource()) {
+                if (!DataBaseSetting.checkPluginDataSource()) {
                     NotificationUtil.notifyWithLink(
                             "数据源缺失",
                             "建议侧边栏打开Database工具配置数据源，或配置插件数据源",
@@ -91,7 +91,7 @@ public class CreateMyBatisMapperAction extends AnAction {
                 }
             }
         } else {
-            if (!checkPluginDataSource()) {
+            if (!DataBaseSetting.checkPluginDataSource()) {
                 NotificationUtil.notifyWithLink(
                         "逆向生成",
                         "缺失数据源配置",
@@ -114,27 +114,6 @@ public class CreateMyBatisMapperAction extends AnAction {
         PackageAndPath packageAndPath = searchFilePath(project, virtualFiles);
         // 弹窗
         new CreateMyBatisMapperWindow(event, project, module, packageAndPath, simpleDataSource, dasTables, dasDataSource).show();
-    }
-
-
-    private boolean checkPluginDataSource() {
-        DataBaseSetting dataBaseSetting = DataBaseSetting.getInstance();
-
-        String host = dataBaseSetting.host;
-        String port = dataBaseSetting.port;
-        String user = dataBaseSetting.user;
-        String pass = dataBaseSetting.pass;
-        String dataBase = dataBaseSetting.dataBase;
-        String url = dataBaseSetting.url;
-        String driver = dataBaseSetting.driver;
-
-        return !StrUtil.isBlank(host)
-                && !StrUtil.isBlank(port)
-                && !StrUtil.isBlank(user)
-                && !StrUtil.isBlank(pass)
-                && !StrUtil.isBlank(dataBase)
-                && !StrUtil.isBlank(url)
-                && !StrUtil.isBlank(driver);
     }
 
 

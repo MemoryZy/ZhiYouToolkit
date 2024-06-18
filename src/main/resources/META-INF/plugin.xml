@@ -202,15 +202,15 @@
 
 
         <!-- 文件创建组2 (New下) -->
-<!--        <group id="cn.zhiyou.actionGroup.DataBaseBySelfOperationsId">-->
-<!--            <add-to-group group-id="NewGroup" anchor="last"/>-->
-<!--            <separator/>-->
-<!--            <action id="cn.zhiyou.action.CreateMyBatisMapperBySettingActionId"-->
-<!--                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"-->
-<!--                    icon="/icons/nav.svg"-->
-<!--                    text="Generate MyBatis Mapper"/>-->
-<!--            <separator/>-->
-<!--        </group>-->
+        <group id="zhiyou.actionGroup.DataBaseBySelfOperationsId">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <separator/>
+            <action id="zhiyou.action.CreateMyBatisMapperBySettingActionId"
+                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"
+                    icon="/icons/nav.svg"
+                    text="Generate MyBatis Mapper"/>
+            <separator/>
+        </group>
 
 
     </actions>

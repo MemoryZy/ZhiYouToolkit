@@ -1,6 +1,7 @@
 package cn.zhiyou.action.child;
 
 import cn.zhiyou.action.CreateSetterGetterMappingAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.utils.ActionUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class CreateAllSetterWithDefaultValueAction extends AnAction {
     public CreateAllSetterWithDefaultValueAction() {
-        super("List All Setters (带默认值列举Setter)");
+        super(ActionBundle.message("action.create.all.setter.with.default.value.text"));
     }
 
     @Override

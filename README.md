@@ -4,9 +4,9 @@
 
 English / [简体中文](./README_zh.md)
 
-ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain points in daily development, enhancing code development efficiency and quality.
+**ZhiYouToolkit** is an integrated tool plug-in based on IntelliJ IDEA. It brings together a variety of features that are commonly used in daily development and is designed to help developers simplify repetitive tasks and improve code development efficiency and quality.
 
-知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
+知游工具，一款基于 IntelliJ IDEA 的集成工具插件。它汇集了日常开发中常用的各种功能，旨在帮助开发者简化重复工作、提高代码开发效率和质量。
 
 
 [![Homepage](https://img.shields.io/badge/Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTEwIDE5di01aDR2NWMwIC41NS40NSAxIDEgMWgzYy41NSAwIDEtLjQ1IDEtMXYtN2gxLjdjLjQ2IDAgLjY4LS41Ny4zMy0uODdMMTIuNjcgMy42Yy0uMzgtLjM0LS45Ni0uMzQtMS4zNCAwbC04LjM2IDcuNTNjLS4zNC4zLS4xMy44Ny4zMy44N0g1djdjMCAuNTUuNDUgMSAxIDFoM2MuNTUgMCAxLS40NSAxLTEiLz48L3N2Zz4=)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
@@ -35,15 +35,11 @@ ZhiYouToolkit is an IDEA plugin designed to solve repetitive tasks and pain poin
 - [MyBatis Mapper file generation](https://zhiyou.memoryzy.cn/generate-mybatis-files.html): Generate Mapper interface, Mapper XML, mapping classes, and automatically match file paths.
 - [Generate Specified Annotations and Comments](https://zhiyou.memoryzy.cn/generate-annotation.html): Generate specified annotations and comments for class attributes.
 
-<br/>
-
 #### Code and text format conversion
 - [Convert single-line comments to JavaDoc](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
 - [String Format Conversion](https://zhiyou.memoryzy.cn/convert-strings.html): Support camelCase to snake_case conversion, Chinese to Pinyin conversion, and multiline text conversion.
 - [Convert Between Timestamps and Dates](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html): Quickly convert between timestamps and dates/times.
 - [Convert Between JSON and XML](https://zhiyou.memoryzy.cn/convert-json-to-xml.html): Quickly convert JSON/XML.
-
-<br/>
 
 #### Extended Features...
 - [Code note-taking functionality](https://zhiyou.memoryzy.cn/code-note.html): Record code snippets, notes, and memos with support for tagging, import, and export functionalities.

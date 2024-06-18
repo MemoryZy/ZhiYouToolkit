@@ -81,8 +81,8 @@ public class CreateSetterGetterMappingAction extends AnAction {
         public AnAction @NotNull [] getChildren(@Nullable AnActionEvent e) {
             return new AnAction[]{
                     new CreateAllGetterAction(),
-                    new CreateAllSetterWithoutDefaultValueAction(),
                     new CreateAllSetterWithDefaultValueAction(),
+                    new CreateAllSetterWithoutDefaultValueAction(),
                     new MatchAttributesAction(),
                     new GenerateMappingAction()
             };

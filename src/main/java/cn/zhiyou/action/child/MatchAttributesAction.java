@@ -1,6 +1,7 @@
 package cn.zhiyou.action.child;
 
 import cn.zhiyou.action.CreateSetterGetterMappingAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.entity.FieldMethodPair;
 import cn.zhiyou.enums.PropertyTreeNodeValueTypeEnum;
 import cn.zhiyou.ui.MatchAttributesWindow;
@@ -27,7 +28,7 @@ import java.util.Objects;
 public class MatchAttributesAction extends AnAction {
 
     public MatchAttributesAction() {
-        super("Attribute Matching Analysis (类属性匹配)");
+        super(ActionBundle.message("action.match.attributes.text"));
     }
 
     @Override

@@ -4,7 +4,7 @@
 
 [English](./README.md) / 简体中文
 
-知游工具，一款用于解决日常开发中大量的重复工作、痛点，提高代码开发效率和质量的IDEA插件。
+知游工具，一款基于 IntelliJ IDEA 的集成工具插件。它汇集了日常开发中常用的各种功能，旨在帮助开发者简化重复工作、提高代码开发效率和质量。
 
 [![Homepage](https://img.shields.io/badge/Homepage-ZhiYouToolkit-0db7ed.svg?style=Plastic&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTEwIDE5di01aDR2NWMwIC41NS40NSAxIDEgMWgzYy41NSAwIDEtLjQ1IDEtMXYtN2gxLjdjLjQ2IDAgLjY4LS41Ny4zMy0uODdMMTIuNjcgMy42Yy0uMzgtLjM0LS45Ni0uMzQtMS4zNCAwbC04LjM2IDcuNTNjLS4zNC4zLS4xMy44Ny4zMy44N0g1djdjMCAuNTUuNDUgMSAxIDFoM2MuNTUgMCAxLS40NSAxLTEiLz48L3N2Zz4=)](https://plugins.jetbrains.com/plugin/24381-zhiyoutoolkit)
 &nbsp;
@@ -21,24 +21,28 @@
 <br/>
 
 ## 功能 🎉
-- [代码笔记功能](https://zhiyou.memoryzy.cn/code-note.html)：记录代码片段、笔记、备忘，支持标签、导入、导出等功能。
+#### 代码生成与辅助
 - [Json转JavaBean](https://zhiyou.memoryzy.cn/json-to-javabean.html)：Json 反序列化为 JavaBean，支持嵌套 Array、Object 属性。
 - [JavaBean转Json](https://zhiyou.memoryzy.cn/javabean-to-json.html)：JavaBean 序列化为 Json，支持嵌套 Object 属性，支持 FastJson、Jackson 注解。
-- [Json窗口及Json处理](https://zhiyou.memoryzy.cn/json-panel.html)：支持 Json格式化、Json压缩、Json结构化。
-- [字符串格式转换](https://zhiyou.memoryzy.cn/convert-strings.html)：包含驼峰、下划线互转，中文转拼音功能，支持多行多文本转换。
-- [单行注释转Java文档注释](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
 - [ResultMap标签生成](https://zhiyou.memoryzy.cn/generates-resultmap-tag.html)：通过 SQL 与 Java 类属性映射生成 MyBatis-ResultMap 标签。
 - [Where标签生成](https://zhiyou.memoryzy.cn/generates-where-tag.html)：通过 Java 类属性生成 MyBatis-Where 条件标签。
 - [类属性映射与方法列举](https://zhiyou.memoryzy.cn/attributes-mapping.html)：类与类之间属性匹配，单独类的列举 Getter、Setter 方法等功能。
 - [JDK序列化ID生成](https://zhiyou.memoryzy.cn/generate-serialization-id.html)：为 Java 类生成 JDK序列化ID，并实现序列化接口。
-- [Spring接口路径提取](https://zhiyou.memoryzy.cn/copy-restful-path.html)：快速复制 Spring 接口路径。
-- [时间戳与时间转换](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html)：快速转换时间戳 / 时间。
-- [MyBatis-Mapper生成](https://zhiyou.memoryzy.cn/generate-mybatis-files.html)：生成 Mapper 接口、Mapper-Xml、映射类等文件，并自动匹配文件路径。
+- [MyBatis-Mapper文件生成](https://zhiyou.memoryzy.cn/generate-mybatis-files.html)：生成 Mapper 接口、Mapper-Xml、映射类等文件，并自动匹配文件路径。
 - [指定注解、注释生成](https://zhiyou.memoryzy.cn/generate-annotation.html)：为类属性生成指定注解及注释。
-- [Jasypt加解密](https://zhiyou.memoryzy.cn/jasypt-encrypt-and-decrypt.html)：Jasypt 加密、解密功能，支持对称加密、非对称加密。
+
+#### 代码与文本格式转换
+- [单行注释转Java文档注释](https://zhiyou.memoryzy.cn/convert-to-javadoc.html)
+- [字符串格式转换](https://zhiyou.memoryzy.cn/convert-strings.html)：包含驼峰、下划线互转，中文转拼音功能，支持多行多文本转换。
+- [时间戳与时间转换](https://zhiyou.memoryzy.cn/convert-timestamp-to-date.html)：快速转换时间戳 / 时间。
 - [JSON/XML转换](https://zhiyou.memoryzy.cn/convert-json-to-xml.html)：快速转换 Json / XML。
+
+#### 拓展功能
+- [代码笔记功能](https://zhiyou.memoryzy.cn/code-note.html)：记录代码片段、笔记、备忘，支持标签、导入、导出等功能。
 - [文本互相比对](https://zhiyou.memoryzy.cn/text-comparison.html)：精准辨识文本的不同之处。
-- ......
+- [Json窗口及Json处理](https://zhiyou.memoryzy.cn/json-panel.html)：支持 Json格式化、Json压缩、Json结构化。
+- [Jasypt加解密](https://zhiyou.memoryzy.cn/jasypt-encrypt-and-decrypt.html)：Jasypt 加密、解密功能，支持对称加密、非对称加密。
+- [Spring接口路径提取](https://zhiyou.memoryzy.cn/copy-restful-path.html)：快速复制 Spring 接口路径。
 
 <br/>
 

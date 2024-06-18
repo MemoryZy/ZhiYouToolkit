@@ -3,6 +3,7 @@ package cn.zhiyou.action.child;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhiyou.action.CreateSetterGetterMappingAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.entity.FieldMethodPair;
 import cn.zhiyou.exception.ZhiYouException;
 import cn.zhiyou.utils.ActionUtil;
@@ -32,7 +33,7 @@ public class CreateAllGetterAction extends AnAction {
     private static final Logger LOG = Logger.getInstance(CreateAllGetterAction.class);
 
     public CreateAllGetterAction() {
-        super("List All Getters (列举Getter)");
+        super(ActionBundle.message("action.create.all.getter.text"));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package cn.zhiyou.action.child;
 
 import cn.zhiyou.action.CreateSetterGetterMappingAction;
+import cn.zhiyou.bundle.ActionBundle;
 import cn.zhiyou.utils.ActionUtil;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -15,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 public class CreateAllSetterWithoutDefaultValueAction extends AnAction {
 
     public CreateAllSetterWithoutDefaultValueAction() {
-        super("List All Setters (无默认值列举Setter)");
+        super(ActionBundle.message("action.create.all.setter.without.default.value.text"));
     }
 
     @Override

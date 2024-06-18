@@ -1,5 +1,6 @@
 package cn.zhiyou.config;
 
+import cn.hutool.core.util.StrUtil;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
@@ -53,4 +54,28 @@ public class DataBaseSetting implements PersistentStateComponent<DataBaseSetting
         this.url = state.url;
         this.driver = state.driver;
     }
+
+
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    public static boolean checkPluginDataSource() {
+        DataBaseSetting dataBaseSetting = DataBaseSetting.getInstance();
+
+        String host = dataBaseSetting.host;
+        String port = dataBaseSetting.port;
+        String user = dataBaseSetting.user;
+        String pass = dataBaseSetting.pass;
+        String dataBase = dataBaseSetting.dataBase;
+        String url = dataBaseSetting.url;
+        String driver = dataBaseSetting.driver;
+
+        return !StrUtil.isBlank(host)
+                && !StrUtil.isBlank(port)
+                && !StrUtil.isBlank(user)
+                && !StrUtil.isBlank(pass)
+                && !StrUtil.isBlank(dataBase)
+                && !StrUtil.isBlank(url)
+                && !StrUtil.isBlank(driver);
+    }
+
+
 }
