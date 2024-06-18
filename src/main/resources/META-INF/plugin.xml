@@ -213,6 +213,9 @@
         </group>
 
 
+        <action id="zhiyou.action.TestAction" class="cn.zhiyou.action.TestAction" text="Test">
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
+        </action>
     </actions>
 
 
