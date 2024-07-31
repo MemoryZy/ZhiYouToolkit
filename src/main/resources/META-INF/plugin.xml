@@ -40,13 +40,6 @@
         <internalFileTemplate name="MapperDefault"/>
         <internalFileTemplate name="MapperInterfaceMp"/>
 
-        <!-- 工具窗 -->
-        <toolWindow id="Json Panel"
-                    secondary="true"
-                    icon="AllIcons.Toolwindows.ToolWindowJsonPath"
-                    anchor="right"
-                    factoryClass="cn.zhiyou.toolwindow.JsonFormatToolWindow"/>
-
         <!-- icon="AllIcons.Toolwindows.ToolWindowMessages" -->
         <toolWindow id="Code Note"
                     secondary="true"
@@ -110,12 +103,6 @@
 
         <group id="zhiyou.actionGroup.ClassFunctionGroup">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-            <separator/>
-
-            <!-- Action: 将JavaBean转换为Json -->
-            <action id="zhiyou.action.JavaBeanConvertToJson" class="cn.zhiyou.action.JavaBeanConvertToJsonAction" icon="/icons/json.svg">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 0"/>
-            </action>
 
             <separator/>
             <!-- Action: 字符串转换操作 -->
@@ -152,46 +139,6 @@
             </action>
         </group>
 
-
-        <!-- 文件创建组 (New下) -->
-        <group id="cn.zhiyou.actionGroup.ConvertFileGroupId">
-            <add-to-group group-id="NewGroup" relative-to-action="Kotlin.NewFile" anchor="before"/>
-            <action id="cn.zhiyou.JsonConvertToJavaBeanActionId"
-                    class="cn.zhiyou.action.JsonConvertToJavaBeanAction"
-                    text="Java Class from Json"
-                    icon="/icons/GroupByClass.svg"
-                    description="Json转换为JavaBean">
-            </action>
-        </group>
-
-        <!-- 用于编辑器的Action -->
-        <action id="cn.zhiyou.action.JsonFormatActionId"
-                class="cn.zhiyou.action.JsonFormatAction"
-                text="JSON Format (格式化)"
-                icon="AllIcons.Json.Object"
-                description="用于给JsonFormat的工具窗右键弹出的菜单">
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt k"/>
-            <!-- BasicEditorPopupMenu是基础编辑器右键弹出菜单 -->
-            <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
-        </action>
-
-        <action id="cn.zhiyou.JsonStructureActionId"
-                class="cn.zhiyou.action.JsonStructureAction"
-                icon="/icons/structure.svg"
-                text="JSON Structure (结构化)">
-            <add-to-group group-id="BasicEditorPopupMenu" anchor="after" relative-to-action="cn.zhiyou.action.JsonCompressActionId"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
-        </action>
-
-        <action id="cn.zhiyou.action.JsonCompressActionId"
-                class="cn.zhiyou.action.JsonCompressAction"
-                icon="/icons/compress.svg"
-                text="JSON Compress (压缩)">
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt m"/>
-            <!-- BasicEditorPopupMenu是基础编辑器右键弹出菜单 -->
-            <add-to-group group-id="BasicEditorPopupMenu" anchor="after"
-                          relative-to-action="cn.zhiyou.action.JsonFormatActionId"/>
-        </action>
 
         <action id="cn.zhiyou.action.HelpActionId"
                 class="cn.zhiyou.action.HelpAction"

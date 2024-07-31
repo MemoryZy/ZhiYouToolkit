@@ -3,7 +3,6 @@ package cn.zhiyou.utils;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zhiyou.action.JavaBeanConvertToJsonAction;
 import cn.zhiyou.enums.PopupTypeEnum;
 import com.intellij.codeInsight.hint.HintManager;
 import com.intellij.designer.clipboard.SimpleTransferable;
@@ -17,7 +16,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.*;
 import com.intellij.openapi.editor.ex.EditorEx;
 import com.intellij.openapi.extensions.PluginId;
@@ -75,8 +73,6 @@ import java.util.function.Function;
  * @since 2023/11/27
  */
 public class ActionUtil {
-
-    private static final Logger LOG = Logger.getInstance(JavaBeanConvertToJsonAction.class);
 
 
     // 为了避免出现 anchorBefore == null || anchorBefore.getTreeParent() == parent 错误

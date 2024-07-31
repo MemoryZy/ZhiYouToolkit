@@ -161,7 +161,7 @@ public class MatchAttributesWindow extends DialogWrapper {
                 }
 
                 // 设定图标
-                icon = IconLoader.getIcon("/icons/" + iconStr, JsonStructureWindow.class.getClassLoader());
+                icon = IconLoader.getIcon("/icons/" + iconStr, MatchAttributesWindow.class.getClassLoader());
 
                 append(text, simpleTextAttributes);
                 if (StrUtil.isNotBlank(mainType)) append(mainType, blueAttributes, true);
