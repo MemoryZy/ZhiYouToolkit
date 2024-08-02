@@ -2,171 +2,43 @@
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>cn.zhiyou.ZhiYouToolkit</id>
-
     <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>ZhiYouToolkit</name>
-
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="memoryzk@outlook.com" url="https://github.com/MemoryZy">Memory</vendor>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-    <!-- 引入Java扩展 -->
-    <depends>com.intellij.java</depends>
 
-    <!-- 可选依赖 -->
-    <depends optional="true" config-file="optional/database.xml">com.intellij.database</depends>
-    <depends optional="true" config-file="optional/shell.xml">com.jetbrains.sh</depends>
-    <depends optional="true" config-file="optional/kotlin.xml">org.jetbrains.kotlin</depends>
-    <depends optional="true" config-file="optional/js.xml">JavaScript</depends>
+    <resource-bundle>messages.ZhiYouToolkitBundle</resource-bundle>
+    <resource-bundle>messages.ActionBundle</resource-bundle>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <!-- displayType只有这四种类型, id 在一个插件内不能重复,isLogByDefault表示是否在 Event Log 中记录 -->
-        <notificationGroup displayType="BALLOON" id="ZhiYou.notify.balloon" isLogByDefault="false"/>
-        <notificationGroup displayType="BALLOON" id="ZhiYou.notify.balloon.log" isLogByDefault="true"/>
-        <!-- 粘性通知（不会自动消失）-->
-        <notificationGroup displayType="STICKY_BALLOON" id="ZhiYou.notify.sticky.balloon"/>
-        <notificationGroup displayType="TOOL_WINDOW" id="ZhiYou.notify.tool.window"/>
-        <notificationGroup displayType="NONE" id="ZhiYou.notify.none"/>
-
-        <!-- 声明模板文件 -->
-        <internalFileTemplate name="ResultMap"/>
-        <internalFileTemplate name="Where"/>
-        <internalFileTemplate name="MapperMp"/>
-        <internalFileTemplate name="MapperDefault"/>
-        <internalFileTemplate name="MapperInterfaceMp"/>
-
-        <!-- icon="AllIcons.Toolwindows.ToolWindowMessages" -->
-        <toolWindow id="Code Note"
-                    secondary="true"
-                    icon="/icons/favorites.svg"
-                    anchor="right"
-                    factoryClass="cn.zhiyou.toolwindow.CodeNoteToolWindow"/>
-
-        <!-- 注册持久化实现类，这个是应用级别的，想要项目级别的可以用project -->
-        <applicationService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>
-        <!--        <projectService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>-->
-        <applicationService serviceImplementation="cn.zhiyou.config.CodeNoteSetting"/>
-        <!--        <projectService serviceImplementation="cn.zhiyou.config.DataBaseSetting"/>-->
-
-        <projectService serviceImplementation="cn.zhiyou.config.JasyptSetting"/>
-        <projectService serviceImplementation="cn.zhiyou.config.DoNotAskAgainSetting"/>
-
-        <!-- 配置界面扩展点 -->
-        <applicationConfigurable
-                parentId="other settings"
-                instance="cn.zhiyou.config.DataBaseSettingConfiguration"
-                id="cn.zhiyou.config.ZhiYouDataBaseSettingConfigurationId"
-                displayName="ZhiYouToolkit"/>
-
-        <!-- 新方式-项目启动事件 -->
-<!--        <postStartupActivity implementation="cn.zhiyou.listener.ProjectOpenInitActivity"/>-->
-
-        <iconMapper mappingFile="ZhiyouIconMappings.json"/>
+        <!--        <toolWindow factoryClass="org.jetbrains.plugins.template.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>-->
     </extensions>
-    <!-- 旧方式-项目启动事件 -->
+
     <applicationListeners>
-        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>
-<!--        &lt;!&ndash; 处理IDEA打开事件 &ndash;&gt;-->
-<!--        <listener class="cn.zhiyou.listener.ProjectOpenInitActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
-
-        <listener class="cn.zhiyou.listener.ErrorSubmissionHandler" topic="com.intellij.openapi.diagnostic.ErrorReportSubmitter"/>
-
-
+        <!--        <listener class="org.jetbrains.plugins.template.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>-->
     </applicationListeners>
 
-    <!-- 消息 -->
-    <resource-bundle>messages.ZhiYouBundle</resource-bundle>
-    <resource-bundle>messages.ActionBundle</resource-bundle>
-
     <actions>
-        <!-- 生成相关 -->
-        <group id="zhiyou.actionGroup.GenerateGroup">
-            <add-to-group group-id="GenerateGroup" anchor="last"/>
-            <separator/>
-            <!-- Action: 生成序列化ID -->
-            <action id="zhiyou.action.CreateSerialVersionUID" class="cn.zhiyou.action.CreateSerialVersionAction">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 5"/>
-            </action>
-            <separator/>
+        <group id="ZhiYouToolkit.Group.ExtendedFeatures" class="cn.memoryzy.zhiyou.group.ExtendedFeaturesActionGroup">
+            <action id="ZhiYouToolkit.Action.TextComparison" class="cn.memoryzy.zhiyou.action.TextComparisonAction"/>
         </group>
 
-        <!-- Action: 记录代码片段 -->
-        <action id="zhiyou.action.RecordCodeNote" class="cn.zhiyou.action.RecordCodeNoteAction" icon="/icons/inkBrush.svg">
-            <add-to-group group-id="EditorPopupMenu" relative-to-action="zhiyou.actionGroup.ClassFunctionGroup" anchor="before"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 2"/>
-        </action>
-
-        <group id="zhiyou.actionGroup.ClassFunctionGroup">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-
+        <!-- todo 可以通过Group唤出，也可以通过快捷键弹出这个Group中所有的内容 -->
+        <group id="ZhiYouToolkit.Group.Main" class="cn.memoryzy.zhiyou.group.ZhiYouToolkitActionGroup">
             <separator/>
-            <!-- Action: 字符串转换操作 -->
-            <action id="zhiyou.action.ConvertStringAction" class="cn.zhiyou.action.ConvertStringAction">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 6"/>
-            </action>
+            <reference ref="ZhiYouToolkit.Group.ExtendedFeatures"/>
 
-            <separator/>
-            <action id="zhiyou.action.ConvertToJavadocAction" class="cn.zhiyou.action.ConvertToJavadocAction">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 3"/>
-            </action>
-
-            <separator/>
-            <action id="zhiyou.action.CopyRestfulPathAction" class="cn.zhiyou.action.CopyRestfulPathAction">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 4"/>
-            </action>
-
-            <separator/>
-            <action id="zhiyou.action.CreateAnnotationOnFieldAction" class="cn.zhiyou.action.CreateAnnotationOnFieldAction" icon="/icons/at.svg">
-                <keyboard-shortcut first-keystroke="ctrl alt 8" keymap="$default"/>
-            </action>
-
-            <separator/>
-            <action id="zhiyou.action.CreateSetterGetterMappingAction" class="cn.zhiyou.action.CreateSetterGetterMappingAction" icon="/icons/eco.svg">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 9"/>
-            </action>
-
-            <separator/>
-            <action id="zhiyou.action.ExtendedFeaturesActionId"
-                    class="cn.zhiyou.action.ExtendedFeaturesAction"
-                    icon="/icons/open.svg"
-                    text="_Extended Features...">
-                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 7"/>
-            </action>
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorToggleColumnMode"/>
         </group>
 
 
-        <action id="cn.zhiyou.action.HelpActionId"
-                class="cn.zhiyou.action.HelpAction"
-                icon="/icons/zhiyou.svg"
-                text="About ZhiYou">
-            <add-to-group group-id="HelpMenu" anchor="after" relative-to-action="About"/>
-        </action>
 
-
-        <!-- 文件创建组2 (New下) -->
-        <group id="zhiyou.actionGroup.DataBaseBySelfOperationsId">
-            <add-to-group group-id="NewGroup" anchor="last"/>
-            <separator/>
-            <action id="zhiyou.action.CreateMyBatisMapperBySettingActionId"
-                    class="cn.zhiyou.action.CreateMyBatisMapperBySettingAction"
-                    icon="/icons/nav.svg"
-                    text="Generate MyBatis Mapper"/>
-            <separator/>
-        </group>
-
-
-        <action id="zhiyou.action.TestAction" class="cn.zhiyou.action.TestAction" text="Test">
-            <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
-        </action>
     </actions>
-
-
-    <!-- 这个是目录那边右键弹出的 属于 new的上层 -->
-    <!--<add-to-group group-id="ProjectViewPopupMenu" relative-to-action="CutCopyPasteGroup" anchor="after"/>-->
-
 </idea-plugin>

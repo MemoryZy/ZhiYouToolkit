@@ -1,9 +1,0 @@
-#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
-
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import ${ENTITY_QUALIFIED_NAME};
-
-#parse("File Header.java")
-public interface ${MAPPER_NAME} extends BaseMapper<${ENTITY_NAME}> {
-
-}
